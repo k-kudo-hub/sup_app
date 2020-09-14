@@ -69,14 +69,14 @@ Things you may want to cover:
 
 ## staff テーブル
 
-| Column         | Type    | Options     |
-| -------------- | ------- | ----------- |
-| name           | string  | null: false |
-| name_kana      | string  | null: false |
-| position_id    | integer | null: false |
-| qualification  | text    | 　　　　　　  |
-| work_style_id  | integer | null: false |
-| picture        | text    |             |
+| Column           | Type    | Options     |
+| ---------------- | ------- | ----------- |
+| name             | string  | null: false |
+| name_kana        | string  | null: false |
+| position_id      | integer | null: false |
+| qualification_id | integer | null: false |
+| work_style_id    | integer | null: false |
+| picture          | text    |             |
 
 ### Association
 - has_many :rooms, through: room_staff
