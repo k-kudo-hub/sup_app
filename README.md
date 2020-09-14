@@ -109,7 +109,7 @@ Things you may want to cover:
 - belongs_to :staff
 
 
-## messages　テーブル
+## messages テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
