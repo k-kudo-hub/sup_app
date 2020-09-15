@@ -32,7 +32,7 @@ Things you may want to cover:
 | name           | string  | null: false |
 | name_kana      | string  | null: false |
 | birth          | date    | null: false |
-| picture        | text    | 　　　　　　  |
+| picture        | text    |             |
 | status_id      | integer | null: false |
 | room_number    | integer |             |
 
