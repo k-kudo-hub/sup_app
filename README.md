@@ -76,6 +76,7 @@ Things you may want to cover:
 | position_id      | integer | null: false |
 | qualification_id | integer | null: false |
 | work_style_id    | integer | null: false |
+| password         | string  | null: false |
 | picture          | text    |             |
 
 ### Association
