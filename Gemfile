@@ -60,6 +60,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "aws-sdk-s3", require: false
 gem 'pry-rails'
+gem 'devise'
 
 group :production do
   gem 'unicorn', '5.4.1'

@@ -73,6 +73,8 @@ Things you may want to cover:
 | ---------------- | ------- | ----------- |
 | name             | string  | null: false |
 | name_kana        | string  | null: false |
+| password         | string  | null: false |
+| staff_number     | integer | null: false |
 | position_id      | integer | null: false |
 | qualification_id | integer | null: false |
 | work_style_id    | integer | null: false |
