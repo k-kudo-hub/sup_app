@@ -2,6 +2,10 @@
   <li><%= link_to current_user.name, "users/edit", class: "user-nickname" %></li>
   <li><%= link_to 'ログアウト', "/users/sign_out", method: :delete, class: "logout" %> </li>
   <% else %> 
-  <li><%= link_to 'ログイン', "users/sign_in", class: "login" %></li>
+  <li><%= link_to 'ログイン', "users/sign_in",method: :get, class: "login" %></li>
   <li><%= link_to '新規登録', "users/sign_up", class: "sign-up" %></li>
+<% end %>
+
+<% if user_signed_in? %>
+  <h2><%= link_to 'お客様情報登録', new_client_path, method: :get %></h2>  
 <% end %>
