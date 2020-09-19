@@ -1,39 +1,34 @@
 <%# <%= render "shared/second-header" %>
 
-<%# 「モデル名」にはUserモデルであれば@userを渡しましょう。「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
-<%= form_with model: @client, url: "/client", class: 'registration-main', local: true do |f| %>
-<%# //「モデル名」にはUserモデルであれば@userを渡しましょう。「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
+<%= form_with model: @client, url: clients_path, method: :post, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
       お客様情報入力（基本情報）
     </h1>
   </div>
- 
-  <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。 %>
-  <%# <%= render 'shared/error_messages', model: f.object %> 
-  <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+<%= render 'shared/error_messages', model: f.object %> 
 
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">お名前</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :name, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_area :name, class:"input-default", id:"name", placeholder:"例) 田中太郎", maxlength:"40" %>
   </div> 
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">フリガナ</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :name_kana, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_area :name_kana, class:"input-default", id:"name_kana", placeholder:"例) タナカタロウ", maxlength:"40" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">居室（お客様）番号</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :room_number, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_area :room_number, class:"input-default", id:"room-number" %>
   </div> 
 
   <div class="form-group">
@@ -41,7 +36,7 @@
       <label class="form-text">現在の入居情報</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.select :status_id,[["--",1],["入居",2],["退去",3],["入院",3]], class:"input-default", id:"status" %> 
+    <%= f.collection_select(:status_id, Status.all, :id, :name, {}, {class:"input-default", id:"status"}) %> 
   </div>
   <div class="img-upload">
     <div class="weight-bold-text">
@@ -62,12 +57,12 @@
     <div class='input-birth-wrap'>
       <%= raw sprintf(
                   f.date_select(
-                    :birthday ,
+                    :birth ,
                     class:'select-birth',
                     id:"birth-date",
                     use_month_numbers: true,
                     prompt:'--',
-                    start_year: 1930,
+                    start_year: 1920,
                     end_year: (Time.now.year - 5),
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
