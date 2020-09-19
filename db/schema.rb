@@ -10,27 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_013513) do
+ActiveRecord::Schema.define(version: 2020_09_17_054404) do
 
-  create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "name_kana", null: false
-    t.date "birth", null: false
-    t.integer "room_number", null: false
-    t.text "picture", null: false
-    t.integer "status_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "caregivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "client_id", null: false
     t.integer "degree_id", null: false
-    t.text "past_history"
-    t.text "illness"
-    t.text "medicine"
-    t.integer "mbp_high", null: false
-    t.integer "mbp_low", null: false
+    t.integer "cognition_id", null: false
     t.integer "move_id", null: false
     t.text "move_exp"
     t.integer "meal_id", null: false
@@ -39,6 +24,30 @@ ActiveRecord::Schema.define(version: 2020_09_17_013513) do
     t.text "excretion_exp"
     t.integer "oral_id", null: false
     t.text "oral_exp"
+    t.integer "bathing_id", null: false
+    t.text "bathing_exp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "name_kana", null: false
+    t.date "birth", null: false
+    t.integer "room_number", null: false
+    t.text "picture"
+    t.integer "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "client_id"
+    t.text "past_history"
+    t.text "illness"
+    t.text "medicine"
+    t.integer "mbp_high", null: false
+    t.integer "mbp_low", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

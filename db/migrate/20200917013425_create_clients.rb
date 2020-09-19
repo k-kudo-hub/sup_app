@@ -5,7 +5,7 @@ class CreateClients < ActiveRecord::Migration[6.0]
       t.string :name_kana,       null:false
       t.date :birth,             null:false
       t.integer :room_number,    null:false
-      t.text :picture,           null:false
+      t.text :picture
       t.integer :status_id,      null:false
       t.timestamps
     end
