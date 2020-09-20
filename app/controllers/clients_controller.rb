@@ -42,6 +42,12 @@ class ClientsController < ApplicationController
     render :create_caregiver
   end
 
+  def show
+    @client = Client.find(params[:id])
+    @detail = @client.detail
+    @caregiver = @client.caregiver
+  end
+
   private
 
   def client_params

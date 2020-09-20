@@ -9,3 +9,9 @@
 <% if user_signed_in? %>
   <h2><%= link_to 'お客様情報登録', new_client_path, method: :get %></h2>  
 <% end %>
+
+<% if user_signed_in? %>
+  <% @clients.each do |client| %>
+    <%= link_to "詳細へ", client_path(client.id) %>
+  <% end %>
+<% end %>

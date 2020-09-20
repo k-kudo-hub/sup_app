@@ -83,7 +83,7 @@ Things you may want to cover:
 - belongs_to :client
 
 
-## staff テーブル
+## user テーブル
 
 | Column           | Type    | Options     |
 | ---------------- | ------- | ----------- |
@@ -97,8 +97,8 @@ Things you may want to cover:
 | picture          | text    |             |
 
 ### Association
-- has_many :rooms, through: room_staff
-- has_many :room_staff
+- has_many :rooms, through: room_user
+- has_many :room_user
 - has_many :messages
 
 
@@ -110,12 +110,12 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :client
-- has_many :staff, through: room_staff
+- has_many :user, through: room_staff
 - has_many :room_staff
 - has_many :messages
 
 
-## room_staff テーブル
+## room_user テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -124,7 +124,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :room
-- belongs_to :staff
+- belongs_to :user
 
 
 ## messages テーブル
@@ -138,4 +138,4 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :room
-- belongs_to :staff
+- belongs_to :user
