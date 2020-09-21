@@ -2,8 +2,8 @@ class Client < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :status
 
-  has_one :detail
-  has_one :caregiver
+  has_one :detail, dependent: :destroy
+  has_one :caregiver, dependent: :destroy
   has_one :room
 
   with_options presence: {message: "が空です"} do

@@ -1,6 +1,6 @@
 <%# <%= render "shared/header" %> 
 
-<%# 商品の概要 %> 
+<%# お客様の概要 %> 
 <div class="client-show">
   <div class="client-box">
     <h2 class="name">
@@ -20,12 +20,6 @@
       </span>
     </div>
 
-    <%# <% if user_signed_in? && (current_user.position_id < 4) %> 
-      <%# <%= link_to 'お客様情報の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %> 
-        <%# <p class='or-text'>or</p> %>
-      <%# <%= link_to 'お客様情報の削除', item_path(@item.id), method: :delete, class:'item-destroy' %> 
-    <%# <% end %> 
-
     <table class="detail-table">
       <tbody>
         <tr>
@@ -39,11 +33,18 @@
       </tbody>
     </table>
 
-    <div class="detail-table">
-      <% if user_signed_in? && (current_user.position_id > 1) %> 
-        <%= link_to '基本情報の編集', edit_client_path(@client.id), method: :get, class: "client-green-btn" %> 
-        <%# <%= link_to 'お客様情報の削除', item_path(@item.id), method: :delete, class:'client-destroy' %>  
-      <% end %>
+    <div class="edit-delete-btn">
+      <div class="detail-table">
+        <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <%= link_to '基本情報の編集', edit_client_path(@client.id), method: :get, class: "client-green-btn" %> 
+        <% end %>
+      </div>
+
+      <div class="detail-table">
+        <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <%= link_to 'お客様情報の削除', client_path(@client.id), method: :delete, class: "client-gray-btn" %> 
+        <% end %>
+      </div>
     </div>
 
     <table class="detail-table">
@@ -71,11 +72,12 @@
       </tbody>
     </table>
 
-    <div class="detail-table">
-      <% if user_signed_in? && (current_user.position_id > 1) %> 
-      <%= link_to '医療情報の編集', edit_detail_path(@detail.id), method: :get, class: "client-green-btn" %> 
-      <%# <%= link_to 'お客様情報の削除', item_path(@item.id), method: :delete, class:'client-destroy' %>  
-      <% end %>
+    <div class="edit-delete-btn">
+      <div class="detail-table">
+        <% if user_signed_in? && (current_user.position_id > 1) %> 
+        <%= link_to '医療情報の編集', edit_detail_path(@detail.id), method: :get, class: "client-green-btn" %> 
+        <% end %>
+      </div>
     </div>
 
     <table class="detail-table">
@@ -131,11 +133,12 @@
       </tbody>
     </table>
 
-    <div class="detail-table">
-      <% if user_signed_in? && (current_user.position_id > 1) %> 
-        <%= link_to '介護情報の編集', edit_caregiver_path(@caregiver.id), method: :get, class: "client-green-btn" %> 
-        <%# <%= link_to 'お客様情報の削除', item_path(@item.id), method: :delete, class:'client-destroy' %>  
-      <% end %>
+    <div class="edit-delete-btn">
+      <div class="detail-table">
+        <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <%= link_to '介護情報の編集', edit_caregiver_path(@caregiver.id), method: :get, class: "client-green-btn" %> 
+        <% end %>
+      </div>
     </div>
 
   </div>

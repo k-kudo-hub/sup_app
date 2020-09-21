@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :set_client, only: [:show, :edit, :update, :destroy]
   
   def new
     @client = Client.new
@@ -43,21 +44,27 @@ class ClientsController < ApplicationController
   end
 
   def show
-    @client = Client.find(params[:id])
     @detail = @client.detail
     @caregiver = @client.caregiver
   end
 
   def edit
-    @client = Client.find(params[:id])
   end
 
   def update
-    @client = Client.find(params[:id])
     if @client.update(client_params)
       redirect_to client_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if current_user.position_id > 1
+      @client.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
     end
   end
 
@@ -74,5 +81,9 @@ class ClientsController < ApplicationController
   def caregiver_params
     params.require(:caregiver).permit(:degree_id, :cognition_id, :move_id, :move_exp, :meal_id, :meal_exp, :excretion_id, :excretion_exp, :oral_id, :oral_exp, :bathing_id, :bathing_exp)
   end
+
+  def set_client
+    @client = Client.find(params[:id])
+  end    
 
 end

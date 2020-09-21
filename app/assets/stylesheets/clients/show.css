@@ -64,6 +64,11 @@
   font-size: 16px;
 }
 
+.edit-delete-btn {
+  display: flex;
+  text-align: center;
+}
+
 
 .client-green-btn {
   text-decoration: none;
@@ -74,6 +79,17 @@
   color: #FFF;
   margin: 60px 0px;
   padding: 2vh 10vw;
+}
+
+.client-gray-btn {
+  text-decoration: none;
+  text-align: center;
+  background-color: gray;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 60px 0px;
+  padding: 2vh 8vw;
 }
 
 .or-text {

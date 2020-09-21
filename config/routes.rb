@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "rooms#index"
-  resources :clients, only: [:new, :create, :show, :edit, :update] do
+  resources :clients, only: [:new, :create, :show, :edit, :update, :destroy] do
     collection do
-      resources :details, only: [:edit, :update]
-      resources :caregivers, only: [:edit, :update]
+      resources :details, only: [:edit, :update, :destroy]
+      resources :caregivers, only: [:edit, :update, :destroy]
     end
     resources :room
   end
