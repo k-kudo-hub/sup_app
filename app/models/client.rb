@@ -12,6 +12,6 @@ class Client < ApplicationRecord
     validates :birth
     validates :room_number, format:{with: /\A[0-9]+\z/, message:"は数字のみ登録できます。"}
   end
-    validates :status_id,   numericality:{ other_than: 1 , message: "が選択されていません"}
+    validates :status_id,   numericality:{ other_than: 1 , message: "が選択されていません。"}
 
 end
