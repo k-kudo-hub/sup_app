@@ -1,0 +1,15 @@
+    <div class="side-bar-header">
+      <div class="header-name">
+        <%= link_to edit_client_path(@room.client.id) do %>
+          <%= @room.client.name %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="rooms">
+      <% @user.each do |user| %>
+       <div class="room">
+          <% @user.name %>
+       </div>
+      <% end %>
+    </div>
