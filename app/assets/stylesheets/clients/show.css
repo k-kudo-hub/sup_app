@@ -65,13 +65,14 @@
 }
 
 
-.item-red-btn {
+.client-green-btn {
+  text-decoration: none;
   text-align: center;
-  background-color: #ea352d;
-  font-size: 24px;
+  background-color: green;
+  font-size: 18px;
   font-weight: bold;
   color: #FFF;
-  margin: 20px 0px;
+  margin: 60px 0px;
   padding: 2vh 10vw;
 }
 
@@ -79,7 +80,7 @@
   font-size: 20px;
 }
 
-.item-destroy {
+.client-destroy {
   background-color: lightgray;
   text-align: center;
   font-size: 24px;
@@ -94,7 +95,7 @@
 }
 
 .detail-table {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   width: 100%;
 }
 
