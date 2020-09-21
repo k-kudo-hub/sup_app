@@ -5,8 +5,10 @@ Rails.application.routes.draw do
     collection do
       resources :details, only: [:edit, :update, :destroy]
       resources :caregivers, only: [:edit, :update, :destroy]
+      resources :room, only: [:index, :new, :create, :destroy] do
+        resources :messages, only: [:index, :create]
+      end
     end
-    resources :room
   end
 
   get 'details', to: 'clients#new_detail'

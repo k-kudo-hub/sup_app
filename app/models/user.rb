@@ -13,4 +13,8 @@ class User < ApplicationRecord
   end
    validates :position_id, :qualification_id, :work_style_id,
                              numericality:{ other_than: 1 , message: "が選択されていません"}
+
+  has_many :room_users
+  has_many :rooms, through: :room_users
+  has_many :messages
 end
