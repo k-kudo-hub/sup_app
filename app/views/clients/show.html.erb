@@ -1,0 +1,150 @@
+<%# <%= render "shared/header" %> 
+
+<%# お客様の概要 %> 
+<div class="client-show">
+  <div class="client-box">
+    <h2 class="name">
+      <%= @client.name %>様
+    </h2>
+    <div class='client-img-content'>
+      <%# <% if @client.picture.nil? %> 
+        <%= image_tag '/assets/human.png', class:"client-box-img" %>
+      <%# <% else %>
+        <%# <%= image_tag @client.picture,  class:"client-box-img" %> 
+      <%# <% end %>
+    </div>
+
+    <div class="client-room-box">
+      <span class="client-room-number">
+        居室番号：<%= @client.room_number %>
+      </span>
+    </div>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">誕生日</th>
+          <td class="detail-value"><%= @client.birth %></td> 
+        </tr>
+        <tr>
+          <th class="detail-item">入居状況</th>
+          <td class="detail-value"><%= @client.status.name %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="edit-delete-btn">
+      <div class="detail-table">
+        <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <%= link_to '基本情報の編集', edit_client_path(@client.id), method: :get, class: "client-green-btn" %> 
+        <% end %>
+      </div>
+
+      <div class="detail-table">
+        <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <%= link_to 'お客様情報の削除', client_path(@client.id), method: :delete, class: "client-gray-btn" %> 
+        <% end %>
+      </div>
+    </div>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">既往歴</th>
+          <td class="detail-value"><%= @detail.past_history %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">現病歴</th>
+          <td class="detail-value"><%= @detail.illness %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">服用中の薬</th>
+          <td class="detail-value"><%= @detail.medicine %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">平均血圧（収縮期）</th>
+          <td class="detail-value"><%= @detail.mbp_high %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">平均血圧（拡張期）</th>
+          <td class="detail-value"><%= @detail.mbp_low %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="edit-delete-btn">
+      <div class="detail-table">
+        <% if user_signed_in? && (current_user.position_id > 1) %> 
+        <%= link_to '医療情報の編集', edit_detail_path(@detail.id), method: :get, class: "client-green-btn" %> 
+        <% end %>
+      </div>
+    </div>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">要介護度</th>
+          <td class="detail-value"><%= @caregiver.degree.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">認知機能</th>
+          <td class="detail-value"><%= @caregiver.cognition.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">移動・移乗</th>
+          <td class="detail-value"><%=  Care.find(@caregiver.move_id).name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">移動・移乗（詳細）</th>
+          <td class="detail-value"><%= @caregiver.move_exp %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">食事</th>
+          <td class="detail-value"><%= Care.find(@caregiver.meal_id).name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">食事（詳細）</th>
+          <td class="detail-value"><%= @caregiver.meal_exp %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">排泄</th>
+          <td class="detail-value"><%= Care.find(@caregiver.excretion_id).name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">排泄（詳細）</th>
+          <td class="detail-value"><%= @caregiver.excretion_exp %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">口腔</th>
+          <td class="detail-value"><%= Care.find(@caregiver.oral_id).name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">口腔（詳細）</th>
+          <td class="detail-value"><%= @caregiver.oral_exp %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">入浴</th>
+          <td class="detail-value"><%= Care.find(@caregiver.bathing_id).name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">入浴（詳細）</th>
+          <td class="detail-value"><%= @caregiver.bathing_exp %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="edit-delete-btn">
+      <div class="detail-table">
+        <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <%= link_to '介護情報の編集', edit_caregiver_path(@caregiver.id), method: :get, class: "client-green-btn" %> 
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  <%# /商品の概要 %>
+<%= link_to "トップへ戻る", :root %>
+
+</div>
+
+<%# <%= render "shared/footer" %> 

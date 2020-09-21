@@ -39,20 +39,34 @@ Things you may want to cover:
 ### Association
 
 - has_one :detail
+- has_one :care
 - has_one :room
 
 
-## details テーブル
+##  detail テーブル
 
 | Column         | Type    | Options                        |
 | -------------- | ------- | ------------------------------ |
 | client_id      | integer | null: false, foreign_key: true |
-| degree_id      | integer | null: false                    |
 | past_history   | text    |                                |
 | illness        | text    |                                |
 | medicine       | text    |                                |
 | mbp_high       | integer | null: false                    |
 | mbp_low        | integer | null: false                    |
+
+
+### Association
+
+- belongs_to :client
+
+
+##  caregiver テーブル
+
+| Column         | Type    | Options                        |
+| -------------- | ------- | ------------------------------ |
+| client_id      | integer | null: false, foreign_key: true |
+| degree_id      | integer | null: false                    |
+| cognition_id   | integer | null: false                    |
 | move_id        | integer | null: false                    |
 | move_exp       | text    |                                |
 | meal_id        | integer | null: false                    |
@@ -61,13 +75,15 @@ Things you may want to cover:
 | excretion_exp  | text    |                                |
 | oral_id        | integer | null: false                    |
 | oral_exp       | text    |                                |
+| bathing_id     | integer | null: false                    |
+| bathing_exp    | text    |                                |
 
 ### Association
 
 - belongs_to :client
 
 
-## staff テーブル
+## user テーブル
 
 | Column           | Type    | Options     |
 | ---------------- | ------- | ----------- |
@@ -81,8 +97,8 @@ Things you may want to cover:
 | picture          | text    |             |
 
 ### Association
-- has_many :rooms, through: room_staff
-- has_many :room_staff
+- has_many :rooms, through: room_user
+- has_many :room_user
 - has_many :messages
 
 
@@ -94,12 +110,12 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :client
-- has_many :staff, through: room_staff
+- has_many :user, through: room_staff
 - has_many :room_staff
 - has_many :messages
 
 
-## room_staff テーブル
+## room_user テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -108,7 +124,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :room
-- belongs_to :staff
+- belongs_to :user
 
 
 ## messages テーブル
@@ -122,4 +138,4 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :room
-- belongs_to :staff
+- belongs_to :user
