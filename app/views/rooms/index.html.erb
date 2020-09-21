@@ -12,6 +12,6 @@
 
 <% if user_signed_in? %>
   <% @clients.each do |client| %>
-    <%= link_to "詳細へ", client_path(client.id) %>
+    <%= link_to "#{client.name}様", client_path(client.id) %>
   <% end %>
 <% end %>

@@ -1,5 +1,66 @@
 require 'rails_helper'
 
 RSpec.describe Caregiver, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @caregiver = FactoryBot.build(:caregiver)
+  end
+
+  describe 'お客様介護情報登録' do
+    context 'お客様介護情報登録がうまくいくとき' do
+      it "degree_id,cognition_id,move_id,meal_id,excretion_id,oral_id,bathing_idが揃っていれば登録できる" do
+        expect(@caregiver).to be_valid
+      end
+      it "move_expは空でも登録できる" do
+        @caregiver.move_exp = ""
+        expect(@caregiver).to be_valid
+      end
+      it "meal_expは空でも登録できる" do
+        @caregiver.meal_exp = ""
+        expect(@caregiver).to be_valid
+      end
+      it "excretion_expは空でも登録できる" do
+        @caregiver.excretion_exp = ""
+        expect(@caregiver).to be_valid
+      end
+      it "bathing_expは空でも登録できる" do
+        @caregiver.bathing_exp = ""
+        expect(@caregiver).to be_valid
+      end
+    end
+
+    context 'お客様介護情報登録がうまくいかないとき' do
+      it "degree_idが1だと登録できない" do
+        @caregiver.degree_id = ""
+        @caregiver.valid?
+        expect(@caregiver.errors.full_messages).to include("Degree が選択されていません")
+      end
+      it "cognition_idが1だと登録できない" do
+        @caregiver.cognition_id = ""
+        @caregiver.valid?
+        expect(@caregiver.errors.full_messages).to include("Cognition が選択されていません")
+      end
+      it "move_idが1だと登録できない" do
+        @caregiver.move_id = ""
+        @caregiver.valid?
+        expect(@caregiver.errors.full_messages).to include("Move が選択されていません")
+      end
+      it "meal_idが1だと登録できない" do
+        @caregiver.meal_id = ""
+        @caregiver.valid?
+        expect(@caregiver.errors.full_messages).to include("Meal が選択されていません")
+      end
+      it "excretion_idが1だと登録できない" do
+        @caregiver.excretion_id = ""
+        @caregiver.valid?
+        expect(@caregiver.errors.full_messages).to include("Excretion が選択されていません")
+      end
+      it "bathing_idが1だと登録できない" do
+        @caregiver.bathing_id = ""
+        @caregiver.valid?
+        expect(@caregiver.errors.full_messages).to include("Bathing が選択されていません")
+      end
+    end
+
+  end
+
 end
