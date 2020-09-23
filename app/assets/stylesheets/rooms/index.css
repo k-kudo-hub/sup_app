@@ -14,7 +14,7 @@
   width: 90%;
   border: 1px solid gray;
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
   align-items: center;
   margin: 10px auto;
 }

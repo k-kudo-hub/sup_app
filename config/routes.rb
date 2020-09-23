@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: "rooms#index"
   resources :clients, only: [:new, :create, :show, :edit, :update, :destroy] do
     collection do
-      resources :details, only: [:edit, :update, :destroy]
-      resources :caregivers, only: [:edit, :update, :destroy]
-      resources :room, only: [:index, :new, :create, :destroy] do
+      resources :details, only: [:edit, :update]
+      resources :caregivers, only: [:edit, :update]
+      resources :rooms, only: [:index, :new, :create, :edit, :update, :destroy] do
         resources :messages, only: [:index, :create]
       end
     end
@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
   get 'caregivers', to: 'clients#new_caregiver'
   post 'caregivers', to: 'clients#create_caregiver'
+
+  post 'clients/rooms/:id', to: 'rooms#add_user' 
 
 end

@@ -4,7 +4,7 @@
 
 .side-bar {
   background-color: #253141;
-  width: 300px;
+  width: 200px;
   height: 100vh;
 }
 
@@ -53,7 +53,7 @@
 
 .chat {
   background-color: #ffffff;
-  width: calc(100% - 300px);
+  width: calc(100% - 200px);
 }
 
 .chat-header {
@@ -83,7 +83,7 @@
 
 .messages {
   background-color: #FAFAFA;
-  height: calc(100vh - 100px - 90px);
+  height: calc(100vh - 200px - 90px);
   padding: 46px 40px 0;
   overflow: scroll;
 }

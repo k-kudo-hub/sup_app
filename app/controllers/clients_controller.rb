@@ -6,7 +6,6 @@ class ClientsController < ApplicationController
   end
 
   def create
-    binding.pry
     @client = Client.new(client_params)
      unless @client.valid?
       render :new and return
@@ -42,7 +41,6 @@ class ClientsController < ApplicationController
     @caregiver.client_id = @client.id
     @caregiver.save
     render :create_caregiver
-    @room = Room.create(client_id: @client.id)
   end
 
   def show
@@ -86,6 +84,6 @@ class ClientsController < ApplicationController
 
   def set_client
     @client = Client.find(params[:id])
-  end    
+  end
 
 end

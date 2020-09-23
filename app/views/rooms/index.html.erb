@@ -16,7 +16,6 @@
  <div class="room-area">
    <% @clients.each do |client| %>
     <div class="one-room-wrap">
-      
       <div class="pic-area">
         <%= image_tag '/assets/human.png', size: '100x100', class: "room-image" %>
       </div>
@@ -27,7 +26,13 @@
       </div>
 
       <div class="message-area">
-        <p><%= link_to "血圧：162/78,ここにメッセージが入ります。", room_messages_path(client.room.id) %></p>
+        <% if @lists.empty? || !@lists.include?(client.id) %>
+          <p><%= link_to "チャットを作成する", rooms_path(client.id), method: :post %></p>
+        <% elsif client.room.messages.exists? %>
+          <p><%= link_to "#{@message.content}", room_path(client.room.id),method: :post %></p>
+        <% else %>
+          <p><%= link_to "まだメッセージがありません", room_path(client.room.id),method: :post %></p>
+        <% end %>
       </div>
 
     </div>
