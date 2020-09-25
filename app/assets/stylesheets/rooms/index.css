@@ -20,17 +20,25 @@
 }
 
 .pic-area {
-  width: 10%;
+  width: 20%;
   height: 100px;
 }
 
 .detail-area {
-  width: 20%;
+  width: 30%;
+  font-size: 20px;
   text-decoration: none;
   display: flex;
   flex-direction: column;
 }
 
-.message-area {
+.detail-area a {
+  text-decoration: none;
+}
+
+.message-area { 
+  width: 60%;
+  text-align: left;
+  margin-left: 20px;
 }
 

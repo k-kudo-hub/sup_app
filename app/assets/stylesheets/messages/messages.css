@@ -3,22 +3,22 @@
 }
 
 .side-bar {
-  background-color: #253141;
+  background-color: rgba(231, 250, 229);
   width: 200px;
   height: 100vh;
 }
 
 .side-bar-header { 
-  height: 100px;
+  height: 80px;
   padding: 0 20px;
   display: flex;
-  background-color: #253141;
+  background-color: rgba(231, 250, 229);
   align-items: center;
   justify-content: space-between;
 }
 
 .header-name a {
-  color: #FAFAFA;
+  color: black;
   font-size:16px;
   text-decoration: none;
 }
@@ -57,20 +57,17 @@
 }
 
 .chat-header {
-  height: 100px;
+  height: 80px;
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .header-title {
   margin: 36px;
   font-size: 24px;
   color: #333;
-}
-
-.header-button {
-  margin-top: 40px;
 }
 
 .header-button a{
@@ -83,14 +80,35 @@
 
 .messages {
   background-color: #FAFAFA;
-  height: calc(100vh - 200px - 90px);
-  padding: 46px 40px 0;
-  overflow: scroll;
+  height: calc(100vh - 210px);
+  padding: 46px 40px 14px;
+  overflow-y: scroll;
+}
+
+#scroll-inner {
+  height: 100vh;
 }
 
 .message {
   padding: 10px 0px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
+}
+
+.one-message-wrap {
+  margin-bottom: 10px;
+  width: 70%;
+  background-color: rgb(199, 238, 196);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.cuser-one-wrap {
+  margin-bottom: 10px;
+  width: 70%;
+  background-color: rgb(199, 238, 196);
+  border-radius: 5px;
+  padding: 10px;
+  float: right;
 }
 
 .upper-message {
@@ -113,12 +131,20 @@
   color: #434454;
 }
 
-
+.message-tag {
+  font-size: 12px;
+  background-color: rgb(93, 156, 4);
+  color: white;
+  border: none;
+  height: 40px;
+  margin: 5px 0px;
+  padding:8px;
+}
 
 .form {
-  background-color: #DDDDDD;
-  height: 90px;
-  padding: 20px 40px;
+  background-color: rgba(231, 250, 229);
+  height: 50px;
+  padding: 10px 10px;
   display: flex;
 }
 
@@ -137,7 +163,7 @@
 
 .form-submit {
   height: 50px;
-  background-color: #38AEF0;
+  background-color: rgb(93, 156, 4);
   font-size: 16px;
   color:white;
   padding: 0 20px;
@@ -147,7 +173,7 @@
 
 .form-image {
   font-size: 12px;
-  background-color: lightblue;
+  background-color: rgb(125, 196, 119);
   color: white;
   padding: 12px;
   width: 60px;
