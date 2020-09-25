@@ -29,7 +29,7 @@
         <% if @lists.empty? || !@lists.include?(client.id) %>
           <p><%= link_to "チャットを作成する", rooms_path(client.id), method: :post %></p>
         <% elsif client.room.messages.exists? %>
-          <p><%= link_to "#{@message.content}", room_path(client.room.id),method: :post %></p>
+          <p><%= link_to "#{client.room.messages.last.content}", room_path(client.room.id),method: :post %></p>
         <% else %>
           <p><%= link_to "まだメッセージがありません", room_path(client.room.id),method: :post %></p>
         <% end %>

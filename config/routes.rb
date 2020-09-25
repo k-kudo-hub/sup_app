@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
   devise_for :users
   root to: "rooms#index"
   resources :clients, only: [:new, :create, :show, :edit, :update, :destroy] do
@@ -19,5 +20,6 @@ Rails.application.routes.draw do
   post 'caregivers', to: 'clients#create_caregiver'
 
   post 'clients/rooms/:id', to: 'rooms#add_user' 
+  get 'clients/rooms/:id', to: 'rooms#add_user'
 
 end

@@ -1,6 +1,6 @@
     <div class="side-bar-header">
       <div class="header-name">
-        <%= link_to edit_client_path(@room.client.id) do %>
+        <%= link_to client_path(@room.client.id) do %>
           <%= "#{@room.client.name} 様" %>
         <% end %>
       </div>
