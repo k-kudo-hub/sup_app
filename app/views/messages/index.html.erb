@@ -1,0 +1,70 @@
+<div class="wrapper">
+
+  <div class="side-bar">
+    <div class="side-bar-header">
+      <div class="header-name">
+        <%= link_to client_path(@room.client.id) do %>
+          <%= "#{@room.client.name} 様" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+ <div class="chat">
+    <div class="chat-header">
+      <div class="left-header">
+        <div class="header-title">
+          <%= "#{@room.client.name} 様" %>
+        </div>
+      </div>
+      <div class="right-header">
+        <div class="header-button">
+          <%= link_to "チャットを終了する", root_path %>
+        </div>
+    </div>
+  </div>
+
+  <div class="messages" id="messages">
+    <% @messages.each do |message| %>
+    <%if message.user.id == current_user.id %>
+      <div class="cuser-one-wrap">
+    <% else%>
+      <div class="one-message-wrap">
+    <%end%>
+        <div class="upper-message">
+          <div class="message-user">
+            <%= message.user.name%>
+          </div>
+          <div class="message-date">
+            <%= l message.created_at %> 
+          </div> 
+        </div>
+        <div class="lower-message">
+          <div class="message-content">
+            <%= message.content %>
+          </div>
+          <%# <%= image_tag message.image.variant(resize:'500x500'), class: 'message-image' if message.picture.attached? %>
+        </div>
+      </div>
+    <% end %>
+    <div id="putin">
+    </div>
+  </div>
+
+  <%= form_with model: [@room, @message], html: {class: "form", id: "form"}, local: true do |f|%>
+    <div class="form-input">
+      <%= f.text_field :content,id: "content", class: 'form-message', placeholder: 'ここにメッセージを書き込みましょう' %>
+      <%= f.collection_select(:tag_id, Tag.all, :id, :name, {}, {class:"message-tag", id:"tags"}) %> 
+      <label class="form-image">
+        <span class="image-file">画像</span>
+        <%= f.file_field :picture, class: 'hidden' %>
+      </label>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <div id="user-name" data-json="<%= current_user.name.to_json %>"></div>
+    </div>
+    <%= f.submit '送信', class: 'form-submit', id: "submit" %>
+  <% end %>
+
+ </div>
+</div>

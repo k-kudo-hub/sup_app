@@ -98,7 +98,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :rooms, through: room_user
-- has_many :room_user
+- has_many :room_users
 - has_many :messages
 
 
@@ -111,7 +111,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :client
 - has_many :user, through: room_staff
-- has_many :room_staff
+- has_many :room_user
 - has_many :messages
 
 

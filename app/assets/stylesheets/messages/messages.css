@@ -1,0 +1,186 @@
+.wrapper {
+  display: flex;
+}
+
+.side-bar {
+  background-color: rgba(231, 250, 229);
+  width: 200px;
+  height: 100vh;
+}
+
+.side-bar-header { 
+  height: 80px;
+  padding: 0 20px;
+  display: flex;
+  background-color: rgba(231, 250, 229);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-name a {
+  color: black;
+  font-size:16px;
+  text-decoration: none;
+}
+
+.create-room { 
+  font-size: 10px;
+}
+
+.create-room a {
+  color: deepskyblue;
+  text-decoration: none;
+  padding: 14px;
+  border: 1px solid lightblue;
+}
+
+.rooms {
+  background-color: #2F3E51;
+  height: calc(100vh - 100px);
+  width: 100%;
+  padding: 0 20px;
+  overflow: scroll;
+}
+
+.room {
+  padding: 20px 0 40px;
+}
+
+.room-name a {
+  text-decoration: none;
+  color: white;
+}
+
+.chat {
+  background-color: #ffffff;
+  width: calc(100% - 200px);
+}
+
+.chat-header {
+  height: 80px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  margin: 36px;
+  font-size: 24px;
+  color: #333;
+}
+
+.header-button a{
+  color: darkred;
+  border: 1px solid darkred;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 10px;
+}
+
+.messages {
+  background-color: #FAFAFA;
+  height: calc(100vh - 210px);
+  padding: 46px 40px 14px;
+  overflow-y: scroll;
+}
+
+#scroll-inner {
+  height: 100vh;
+}
+
+.message {
+  padding: 10px 0px;
+  margin-bottom: 60px;
+}
+
+.one-message-wrap {
+  margin-bottom: 10px;
+  width: 70%;
+  background-color: rgb(199, 238, 196);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.cuser-one-wrap {
+  margin-bottom: 10px;
+  width: 70%;
+  background-color: rgb(199, 238, 196);
+  border-radius: 5px;
+  padding: 10px;
+  float: right;
+}
+
+.upper-message {
+  display: flex;
+}
+
+.message-user {
+  font-size: 16px;
+  color: #434454;
+  margin-right: 10px;
+}
+
+.message-date { 
+  font-size: 12px;
+  color: #999;
+}
+
+.message-content {
+  font-size: 14px;
+  color: #434454;
+}
+
+.message-tag {
+  font-size: 12px;
+  background-color: rgb(93, 156, 4);
+  color: white;
+  border: none;
+  height: 40px;
+  margin: 5px 0px;
+  padding:8px;
+}
+
+.form {
+  background-color: rgba(231, 250, 229);
+  height: 50px;
+  padding: 10px 10px;
+  display: flex;
+}
+
+.form-input {
+  background-color: white;
+  display: flex;
+  width: 100%;
+}
+
+.form-input input {
+  height: 50px;
+  border: none;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.form-submit {
+  height: 50px;
+  background-color: rgb(93, 156, 4);
+  font-size: 16px;
+  color:white;
+  padding: 0 20px;
+  border: none;
+  margin-left: 15px;
+}
+
+.form-image {
+  font-size: 12px;
+  background-color: rgb(125, 196, 119);
+  color: white;
+  padding: 12px;
+  width: 60px;
+  margin: 5px 10px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}

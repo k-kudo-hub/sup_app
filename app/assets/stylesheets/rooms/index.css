@@ -1,0 +1,44 @@
+.user-data ,li {
+  border: none;
+  list-style: none;
+}
+
+.room-area {
+  text-align: center;
+  width: cover;
+}
+
+
+.one-room-wrap {
+  height: 150px;
+  width: 90%;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.pic-area {
+  width: 20%;
+  height: 100px;
+}
+
+.detail-area {
+  width: 30%;
+  font-size: 20px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-area a {
+  text-decoration: none;
+}
+
+.message-area { 
+  width: 60%;
+  text-align: left;
+  margin-left: 20px;
+}
+

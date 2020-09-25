@@ -84,6 +84,6 @@ class ClientsController < ApplicationController
 
   def set_client
     @client = Client.find(params[:id])
-  end    
+  end
 
 end

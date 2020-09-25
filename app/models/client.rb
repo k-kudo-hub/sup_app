@@ -4,7 +4,7 @@ class Client < ApplicationRecord
 
   has_one :detail, dependent: :destroy
   has_one :caregiver, dependent: :destroy
-  has_one :room
+  has_one :room, dependent: :destroy
 
   with_options presence: {message: "が空です"} do
     validates :name
