@@ -1,6 +1,35 @@
+body {
+  background-color: white;
+}
+
 .user-data ,li {
   border: none;
   list-style: none;
+}
+
+.search-form {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px auto;
+}
+
+.search-input {
+  background-color: rgba(222, 253, 221, 0.4);  
+  border: none;
+  margin: 0 10px;
+  width: 300px;
+}
+
+.search-btn {
+  width: 40px;
+  cursor: pointer;
+}
+
+.btn {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .room-area {
@@ -10,18 +39,23 @@
 
 
 .one-room-wrap {
+  background-color: rgba(222, 253, 221, 0.4);
+  border: none;
   height: 150px;
   width: 90%;
-  border: 1px solid gray;
+  border: none;
   display: flex;
   justify-content: left;
   align-items: center;
-  margin: 10px auto;
+  margin: 15px auto;
 }
 
 .pic-area {
-  width: 20%;
-  height: 100px;
+  width: 25%;
+  height: 120px;
+  margin-left: 10px;
+  background-color: white;
+  border-radius: 50px;
 }
 
 .detail-area {
@@ -39,6 +73,15 @@
 .message-area { 
   width: 60%;
   text-align: left;
-  margin-left: 20px;
+  margin: 20px;
+}
+
+.message-content {
+  font-size: 14px;
+}
+
+.message-time {
+  color: gray;
+  font-size: 14px;
 }
 
