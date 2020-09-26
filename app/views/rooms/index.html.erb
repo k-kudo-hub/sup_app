@@ -28,8 +28,11 @@
    <% @clients.each do |client| %>
     <div class="one-room-wrap">
       <div class="pic-area">
-        <%# <%= if  %>
-        <%= image_tag '/assets/human.png', size: '100x100', class: "room-image" %>
+        <% if client.picture.file.nil? %> 
+          <%= image_tag '/assets/human.png', class:"client-box-img" %> 
+        <% else %>
+          <%= image_tag (client.picture.url), class:"client-box-img" %>
+        <% end %>
       </div>
 
       <div class="detail-area">

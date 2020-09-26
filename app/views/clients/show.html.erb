@@ -7,11 +7,11 @@
       <%= @client.name %>様
     </h2>
     <div class='client-img-content'>
-      <%# <% if @client.picture.nil? %> 
-        <%= image_tag '/assets/human.png', class:"client-box-img" %>
-      <%# <% else %>
-        <%# <%= image_tag @client.picture,  class:"client-box-img" %> 
-      <%# <% end %>
+      <% if @client.picture.file.nil? %> 
+        <%= image_tag '/assets/human.png', class:"client-show-box-img" %>
+      <% else %>
+        <%= image_tag (@client.picture.url), class:"client-show-box-img" %>
+     <% end %>
     </div>
 
     <div class="client-room-box">

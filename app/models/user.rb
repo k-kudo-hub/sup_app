@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :picture, PictureUploader
+
   with_options presence: {message: "が空です。"} do
     validates :name
     validates :name_kana,    format:{with:/\A[ァ-ヶー－]+\z/, message:"は全角カタカナのみ登録できます。"}

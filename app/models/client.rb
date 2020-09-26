@@ -6,6 +6,8 @@ class Client < ApplicationRecord
   has_one :caregiver, dependent: :destroy
   has_one :room, dependent: :destroy
 
+  mount_uploader :picture, PictureUploader
+
   scope :search, -> (search_params) do
     return if search_params.blank?
 

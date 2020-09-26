@@ -79,16 +79,16 @@
     <%= f.select :work_style_id,[["--",1],["常勤",2],["非常勤",3]], class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
   </div>
   <div class="img-upload">
-      <div class="weight-bold-text">
-        写真（任意）
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :picture, id:"item-image" %>
-      </div>
+    <div class="weight-bold-text">
+      写真（任意）
     </div>
+    <div class="click-upload">
+      <p>
+        クリックしてファイルをアップロード
+      </p>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id:"item-image" %>
+    </div>
+  </div>
   
   <div class="form-group">
     <h2 class='form-bottom-text'>

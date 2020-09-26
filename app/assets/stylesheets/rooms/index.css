@@ -37,6 +37,15 @@ body {
   width: cover;
 }
 
+.client-box-img {
+  height: 120px;
+  width: 120px;
+}
+
+.client-show-box-img {
+  height: 300px;
+  width: 300px;
+}
 
 .one-room-wrap {
   background-color: rgba(222, 253, 221, 0.4);
