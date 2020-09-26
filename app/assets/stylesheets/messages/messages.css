@@ -3,7 +3,7 @@
 }
 
 .side-bar {
-  background-color: rgba(231, 250, 229);
+  background-color: rgb(231, 250, 229);
   width: 200px;
   height: 100vh;
 }
@@ -12,7 +12,7 @@
   height: 80px;
   padding: 0 20px;
   display: flex;
-  background-color: rgba(231, 250, 229);
+  background-color: rgb(231, 250, 229);
   align-items: center;
   justify-content: space-between;
 }
@@ -142,7 +142,7 @@
 }
 
 .form {
-  background-color: rgba(231, 250, 229);
+  background-color: rgb(231, 250, 229);
   height: 50px;
   padding: 10px 10px;
   display: flex;
