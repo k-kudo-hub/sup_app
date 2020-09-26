@@ -14,11 +14,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  GET /resource/edit
-  def edit
-    super
-    @user = User.find(params[:id])
-  end
+  # GET /resource/edit
+  # def edit
+  #   super
+  #   @user = User.find(params[:id])
+  # end
 
   # PUT /resource
   # def update
