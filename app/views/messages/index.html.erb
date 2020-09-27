@@ -43,7 +43,9 @@
           <div class="message-content">
             <%= message.content %>
           </div>
-          <%# <%= image_tag message.image.variant(resize:'500x500'), class: 'message-image' if message.picture.attached? %>
+          <% unless message.picture.file.nil? %>
+            <%= image_tag (message.picture.thumb.url), class: 'message-image' %>
+          <% end %>
         </div>
       </div>
     <% end %>
