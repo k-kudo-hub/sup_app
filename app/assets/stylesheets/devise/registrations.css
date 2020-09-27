@@ -1,0 +1,24 @@
+header {
+  height: 110px;
+  width: cover;
+  background-color: rgb(241, 223, 202);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 100px;
+  height: 110px;
+  float: left;
+}
+
+.logo-image {
+  margin-left: 10px;
+  border: 8px white solid;
+  border-radius: 60px;
+}
+
+.logo-image:hover {
+  border-color: lightgreen;
+}

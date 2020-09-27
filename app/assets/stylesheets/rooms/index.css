@@ -2,13 +2,32 @@ header {
   height: 110px;
   width: cover;
   background-color: rgb(241, 223, 202);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 100px;
+  height: 110px;
+  float: left;
+}
+
+.logo-image {
+  margin-left: 10px;
+  border: 8px white solid;
+  border-radius: 60px;
+}
+
+.logo-image:hover {
+  border-color: lightgreen;
 }
 
 .user-data {
   float: right;
   display: flex;
   align-items: center;
-  width: 300px;
+  width: 350px;
   height: 110px;
 }
 
@@ -17,15 +36,23 @@ header {
   list-style: none;
 }
 
-
 .user-pic {
   border-radius: 50px;
   background-color: white;
   border: 8px solid white;
+  margin-right: 10px;
+  width: 82px;
+  height: 82px;
 }
 
 .user-pic:hover{
   background-color: lightgreen;
+  cursor: pointer;
+}
+
+.hukidashi {
+  text-align: center;
+  float: left;
 }
 
 body {
@@ -52,6 +79,11 @@ body {
   cursor: pointer;
 }
 
+.search-btn:hover {
+  height: 45px;
+  width: 45px;
+}
+
 .btn {
   border: none;
   background-color: rgba(0, 0, 0, 0);
@@ -63,13 +95,21 @@ body {
 }
 
 .client-box-img {
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
+  border-radius: 60px;
+  border: 10px solid  white;
+}
+
+.client-box-img:hover {
+  border-color: lightgreen;
 }
 
 .client-show-box-img {
   height: 300px;
   width: 300px;
+  border-radius: 160px;
+  border: 12px solid  white;
 }
 
 .one-room-wrap {
@@ -85,11 +125,13 @@ body {
 }
 
 .pic-area {
-  width: 25%;
-  height: 120px;
+  width: 150px;
+  height: 100%;
   margin-left: 10px;
-  background-color: white;
-  border-radius: 50px;
+  background-color: rgba(222, 253, 221, 0.4);
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
 }
 
 .detail-area {
@@ -123,5 +165,32 @@ footer {
   background-color: rgb(241, 223, 202);
   width: cover;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.app-title {
+  font-size: 24px;
+  color: rgb(150, 85, 1);
+  font-weight: bold;
+}
+
+.left-fot {
+  width: 300px;
+  margin-left: 10px;
+}
+
+.copy {
+  font-size: 10px;
+  color:rgb(150, 85, 1);
+}
+
+.right-fot {
+  width: 200px;
+  float: right;
+  text-align: right;
+  font-size: 12px;
+  margin-right: 10px;
+  color: rgb(150, 85, 1);
+}
