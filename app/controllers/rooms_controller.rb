@@ -5,7 +5,6 @@ class RoomsController < ApplicationController
   #トップページ表示のための定義
   def index
     @clients = Client.includes(:detail, :caregiver, :room).order("room_number ASC")
-    # @caution = Message.select()
   end
 
   def search_clients
