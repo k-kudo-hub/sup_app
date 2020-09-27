@@ -1,6 +1,6 @@
 #サーバ上でのアプリケーションコードが設置されているディレクトリを変数に入れておく
 # app_path = File.expand_path('../../../', __FILE__)  # 「../」が一つ増えている
-RAILS_ROOT = File.expond_path('../../', __FILE__)
+RAILS_ROOT = File.expand_path('../../', __FILE__)
 ENV["BUNDLE_GEMFILE"] = RAILS_ROOT + "/Gemfile"
 
 #アプリケーションサーバの性能を決定する
