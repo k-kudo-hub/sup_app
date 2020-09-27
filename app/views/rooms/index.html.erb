@@ -1,16 +1,23 @@
-<div class="user-data">
-  <% if user_signed_in? %>
-    <li><%= link_to current_user.name, "users/edit", class: "user-nickname" %></li>
-    <li><%= link_to 'ログアウト', "/users/sign_out", method: :delete, class: "logout" %> </li>
+<header>
+  <div class="logp">
+  </div>
+  <div class="user-data">
+    <% if user_signed_in? %>
+      <%= link_to new_client_path, method: :get  do %>
+        <%= image_tag "client.png", size:'80x80', class: "user-pic" %>
+      <% end %>
+      <%= link_to "users/edit" do %>
+        <%= image_tag (current_user.picture.top_user.url), class: "user-pic" %>
+      <% end %>
+      <%= link_to "/users/sign_out", method: :delete do %> 
+        <%= image_tag "yazirushi-down.png", size:'80x80', class: "user-pic" %>
+      <% end %>
     <% else %> 
-    <li><%= link_to 'ログイン', "users/sign_in",method: :get, class: "login" %></li>
-    <li><%= link_to '新規登録', "users/sign_up", class: "sign-up" %></li>
-  <% end %>
-</div>
-
-<% if user_signed_in? %>
-  <h2><%= link_to 'お客様情報登録', new_client_path, method: :get %></h2>  
-<% end %>
+      <li><%= link_to 'ログイン', "users/sign_in",method: :get, class: "login" %></li>
+      <li><%= link_to '新規登録', "users/sign_up", class: "sign-up" %></li>
+    <% end %>
+  </div>
+</header>
 
 <div class="search-wrap">
   <%= form_with(scope: :search, url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
@@ -55,3 +62,7 @@
    <% end %>
  </div>
 <% end %>
+
+<footer>
+
+</footer>

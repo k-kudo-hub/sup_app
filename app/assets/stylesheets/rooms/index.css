@@ -1,10 +1,35 @@
-body {
-  background-color: white;
+header {
+  height: 110px;
+  width: cover;
+  background-color: rgb(241, 223, 202);
+}
+
+.user-data {
+  float: right;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 110px;
 }
 
 .user-data ,li {
   border: none;
   list-style: none;
+}
+
+
+.user-pic {
+  border-radius: 50px;
+  background-color: white;
+  border: 8px solid white;
+}
+
+.user-pic:hover{
+  background-color: lightgreen;
+}
+
+body {
+  background-color: white;
 }
 
 .search-form {
@@ -92,5 +117,11 @@ body {
 .message-time {
   color: gray;
   font-size: 14px;
+}
+
+footer {
+  background-color: rgb(241, 223, 202);
+  width: cover;
+  height: 50px;
 }
 
