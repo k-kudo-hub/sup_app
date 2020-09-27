@@ -1,68 +1,15 @@
 <header>
-  <div class="logp">
-  </div>
-  <div class="user-data">
-    <% if user_signed_in? %>
-      <%= link_to new_client_path, method: :get  do %>
-        <%= image_tag "client.png", size:'80x80', class: "user-pic" %>
-      <% end %>
-      <%= link_to "users/edit" do %>
-        <%= image_tag (current_user.picture.top_user.url), class: "user-pic" %>
-      <% end %>
-      <%= link_to "/users/sign_out", method: :delete do %> 
-        <%= image_tag "yazirushi-down.png", size:'80x80', class: "user-pic" %>
-      <% end %>
-    <% else %> 
-      <li><%= link_to 'ログイン', "users/sign_in",method: :get, class: "login" %></li>
-      <li><%= link_to '新規登録', "users/sign_up", class: "sign-up" %></li>
-    <% end %>
-  </div>
+  <%= render "shared/header" %>
 </header>
 
 <div class="search-wrap">
-  <%= form_with(scope: :search, url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
-    <%= form.text_field :name, placeholder: "名前で検索", value: @search_params[:name], class: "search-input" %>
-    <%= form.text_field :name_kana, placeholder: "フリガナで検索", value: @search_params[:name_kana], class: "search-input" %>
-    <%= form.text_field :room_number, placeholder: "居室番号で検索", value: @search_params[:room_number], class: "search-input" %>
-    <%= button_tag type: :submit, class:"btn" do %>
-      <%= image_tag "mushi.png", class: "search-btn" %>
-    <% end %>
-  <% end %>
+  <%= render "rooms/search_bar" %>
 </div>
 
 <% if user_signed_in? %>
- <div class="room-area">
-   <% @clients.each do |client| %>
-    <div class="one-room-wrap">
-      <div class="pic-area">
-        <% if client.picture.file.nil? %> 
-          <%= image_tag '/assets/human.png', class:"client-box-img" %> 
-        <% else %>
-          <%= image_tag (client.picture.url), class:"client-box-img" %>
-        <% end %>
-      </div>
-
-      <div class="detail-area">
-        <%= link_to "#{client.name} 様", client_path(client.id) %>
-        <p><%= client.room_number %> 号室</p>
-      </div>
-
-      <div class="message-area">
-        <% if @lists.empty? || !@lists.include?(client.id) %>
-          <p class="message-content"><%= link_to "チャットを作成する", rooms_path(client.id), method: :post %></p>
-        <% elsif client.room.messages.exists? %>
-          <p class="message-content"><%= link_to "#{client.room.messages.last.content}", room_path(client.room.id),method: :post %></p>
-          <p class="message-time">投稿時間：<%= client.room.messages.last.created_at %></p>
-        <% else %>
-          <p class="message-content"><%= link_to "まだメッセージがありません", room_path(client.room.id),method: :post %></p>
-        <% end %>
-      </div>
-
-    </div>
-   <% end %>
- </div>
+  <%= render "shared/rooms"%>
 <% end %>
 
 <footer>
-
+  <%= render "shared/footer" %>
 </footer>

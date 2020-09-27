@@ -1,4 +1,6 @@
-<%# <%= render "shared/second-header" %>
+<header>
+  <%= render "shared/header" %> 
+</header>
 
 <%= form_with model: @client, url: clients_path, method: :post, class: 'registration-main', multipart: true, local: true do |f| %>
 <div class='form-wrap'>
@@ -76,4 +78,6 @@
 </div>
 <% end %> 
 
-<%# <%= render "shared/second-footer" %> 
+<footer>
+  <%= render "shared/footer" %>
+</footer>

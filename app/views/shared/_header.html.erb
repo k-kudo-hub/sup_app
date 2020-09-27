@@ -1,0 +1,21 @@
+<div class="logp">
+  <%= link_to root_path do %>
+    <%= image_tag "logo.png", size:'96x80', class:"logo-image" %>
+  <% end %>
+</div>
+<div class="user-data">
+  <% if user_signed_in? %>
+    <%= link_to new_client_path, method: :get  do %>
+      <%= image_tag "client.png", size:'80x80', class: "user-pic" %>
+    <% end %>
+    <%= link_to "users/edit" do %>
+      <%= image_tag (current_user.picture.top_user.url), class: "user-pic" %>
+    <% end %>
+    <%= link_to "/users/sign_out", method: :delete do %> 
+      <%= image_tag "yazirushi-down.png", size:'80x80', class: "user-pic" %>
+    <% end %>
+  <% else %> 
+    <li><%= link_to 'ログイン', "users/sign_in",method: :get, class: "login" %></li>
+    <li><%= link_to '新規登録', "users/sign_up", class: "sign-up" %></li>
+  <% end %>
+</div>

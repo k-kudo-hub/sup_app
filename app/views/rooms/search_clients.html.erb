@@ -1,33 +1,13 @@
-<%= form_with(scope: :search, url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :name, placeholder: "名前で検索", value: @search_params[:name], class: "search-input" %>
-  <%= form.text_field :name_kana, placeholder: "フリガナで検索", value: @search_params[:name_kana], class: "search-input" %>
-  <%= form.text_field :room_number, placeholder: "居室番号で検索", value: @search_params[:room_number], class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+<header>
+  <%= render "shared/header" %>
+</header>
 
-  <div class="room-area">
-   <% @clients.each do |client| %>
-    <div class="one-room-wrap">
-      <div class="pic-area">
-        <%= image_tag '/assets/human.png', size: '100x100', class: "room-image" %>
-      </div>
+<div class="search-wrap">
+  <%= render "rooms/search_bar" %>
+</div>
 
-      <div class="detail-area">
-        <%= link_to "#{client.name} 様", client_path(client.id) %>
-        <p><%= client.room_number %> 号室</p>
-      </div>
+<%= render "shared/rooms" %>
 
-      <div class="message-area">
-        <% if @lists.empty? || !@lists.include?(client.id) %>
-          <p class="message-content"><%= link_to "チャットを作成する", rooms_path(client.id), method: :post %></p>
-        <% elsif client.room.messages.exists? %>
-          <p class="message-content"><%= link_to "#{client.room.messages.last.content}", room_path(client.room.id),method: :post %></p>
-          <p class="message-time">投稿時間：<%= client.room.messages.last.created_at %></p>
-        <% else %>
-          <p class="message-content"><%= link_to "まだメッセージがありません", room_path(client.room.id),method: :post %></p>
-        <% end %>
-      </div>
-
-    </div>
-   <% end %>
- </div>
+<footer>
+  <%= render "shared/footer" %>
+</footer>
