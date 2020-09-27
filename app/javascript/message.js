@@ -33,6 +33,9 @@ function message() {
           <div class="message-content">
             ${message.content}
           </div>
+          <div class="message-image">
+            ${message.picture.thumb.url}
+          </div> 
         </div>
       </div>`;
       put.insertAdjacentHTML("beforebegin", HTML);

@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_063919) do
     t.integer "room_id", null: false
     t.integer "user_id", null: false
     t.text "content", null: false
+    t.text "picture"
     t.integer "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
