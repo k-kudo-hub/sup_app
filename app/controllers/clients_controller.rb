@@ -46,6 +46,8 @@ class ClientsController < ApplicationController
   def show
     @detail = @client.detail
     @caregiver = @client.caregiver
+    @relation = current_user.relationships.pluck(:client_id)
+    @follow = current_user.relationships.select(client_id: @client.id).ids
   end
 
   def edit
