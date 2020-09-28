@@ -34,7 +34,11 @@ function message() {
             ${message.content}
           </div>
           <div class="message-image">
-            ${message.picture.thumb.url}
+            <script>
+              if(message.picture.file.exist?){
+              ${message.picture.thumb.url}
+              }
+            </script>  
           </div> 
         </div>
       </div>`;

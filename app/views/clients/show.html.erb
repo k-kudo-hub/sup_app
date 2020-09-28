@@ -1,6 +1,7 @@
-<%# <%= render "shared/header" %> 
+<header>
+  <%= render "shared/header" %> 
+</header>
 
-<%# お客様の概要 %> 
 <div class="client-show">
   <div class="client-box">
     <h2 class="name">
@@ -133,18 +134,20 @@
       </tbody>
     </table>
 
-    <div class="edit-delete-btn">
+    <div class="edit-top-btn">
       <div class="detail-table">
         <% if user_signed_in? && (current_user.position_id > 1) %> 
           <%= link_to '介護情報の編集', edit_caregiver_path(@caregiver.id), method: :get, class: "client-green-btn" %> 
         <% end %>
       </div>
+      <div class="to-root">
+        <%= link_to "トップへ戻る", :root, class:"root-btn" %>
+      </div>
     </div>
 
   </div>
-  <%# /商品の概要 %>
-<%= link_to "トップへ戻る", :root %>
-
 </div>
 
-<%# <%= render "shared/footer" %> 
+<footer>
+  <%= render "shared/footer" %> 
+</footer>
