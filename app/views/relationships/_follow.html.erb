@@ -1,0 +1,11 @@
+<% if @relation.include?(@client.id) %>
+  <%= form_with model: @relationship, url: relationship_path(@follow), method: :delete  do |f| %>
+    <%= hidden_field_tag :client_id, @client.id %>
+    <%= f.submit "フォローを解除する", class: 'follow-btn' %>
+  <% end %>
+<% else %>
+  <%= form_with model: @relationship, url: relationships_path, method: :post do |f| %>
+    <%= hidden_field_tag :client_id, @client.id %>
+    <%= f.submit "#{@client.name} 様をフォロー", class: 'follow-btn' %>
+  <% end %>
+<% end %>
