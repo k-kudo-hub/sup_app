@@ -5,6 +5,8 @@ class Client < ApplicationRecord
   has_one :detail, dependent: :destroy
   has_one :caregiver, dependent: :destroy
   has_one :room, dependent: :destroy
+  has_many :relationships
+  has_many :users, through: :relationships
 
   mount_uploader :picture, PictureUploader
 

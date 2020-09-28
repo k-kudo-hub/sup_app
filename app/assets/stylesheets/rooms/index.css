@@ -146,10 +146,26 @@ body {
   text-decoration: none;
 }
 
-.message-area { 
+.right-area {
   width: 60%;
+  height: 100%;
+  border-left: 5px dashed white;
+}
+
+.score-area, .message-area {
+  height: 75px;
+  width: 100%;
+}
+
+.message-area {
+  border-bottom: 5px dashed white;
+}
+
+.message-area { 
+  width: 92%;
+  height: 55px;
+  padding: 10px;
   text-align: left;
-  margin: 20px;
 }
 
 .message-content {
