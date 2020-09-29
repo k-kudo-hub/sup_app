@@ -1,0 +1,51 @@
+header {
+  height: 110px;
+  width: cover;
+  background-color: rgb(241, 223, 202);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 100px;
+  height: 110px;
+  float: left;
+}
+
+.logo-image {
+  margin-left: 10px;
+  border: 8px white solid;
+  border-radius: 60px;
+}
+
+.logo-image:hover {
+  border-color: rgb(248, 184, 101);
+}
+
+.user-data {
+  float: right;
+  display: flex;
+  align-items: center;
+  width: 550px;
+  height: 110px;
+}
+
+.user-data ,li {
+  border: none;
+  list-style: none;
+}
+
+.user-pic,.client-dam,.logout-pic {
+  border-radius: 50px;
+  background-color: white;
+  border: 8px solid white;
+  margin-right: 10px;
+  width: 82px;
+  height: 82px;
+}
+
+.user-pic:hover,.client-dam:hover,.logout-pic:hover{
+  background-color: rgb(248, 184, 101);
+  cursor: pointer;
+}

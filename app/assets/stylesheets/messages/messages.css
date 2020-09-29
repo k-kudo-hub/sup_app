@@ -83,6 +83,7 @@
   height: calc(100vh - 210px);
   padding: 46px 40px 14px;
   overflow-y: scroll;
+  display: block;
 }
 
 #scroll-inner {
