@@ -2,105 +2,101 @@
   <%= render "shared/header" %> 
 </header>
 
-<%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
-<div class='form-wrap'>
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      会員情報入力
-    </h1>
-  </div>
+<div class="body-wrap">
+  <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <h1 class='form-header-text'>
+        新規スタッフ情報入力
+      </h1>
+    </div>
  
-  <%= render 'shared/error_messages', model: f.object %>
+   <%= render 'shared/error_messages', model: f.object %>
 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">名前</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">名前</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"input-default", id:"name", placeholder:"例) サポ太郎", maxlength:"40" %>
     </div>
-    <%= f.text_area :name, class:"input-default", id:"nickname", placeholder:"例) サポ太郎", maxlength:"40" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">フリガナ</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">フリガナ</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name_kana, class:"input-default", id:"name-kana", placeholder:"例) サポタロウ", maxlength:"40" %>
     </div>
-    <%= f.text_area :name_kana, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">社員番号</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">社員番号</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :staff_number, class:"input-default", id:"staff-number", placeholder:"例) 00004", maxlength:"10" %>
     </div>
-    <%= f.text_area :staff_number, class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">メールアドレス</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">メールアドレス</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
     </div>
-    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">パスワード</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">パスワード</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
+      <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
     </div>
-    <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
-    <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">パスワード(確認)</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">パスワード(確認)</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
     </div>
-    <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">職位</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">職位</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.select :position_id,[["--",1],["一般",2],["副主任",3],["主任",4],["係長",5],["課長代理",6],["課長",7]], class:"input-default", id:"position" %>
     </div>
-    <%= f.select :position_id,[["--",1],["一般",2],["副主任",3],["主任",4],["係長",5],["課長代理",6],["課長",7]], class:"input-default", id:"position" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">保有資格</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">保有資格</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.select :qualification_id,[["--",1],["保有資格なし",2],["介護職員初任者研修",3],["介護福祉士実務者研修",4],["介護福祉士",5],["認定介護福祉士",6],["ケアマネージャー",7],["社会福祉士",8],["理学療法士",9],["作業療法士",10],["看護師",11]], class:"input-default", id:"qualification" %>
     </div>
-    <%= f.select :qualification_id,[["--",1],["保有資格なし",2],["介護職員初任者研修",3],["介護福祉士実務者研修",4],["介護福祉士",5],["認定介護福祉士",6],["ケアマネージャー",7],["社会福祉士",8],["理学療法士",9],["作業療法士",10],["看護師",11]], class:"input-default", id:"qualification" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">勤務形態</label>
-      <span class="indispensable">必須</span>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">勤務形態</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.select :work_style_id,[["--",1],["常勤",2],["非常勤",3]], class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
     </div>
-    <%= f.select :work_style_id,[["--",1],["常勤",2],["非常勤",3]], class:"input-default", id:"nickname", placeholder:"例) furima太郎", maxlength:"40" %>
-  </div>
-  <div class="img-upload">
-    <div class="weight-bold-text">
-      写真（任意）
+    <div class="img-upload">
+      <div class="form-text">
+        写真（任意）
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id:"item-image" %>
+      </div>
     </div>
-    <div class="click-upload">
-      <p>
-        クリックしてファイルをアップロード
-      </p>
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', id:"item-image" %>
+    
+    <div class='register-btn'>
+      <%= f.submit "スタッフ登録" ,class:"register-red-btn" %>
     </div>
+
   </div>
-  
-  <div class="form-group">
-    <h2 class='form-bottom-text'>
-      「会員登録」のボタンを押すことにより、
-      <span>利用規約</span>
-      <br>に同意したものとみなします
-    </h2>
-  </div>
-  <div class='register-btn'>
-    <%= f.submit "会員登録" ,class:"register-red-btn" %>
-  </div>
-  <p class='register-info'>本人情報の登録について</p>
+ <% end %>
 </div>
-<% end %>
+
 
 <footer>
   <%= render "shared/footer" %>

@@ -2,13 +2,14 @@
   <%= render "shared/header" %>
 </header>
 
-<div class="search-wrap">
-  <%= render "rooms/search_bar" %>
+<div class="body-wrap">
+  <div class="search-wrap">
+    <%= render "rooms/search_bar" %>
+  </div>
+  <% if user_signed_in? %>
+    <%= render "shared/rooms"%>
+  <% end %>
 </div>
-
-<% if user_signed_in? %>
-  <%= render "shared/rooms"%>
-<% end %>
 
 <footer>
   <%= render "shared/footer" %>

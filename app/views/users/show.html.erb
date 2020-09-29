@@ -1,0 +1,61 @@
+<body>
+
+  <header>
+    <%= render "shared/header" %>
+  </header>
+
+  <div class="body-wrap">
+    <div class="name">
+      <h2>ユーザー詳細</h2>
+    </div>  
+
+    <div class="user-image-content">
+      <% if @user.picture.file.nil? %> 
+        <%= image_tag '/assets/human.png', class:"user-show-box-img" %>
+      <% else %>
+        <%= image_tag (@user.picture.url), class:"user-show-box-img" %>
+      <% end %>
+    </div>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">名前</th>
+          <td class="detail-value"><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">社員番号</th>
+          <td class="detail-value"><%= @user.staff_number %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">職位</th>
+          <td class="detail-value"><%= @user.position_id %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">保有資格</th>
+          <td class="detail-value"><%= @user.qualification_id %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">勤務形態</th>
+          <td class="detail-value"><%= @user.work_style_id %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="name">
+      <h2>フォロー中のお客様</h2>
+    </div> 
+    <%= render "shared/rooms" %>
+
+    <div class="to-root">
+      <%= link_to "スタッフ情報の編集", edit_user_registration_path, class:"edit-btn" %>
+      <%= link_to "トップへ戻る", :root, class:"root-btn" %> 
+    </div>
+
+  </div>
+
+    <footer>
+      <%= render "shared/footer" %>
+    </footer>
+
+</body>

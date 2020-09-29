@@ -1,17 +1,28 @@
+body {
+  min-height: 100vh;
+}
+
 .name {
   text-align: center;
   font-size: 24px;
   margin: 30px 0;
 }
 
-.client-img-content {
+.client-img-content, .user-image-content {
   text-align: center; 
 }
 
-.client-box-img {
+.client-box-img, .user-box-img {
   width: 300px;
   height: 300px;
   border-radius: 15px;
+}
+
+
+.title-area {
+  text-align: center;
+  margin: 30px 0px auto;
+  height: 100px;
 }
 
 .follow {
@@ -109,8 +120,8 @@
 }
 
 .detail-table {
-  margin-bottom: 60px;
-  width: 100%;
+  margin: 30px auto;
+  width: 95%;
 }
 
 .detail-item {
@@ -166,6 +177,7 @@
 }
 
 .edit-top-btn {
+  height: 100px;
   margin-bottom: 50px;
   text-align: center;
 }
@@ -177,6 +189,6 @@
   font-size: 18px;
   font-weight: bold;
   color: #FFF;
-  margin: 60px 0px;
+  margin-top: 40px;
   padding: 2vh 8vw;
 }
