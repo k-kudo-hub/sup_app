@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_015406) do
+ActiveRecord::Schema.define(version: 2020_09_30_053814) do
 
   create_table "caregivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "client_id", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_015406) do
     t.text "oral_exp"
     t.integer "bathing_id", null: false
     t.text "bathing_exp"
+    t.text "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_015406) do
     t.integer "room_number", null: false
     t.text "picture"
     t.integer "status_id", null: false
+    t.text "careplan"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -48,6 +50,12 @@ ActiveRecord::Schema.define(version: 2020_09_28_015406) do
     t.text "medicine"
     t.integer "mbp_high", null: false
     t.integer "mbp_low", null: false
+    t.string "doctor"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "majors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,6 +68,21 @@ ActiveRecord::Schema.define(version: 2020_09_28_015406) do
     t.integer "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.integer "major_item_id", null: false
+    t.integer "main_item_id", null: false
+    t.integer "sub_item_id", null: false
+    t.text "memo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_records_on_client_id"
+    t.index ["user_id"], name: "index_records_on_user_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -111,6 +134,8 @@ ActiveRecord::Schema.define(version: 2020_09_28_015406) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "records", "clients"
+  add_foreign_key "records", "users"
   add_foreign_key "relationships", "clients"
   add_foreign_key "relationships", "users"
   add_foreign_key "room_users", "rooms"
