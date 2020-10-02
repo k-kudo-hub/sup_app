@@ -7,6 +7,7 @@ class CreateDetails < ActiveRecord::Migration[6.0]
       t.text :medicine
       t.integer :mbp_high,         null:false
       t.integer :mbp_low,          null:false
+      t.string :doctor
       t.timestamps
     end
   end

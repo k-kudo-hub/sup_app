@@ -14,6 +14,7 @@ class CreateCaregivers < ActiveRecord::Migration[6.0]
       t.text :oral_exp
       t.integer :bathing_id,       null:false
       t.text :bathing_exp
+      t.text :memo
       t.timestamps
     end
   end

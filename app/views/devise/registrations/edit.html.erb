@@ -1,6 +1,4 @@
-<header>
-  <%= render "shared/header" %>
-</header>
+<%= render "shared/header" %>
 
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
@@ -110,6 +108,4 @@
 </div>
 <% end %>
 
-<footer>
-  <%= render "shared/footer" %>
-</footer>
+<%= render "shared/footer" %>

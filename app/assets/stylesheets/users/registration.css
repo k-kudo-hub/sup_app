@@ -1,18 +1,9 @@
-header {
-  height: 110px;
-  width: cover;
-  background-color: rgb(241, 223, 202);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .body-wrap {
   width: cover;
-  min-height: 77.2vh;
+  min-height: 78vh;
 }
 
-.registration-main {
+.registration-main, .record-main {
   min-width: 100%;
   height: 100%;
   background-color: white;
@@ -60,7 +51,11 @@ header {
   font-weight: bold;
 }
 
-.input-default {
+.input-default,
+.major-default, 
+.main-default, 
+.sub-default,
+.client-default {
   width: 100%;
   margin-top: 5px;
   height: 48px;

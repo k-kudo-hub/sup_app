@@ -1,6 +1,4 @@
-<header>
-  <%= render "shared/header" %> 
-</header>
+<%= render "shared/header" %> 
 
 <div class="body-wrap">
   <%= form_with model: @caregiver, url:caregivers_path, method: :post, class: 'registration-main', local: true do |f| %>
@@ -100,6 +98,4 @@
   <% end %> 
 </div>
 
-<footer>
-  <%= render "shared/footer" %>
-</footer>
+<%= render "shared/footer" %>

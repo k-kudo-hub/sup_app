@@ -1,0 +1,95 @@
+.record-head {
+  height: 70px;
+}
+
+.table-wrap {
+  width: 200vw;
+}
+
+.table {
+  width:95%;
+  margin: 0 auto;
+}
+
+.client-column {
+  border: 2px solid gray;
+  height: 30px;
+  width: 120px;
+  text-align: center;
+}
+
+.client-one-column {
+  border: 2px solid gray;
+  width: 100px;
+  height: 40px;
+}
+
+.head-column {
+  height: 30px;
+  width: 60px;
+  text-align: center;
+  border: 2px solid gray
+}
+
+.print {
+  font-size: 20px;
+}
+
+.modal {
+  z-index:10;
+  background-color: rgb(250, 223, 189);
+  height:40%;
+  width: 50%;
+  position: fixed;
+  top: 10%;
+  right: 0;
+  bottom: 0;
+  left: 18%;
+  border-radius: 12px;
+  padding: 0 40px;
+}
+
+.modal > h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+.modal > p {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.modal-back {
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.1);
+  display: none;
+}
+
+.excretion-m {
+  color: green;
+}
+
+.meal-m {
+  color: orange;
+}
+
+.bathing-m {
+  color: darkslateblue
+}
+
+.nursing-m {
+  color: brown;
+}
+
+.one-column {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  border: 2px solid gray;
+}

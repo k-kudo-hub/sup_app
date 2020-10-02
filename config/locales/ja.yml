@@ -1,16 +1,3 @@
-# ja:
-#   time:
-#     formats:
-#       default: "%Y/%m/%d %H:%M:%S"
-
-# date:
-#     month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
-
-#     order:
-#       - :year
-#       - :month
-#       - :day
-
 ja:
   date:
     formats:
@@ -33,6 +20,7 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%y/%m/%d %H:%M"
+      mini: "%m月%d日 %H:%M"
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
     am: "午前"
     pm: "午後"

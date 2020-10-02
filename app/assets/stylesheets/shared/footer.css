@@ -1,7 +1,7 @@
 footer {
   background-color: rgb(241, 223, 202);
   width: cover;
-  height: 50px;
+  height: 7vh;
   display: flex;
   align-items: center;
   justify-content: space-between;

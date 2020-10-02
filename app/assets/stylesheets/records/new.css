@@ -1,0 +1,12 @@
+.form-time-wrap {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#record_start_time_4i,
+#record_start_time_5i,
+#record_end_time_4i,
+#record_end_time_5i {
+  width: 100px;
+  height: 50px;
+}
