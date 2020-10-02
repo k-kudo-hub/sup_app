@@ -16,8 +16,9 @@ body {
 }
 
 .search-input {
-  background-color: rgba(222, 253, 221, 0.4);  
+  background-color: rgb(241, 223, 202);  
   border: none;
+  border-radius: 5px;
   margin: 0 10px;
   width: 300px;
 }
@@ -60,10 +61,11 @@ body {
 }
 
 .one-room-wrap {
-  background-color: rgba(222, 253, 221, 0.4);
+  background-color: rgb(241, 223, 202);
   border: none;
   height: 150px;
   width: 90%;
+  border-radius: 5px;
   border: none;
   display: flex;
   justify-content: left;
@@ -71,11 +73,21 @@ body {
   margin: 15px auto;
 }
 
+.detail-area > a {
+  color: black;
+  font-weight: bold;
+}
+
+.detail-area > a:hover {
+  border-bottom: 1px black solid;
+
+}
+
 .pic-area {
   width: 150px;
   height: 100%;
   margin-left: 10px;
-  background-color: rgba(222, 253, 221, 0.4);
+  background-color: rgb(241, 223, 202);
   border-radius: 60px;
   display: flex;
   align-items: center;
@@ -117,9 +129,12 @@ body {
 
 .message-content {
   font-size: 14px;
+  height: 40px;
+  overflow: hidden;
 }
 
 .message-time {
   color: gray;
   font-size: 14px;
+  height: 10px;
 }

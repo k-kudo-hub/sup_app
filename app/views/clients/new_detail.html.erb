@@ -1,6 +1,4 @@
-<header>
-  <%= render "shared/header" %> 
-</header>
+<%= render "shared/header" %> 
 
 <%= form_with model: @detail, url: details_path, class: 'registration-main', local: true do |f| %>
 
@@ -54,6 +52,4 @@
 </div>
 <% end %> 
 
-<footer>
-  <%= render "shared/footer" %>
-</footer>
+<%= render "shared/footer" %>

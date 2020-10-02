@@ -1,0 +1,72 @@
+<%= render "shared/header" %>
+
+<div class="body-wrap">
+  <%= form_with model: @record, url: records_path, method: :post, class: 'record-main', local: true do |f| %>
+    <div class='form-wrap'>
+      <div class='form-header'>
+        <h1 class='form-header-text'>
+          記録の入力
+        </h1>
+      </div>
+
+      <%= render 'shared/error_messages', model: f.object %> 
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">お客様氏名</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:client_id, Client.all, :id, :name, {}, {class:"client-default", id:"client-name"}) %> 
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">開始時刻</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='form-time-wrap'>
+          <%= f.time_select :start_time, {default: Time.current.in_time_zone}, prompt:true, ignore_data:true, class:"time-default", id:"start-time" %> 
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">終了時刻</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='form-time-wrap'>
+          <%= f.time_select :end_time, {default: Time.current.in_time_zone}, prompt:true, ignore_data:true, class:"time-default", id:"end-time" %> 
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">大項目</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:major_item_id, Major.all, :id, :name, {}, {class:"major-default", id:"major-id"}) %> 
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">中項目</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:main_item_id, Main.all, :id, :name, {}, {class:"main-default", id:"main-id"}) %> 
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">小項目</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:sub_item_id, Sub.all, :id, :name, {}, {class:"sub-default", id:"sub-id"}) %> 
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">詳細な記録</label>
+        </div>
+        <%= f.text_area :memo, class:"input-default", id:"memo" %>
+      </div>
+      <div class='register-btn'>
+        <%= f.submit "上記の内容を記録する" ,class:"register-red-btn" %>
+      </div>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>

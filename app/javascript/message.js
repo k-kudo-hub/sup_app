@@ -1,9 +1,6 @@
 function message() {
   const submit = document.getElementById("submit");
   submit.addEventListener("click", (e) => {
-    // if (submit.getAttribute("data-load") != null) {
-    //   return null;
-    // }
     const formData = new FormData(document.getElementById("form"));
     const XHR = new XMLHttpRequest();
     XHR.open("POST", "/clients/rooms/:room_id/messages", true);
@@ -30,7 +27,7 @@ function message() {
           </div> 
         </div>
         <div class="lower-message">
-          <div class="message-content">
+          <div class="message-text">
             ${message.content}
           </div>
           <div class="message-image">

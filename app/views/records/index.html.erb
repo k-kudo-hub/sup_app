@@ -1,0 +1,67 @@
+<%= render "shared/header" %>
+
+<div class="body-wrap">
+  <div class="record-head">
+  </div>
+
+  <div class="table-wrap">
+    <table class="table">
+
+      <thead>
+        <tr class="table-header">
+            <th class="client-column">お客様</th>
+          <% 24.times do |i| %>
+            <th class="head-column"><%=i%></th>
+            <% i + 1 %>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @clients.each do |client| %>
+          <tr>
+            <td class="client-one-column">
+              <%= link_to "#{client.name} 様", client_path(client.id) %>
+            </td>
+            <% 24.times do |i| %>
+              <% if client.records.where(start_time: @default+i.hour...@default+i.hour+1.hour).exists? %>
+                <td class="one-column">
+                  <% client.records.where(start_time: @default+i.hour...@default+i.hour+1.hour).each do |record| %>
+                    <% case record.main_item_id %>
+                    <% when 2 then %>
+                      <p class="excretion-m print" id="point" >●</p>
+                    <% when 3 then %>
+                      <p class="meal-m print" id="point">●</p>
+                    <% when 4 then %>
+                      <p class="bathing-m print" id="point">●</p>
+                    <% when 12..21 then %>
+                      <p class="nursing-m print" id="point">●</p>
+                    <% else %>
+                      <p class="other-m print" id="point">●</p>
+                    <% end %>
+                    <div class="modal-back">
+                      <div class="modal">
+                        <h2>記録の詳細</h2>
+                        <p>中項目：<%= Main.find(record.main_item_id).name %></p>
+                        <p>小項目：<%= Sub.find(record.sub_item_id).name %></p>
+                        <p>詳細：<%= record.memo %></p>
+                        <p>時間：<%= l record.start_time, format: :mini %> 〜 <%= l record.end_time, format: :mini %></p>
+                        <p>記録者：<%= User.find(record.user_id).name %></p>
+                      </div> 
+                    </div>
+                  <% end %>
+                </td>
+              <% else %>
+                <td class="one-column">
+                </td>
+              <% end %>
+            <% end %>
+          <tr>
+        <% end %>
+      </tbody>
+      
+    </table>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

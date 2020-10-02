@@ -1,8 +1,4 @@
-<body>
-  <header>
-    <%= render "shared/header" %>
-  </header>
-  
+<%= render "shared/header" %>  
   <div class="body-wrap">
     <%= form_with model: @client, url: client_path, method: :patch, class: 'registration-main', local: true do |f| %>
     <div class='form-wrap'>
@@ -80,8 +76,4 @@
     <% end %>
   </div> 
 
-  <footer>
-    <%= render "shared/footer" %> 
-  </footer>
-
-</body>
+<%= render "shared/footer" %>
