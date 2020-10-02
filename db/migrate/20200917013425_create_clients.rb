@@ -7,6 +7,7 @@ class CreateClients < ActiveRecord::Migration[6.0]
       t.integer :room_number,    null:false
       t.text :picture
       t.integer :status_id,      null:false
+      t.text :careplan
       t.timestamps
     end
   end
