@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       resources :rooms, only: [:index, :new, :create, :edit, :update, :destroy] do
         resources :messages, only: [:index, :create]
       end
-      resources :records
+      resources :records, only: [:index, :new, :create, :edit, :update, :destroy]
     end
   end
 
@@ -28,7 +28,12 @@ Rails.application.routes.draw do
   post 'clients/rooms/:id', to: 'rooms#add_user' 
   get 'clients/rooms/:id', to: 'rooms#add_user'
 
-  # get '/clients/records/new', to: 'records/bulk_new'
-  # get '/clients/records', to: 'records/bulk_create'
+  get '/clients/records/create', to: 'records#bulk_create'
+  post '/clients/records/create', to: 'records#bulk_create'
+
+  patch 'client/record', to: 'records#bulk_carry'
+  put 'client/record', to: 'records#bulk_carry'
+
+  patch 'client/records/:id', to: 'records#carry_out'
 
 end
