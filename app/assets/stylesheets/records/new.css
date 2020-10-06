@@ -10,3 +10,13 @@
   width: 100px;
   height: 50px;
 }
+
+.meal-form-wrap {
+  margin-top: 30px;
+  display: none;
+}
+
+.exc-form-wrap {
+  margin-top: 30px;
+  display: none;
+}

@@ -1,9 +1,41 @@
 .record-head {
-  height: 70px;
+  height: 100px;
+  display: flex;
+}
+
+.rh-btn  {
+  width: 200px;
+  height: 50px;
+  margin: 40px 30px 0 30px;
+}
+
+.rh-text {
+  border: none;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 15px 20px;
+}
+
+.water-record-text {
+  background-color: darkblue;
+}
+
+.bulk-save-text {
+  background-color: rgb(179, 86, 0);
+}
+
+.excretion-record-text {
+  background-color: darkgreen;
 }
 
 .table-wrap {
-  width: 200vw;
+  width: 95vw;
+  text-align: center;
+  margin: 0 auto;
+  height: 68vh;
+  overflow-x: scroll;
+  overflow-x: scroll;
 }
 
 .table {
@@ -14,14 +46,20 @@
 .client-column {
   border: 2px solid gray;
   height: 30px;
-  width: 120px;
+  min-width: 120px;
   text-align: center;
 }
 
 .client-one-column {
   border: 2px solid gray;
-  width: 100px;
-  height: 40px;
+  max-width: 120px;
+  max-height: 80px;
+}
+
+.meal-one-column {
+  border: 2px solid gray;
+  max-width: 120px;
+  height: 27px;
 }
 
 .head-column {
@@ -29,10 +67,6 @@
   width: 60px;
   text-align: center;
   border: 2px solid gray
-}
-
-.print {
-  font-size: 20px;
 }
 
 .modal {
@@ -71,25 +105,62 @@
   display: none;
 }
 
-.excretion-m {
-  color: green;
+.modal-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
 }
 
-.meal-m {
-  color: orange;
+.record-btn {
+  background-color: rgb(179, 86, 0);
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
 }
 
-.bathing-m {
-  color: darkslateblue
+.edit {
+  background-color: rgb(1, 151, 26);
 }
 
-.nursing-m {
-  color: brown;
+.delete {
+  background-color: gray;
 }
 
 .one-column {
-  width: 60px;
-  height: 60px;
+  min-width: 95px;
+  height: 95px;
   text-align: center;
   border: 2px solid gray;
+}
+
+.points-wrap {
+  min-width: 95px;
+  height: 95px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.print {
+  width: 32px;
+  height: 32px;
+  float: left;
+  background-color: white;
+  border-radius: 20px;
+  border: 4px solid #faf9f8;
+  background-color: rgb(252, 225, 175);
+}
+
+.carryout {
+  background-color: rgb(199, 198, 198);
+}
+
+img[data-carryout_id = "1"] {
+  background: rgb(252, 225, 175);
+}
+
+img[data-carryout_id = "2"] {
+  background: rgb(199, 198, 198);
 }
