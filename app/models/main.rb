@@ -5,7 +5,7 @@ class Main < ActiveHash::Base
     
     { id: 2, name: '排泄介助' },{ id: 3, name: '食事介助' },{ id: 4, name: '入浴介助' },
     { id: 5, name: '移動介助' },{ id: 6, name: '整容介助' },{ id: 7, name: '口腔介助' },
-    { id: 8, name: '起床・就寝介助' },{ id: 9, name: '服薬介助' },{ id: 10, name: '測定' },
+    { id: 8, name: '起床・就寝・巡視' },{ id: 9, name: '服薬介助' },{ id: 10, name: '測定' },
     { id: 11, name: 'その他の介助' },
     
     { id: 12, name: '外傷処置' },{ id: 13, name: '服薬管理' },{ id: 14, name: 'バルーン交換' },
