@@ -41,17 +41,22 @@ $(document).on("change", "#main-id", function() {
     $('.sub-default').val('');
     $('.sub-default option').css('display', 'block');
     $('#sub-item').css('display', 'block');
+    $('.meal-form-wrap').css('display', 'none');
+    $('.exc-form-wrap').css('display', 'none');
+
   
     if(mainId == 2) {
       $('.sub-default option[value]').each(function(i) {
         if (i<2 || 10<i) {
           $('.sub-default option[value = ' +(i)+ ']').css('display', 'none');
+          $('.exc-form-wrap').css('display', 'block')
         }
       });
     } else if(mainId == 3) {
       $('.sub-default option[value]').each(function(i) {
         if (i<11 || 16<i) {
           $('.sub-default option[value = ' +(i)+ ']').css('display', 'none');
+          $('.meal-form-wrap').css('display', 'block');
         }
       });
     }  else if(mainId == 4) {
