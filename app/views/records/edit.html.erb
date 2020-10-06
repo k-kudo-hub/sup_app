@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 
 <div class="body-wrap">
-  <%= form_with model: @record, url: records_path, method: :post, class: 'record-main', local: true do |f| %>
+  <%= form_with model: @record, url: record_path, method: :patch, class: 'record-main', local: true do |f| %>
     <div class='form-wrap'>
       <div class='form-header'>
         <h1 class='form-header-text'>
@@ -61,52 +61,12 @@
         </div>
         <%= f.collection_select(:sub_item_id, Sub.all, :id, :name, {}, {class:"sub-default", id:"sub-id"}) %> 
       </div>
-      <div class="meal-form-wrap" id="meal-form-wrap">
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">食事量（主食）</label>
-          </div>
-          <%= f.collection_select(:meal_m_id, Meal.all, :id, :name, {}, {class:"input-default", id:"sub-id"}) %> 
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">食事量（副食）</label>
-          </div>
-          <%= f.collection_select(:meal_s_id, Meal.all, :id, :name, {}, {class:"input-default", id:"sub-id"}) %> 
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">水分量（単位：ml）</label>
-          </div>
-          <%= f.text_area :water_amount, class:"carry-default", id:"carry-id", default: 0 , placeholder:"例：200" %> 
-        </div>
-      </div>
-      <div class="exc-form-wrap" id="exc-form-wrap">
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">便状態</label>
-          </div>
-          <%= f.collection_select(:exc_shape_id, Shape.all, :id, :name, {selected: 0}, {class:"input-default", id:"exc-shape-id"}) %> 
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">便量</label>
-          </div>
-          <%= f.collection_select(:exc_amount_id, Amount.all, :id, :name, {selected: 0}, {class:"input-default", id:"exc-amount-id"}) %> 
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">尿量</label>
-          </div>
-          <%= f.text_area :urine_amount, class:"carry-default", id:"carry-id", default: 0 ,placeholder:"例：450" %> 
-        </div>
-      </div>  
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">実施ステータス</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:carryout_id, Carry.all, :id, :name, {selected: 2}, {class:"carry-default", id:"carry-id"}) %> 
+        <%= f.collection_select(:carryout_id, Carry.all, :id, :name, {}, {class:"carry-default", id:"carry-id"}) %> 
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
