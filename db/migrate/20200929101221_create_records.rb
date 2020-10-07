@@ -12,10 +12,10 @@ class CreateRecords < ActiveRecord::Migration[6.0]
       t.integer :carryout_id,     null:false
       t.integer :meal_m_id
       t.integer :meal_s_id
-      t.integer :water_amount
+      t.integer :water_amount,    default: 0
       t.integer :exc_shape_id
       t.integer :exc_amount_id
-      t.integer :urine_amount
+      t.integer :urine_amount,    default: 0
       t.text :memo
       t.timestamps
     end
