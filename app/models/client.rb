@@ -23,7 +23,7 @@ class Client < ApplicationRecord
   scope :name_kanas, -> (name_kana){ where(name_kana: "#{name_kana}") if name_kana.present? }
   scope :room_numbers, -> (room_number){ where(room_number: "#{room_number}") if room_number.present? }
 
-  with_options presence: {message: "が空です"} do
+  with_options presence: {message: "が入力されていません。"} do
     validates :name
     validates :name_kana,   format:{with:/\A[ァ-ヶー－]+\z/, message:"は全角カタカナのみ登録できます。"}
     validates :birth

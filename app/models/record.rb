@@ -9,13 +9,19 @@ class Record < ApplicationRecord
     belongs_to_active_hash :amount
     belongs_to_active_hash :meal
 
-
   belongs_to :client
 
-  # with_options presence: {nessage: "が空です"} do
-  #   validates :client,       uniqueness: { sccope: [:start_time, :end_time, :major_item_id, :main_item_id, :sub_item_id]}
-  # end
-
+  with_options presence: {nessage: "が入力されていません。"} do
+    validates :client_id
+    validates :major_item_id,  numericality:{ other_than: 1 , message: "が選択されていません。"}
+    validates :main_item_id,   numericality:{ other_than: 1 , message: "が選択されていません。"}
+    validates :sub_item_id,    numericality:{ other_than: 1 , message: "が選択されていません。"}
+    validates :start_time
+    validates :end_time
+  end
+  
+  validates :water_amount, :urine_amount, numericality: { only_integer: true, message: "は数字で入力してください。" }
+  validates :water_amount, :urine_amount, format: {with: /\A[0-9]+\z/, message: "は半角数字のみ使用できます。"}
   validate :time_check
 
   def time_check

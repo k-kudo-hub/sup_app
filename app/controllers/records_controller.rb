@@ -20,7 +20,7 @@ class RecordsController < ApplicationController
       @record.save
       redirect_to 
     else
-      redirect_to 
+      render :new
     end
   end
 
