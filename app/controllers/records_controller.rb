@@ -3,9 +3,12 @@ class RecordsController < ApplicationController
   protect_from_forgery only: [:carry_out]
 
   def index
+    @clients = Client.includes(:records).order("room_number ASC")
     @default = Date.today.beginning_of_day.in_time_zone
     @defaultend = Date.today.end_of_day.in_time_zone
-    @clients = Client.includes(:records).order("room_number ASC")
+    @morning = @default+6.hour...@default+10.hour
+    @lunch = @default+11.hour...@default+14.hour
+    @evening = @default+17.hour...@default+21.hour
   end
 
   def new
