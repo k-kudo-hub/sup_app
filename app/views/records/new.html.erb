@@ -78,7 +78,7 @@
           <div class='form-text-wrap'>
             <label class="form-text">水分量（単位：ml）</label>
           </div>
-          <%= f.text_area :water_amount, class:"carry-default", id:"carry-id", default: 0 , placeholder:"例：200" %> 
+          <%= f.number_field :water_amount, class:"input-default", id:"carry-id" %> 
         </div>
       </div>
       <div class="exc-form-wrap" id="exc-form-wrap">
@@ -98,7 +98,7 @@
           <div class='form-text-wrap'>
             <label class="form-text">尿量</label>
           </div>
-          <%= f.text_area :urine_amount, class:"carry-default", id:"carry-id", default: 0 ,placeholder:"例：450" %> 
+          <%= f.number_field :urine_amount, class:"input-default", id:"carry-id" %> 
         </div>
       </div>  
       <div class="form-group">
@@ -119,7 +119,7 @@
           <label class="form-text">この記録をリマインドにする</label>
           <span class="indispensable"></span>
         </div>
-        <%= f.check_box :remind,{class:"check-default", id:"remind-check"}, true, false  %> 
+        <%= f.check_box :remind,{class:"check-default", id:"remind-check"}, "true", "false" %> 
       </div>
       <div class='register-btn'>
         <%= f.submit "上記の内容を記録する" ,class:"register-red-btn" %>

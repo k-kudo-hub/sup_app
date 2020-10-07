@@ -41,7 +41,7 @@
               <% if client.records.where(start_time: @default+6.hour...@default+10.hour).empty? %>
                 <p>未入力</p>
               <% else %> 
-                <%= Meal.find_by(id: client.records.where(start_time: @default+6.hour...@default+10.hour).meal_m.name).name %>/<%= Meal.find_by(id: client.records.where(start_time: @default+6.hour...@default+10.hour).meal_s.name).name %>
+                <%= Meal.find_by(id: client.records.where(start_time: @default+6.hour...@default+10.hour).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @default+6.hour...@default+10.hour).first.meal_s_id).name %>
               <% end %>
             </td>
 
