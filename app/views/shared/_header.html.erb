@@ -15,9 +15,15 @@
       <%= link_to new_client_path, method: :get  do %>
         <%= image_tag "client.png", size:'80x80', class: "client-dam" %>
       <% end %>
-      <%= link_to user_path(current_user.id) do %>
-        <%= image_tag (current_user.picture.top_user.url), class: "user-pic" %>
-      <% end %>
+        <% unless current_user.picture.file.nil? %>
+          <%= link_to user_path(current_user.id) do %>
+            <%= image_tag (current_user.picture.top_user.url), size:'80x80', class: "user-pic" %>
+          <% end %>
+        <% else %>
+          <%= link_to user_path(current_user.id) do %>
+            <%= image_tag "card.png", size:'80x80', class: "user-pic" %>
+          <% end %>
+        <% end %>
       <%= link_to "/users/sign_out", method: :delete do %> 
         <%= image_tag "yazirushi-down.png", size:'80x80', class: "logout-pic" %>
       <% end %>

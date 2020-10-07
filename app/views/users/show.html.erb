@@ -1,8 +1,6 @@
 <body>
 
-  <header>
-    <%= render "shared/header" %>
-  </header>
+<%= render "shared/header" %>
 
   <div class="body-wrap">
     <div class="name">
@@ -11,7 +9,7 @@
 
     <div class="user-image-content">
       <% if @user.picture.file.nil? %> 
-        <%= image_tag '/assets/human.png', class:"user-show-box-img" %>
+        <%= image_tag '/assets/card.png', class:"user-show-box-img" %>
       <% else %>
         <%= image_tag (@user.picture.url), class:"user-show-box-img" %>
       <% end %>
