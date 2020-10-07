@@ -12,7 +12,7 @@ RSpec.describe Client, type: :model do
       it "name,name_kana,room_number,status_id,birthが揃っていれば登録できる" do
         expect(@client).to be_valid
       end
-      it "pictureはからでも登録できる" do
+      it "pictureは空でも登録できる" do
         @client.picture = ""
         expect(@client).to be_valid
       end
