@@ -1,6 +1,90 @@
 ---
 ja:
   activerecord:
+    attributes:
+      user:
+        name: 名前
+        name_kana: フリガナ（カタカナ）
+        staff_number: スタッフ番号
+        position_id: 役職
+        qualification_id: 保有資格
+        work_style_id: 勤務形態
+        picture: 写真
+        email: メールアドレス
+        encrypted_password: パスワード
+      client: 
+        client: お客様情報
+        name: 名前 
+        name_kana: フリガナ（カタカナ）
+        birth: 生年月日
+        room_number: 居室番号
+        picture: 写真
+        status_id: 入居状況
+        careplan: ケアプラン
+      detail:
+        client_id: お客様名
+        past_history: 既往歴
+        illness: 現病暦
+        medicine: 服用中の薬
+        mbp_high: 平均血圧（収縮期）
+        mbp_low: 平均血圧（拡張期）
+        doctor: かかりつけ医
+      caregiver:
+        client_id: お客様名
+        degree_id: 要介護度
+        cognition_id: 認知機能
+        move_id: 移動
+        move_exp: 移動（詳細）
+        meal_id: 食事
+        meal_exp: 食事（詳細）
+        excretion_id: 排泄
+        excretion_exp: 排泄（詳細）
+        oral_id: 口腔
+        oral_exp: 口腔（詳細）
+        bathing_id: 入浴
+        bathing_exp: 入浴（詳細）
+        memo: お客様メモ
+      message:
+        room_id: 部屋ID
+        user_id: ユーザーのID
+        content: 投稿内容
+        picture: 写真
+        tag_id: タグ
+      record:
+        client: お客様ID
+        user: ユーザーID
+        start_time: 開始時刻
+        end_time: 終了時刻
+        major_item_id: 大項目
+        main_item_id: 中項目
+        sub_item_id: 小項目
+        remind: リマインド
+        carryout_id: 実施状況
+        meal_m_id: 食事量（主食）
+        meal_s_id: 食事量（副食）
+        water_amount: 水分量
+        exc_shape_id: 便状
+        exc_amount_id: 便量
+        urine_amount: 尿量
+        memo: 記録の詳細
+      report:
+        client: お客様名
+        user: ユーザーID
+        occ_time: 事故の発生時刻
+        place_id: 事故の発生場所
+        genre_id: 事故の種別
+        res_id: 事故の状況
+        level_id: 受傷の程度
+        content: 事故の内容
+        picture: 対処の詳細
+        coping: 施設内での報告
+        contact_id: 受診（入院）した医療機関名
+        hospital: 家族への報告
+        desc_date: 家族への報告
+        desc_user: 家族への説明担当者
+        desc_content: 家族への説明内容
+        count_content: 再発防止策の内容
+        check_id: 承認レベル
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
