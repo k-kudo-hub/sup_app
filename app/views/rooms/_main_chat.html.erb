@@ -23,14 +23,14 @@
         <%= message.user.name%>
       </div>
       <div class="message-date">
-        <%= message.created_at %> 
+        <%= message.created_at, format: :mini %> 
       </div> 
     </div>
     <div class="lower-message">
       <div class="message-content">
         <%= message.content %>
       </div>
-      <%# <%= image_tag message.image.variant(resize:'500x500'), class: 'message-image' if message.picture.attached? %>
+      <%= image_tag message.image.variant(resize:'500x500'), class: 'message-image' if message.picture.attached? %>
     </div>
    </div>
  <% end %>
@@ -45,8 +45,6 @@
       <span class="image-file">画像</span>
       <%= f.file_field :picture, class: 'hidden' %>
     </label>
-    <%# <% f.hidden_field :client_id, value: current_user.id %>
-    <%# <% f.hidden_field :room_id, value: @room.id %> 
   </div>
   <%= f.submit '送信', class: 'form-submit', id: "submit" %>
 <% end %>
