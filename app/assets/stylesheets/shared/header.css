@@ -29,6 +29,7 @@ header {
   align-items: center;
   width: 550px;
   height: 110px;
+  overflow-x: scroll;
 }
 
 .user-data ,li {

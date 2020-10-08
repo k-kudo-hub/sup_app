@@ -27,7 +27,8 @@ class Record < ApplicationRecord
   def time_check
     if (carryout_id == 2) && (start_time > Time.now)
       errors.add(:start_time, "未来の記録はできません")
-    elsif (carryout_id == 2) && (end_time > Time.now)
+    end
+    if (carryout_id == 2) && (end_time > Time.now)
       errors.add(:end_time, "未来の記録はできません")
     end
   end

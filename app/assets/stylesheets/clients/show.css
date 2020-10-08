@@ -124,6 +124,11 @@ body {
   width: 95%;
 }
 
+.show-table {
+  margin: 30px auto;
+  width: 70%;
+}
+
 .detail-item {
   width: 20%;
   background-color: #eee;

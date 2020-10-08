@@ -8,6 +8,7 @@ class Client < ApplicationRecord
   has_many :relationships
   has_many :users, through: :relationships
   has_many :records
+  has_many :reports
 
   mount_uploader :picture, PictureUploader
 

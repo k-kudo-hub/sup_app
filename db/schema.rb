@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_053814) do
+ActiveRecord::Schema.define(version: 2020_10_07_121202) do
 
   create_table "caregivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "client_id", null: false
@@ -101,6 +101,28 @@ ActiveRecord::Schema.define(version: 2020_09_30_053814) do
     t.index ["client_id"], name: "index_relationships_on_client_id"
     t.index ["user_id", "client_id"], name: "index_relationships_on_user_id_and_client_id", unique: true
     t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
+
+  create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "client_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "occ_time", null: false
+    t.integer "place_id", null: false
+    t.integer "genre_id", null: false
+    t.integer "res_id", null: false
+    t.integer "level_id", null: false
+    t.text "content"
+    t.text "picture"
+    t.text "coping"
+    t.integer "contact_id"
+    t.text "hospital"
+    t.datetime "desc_date"
+    t.integer "desc_user"
+    t.text "desc_content"
+    t.text "count_content"
+    t.integer "check_id", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

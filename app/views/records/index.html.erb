@@ -38,16 +38,16 @@
 
             <%# 食事量の表示 %>
             <td class="meal-one-column">
-              <% if client.records.where(start_time: @default+6.hour...@default+10.hour).empty? %>
+              <% if client.records.where(start_time: @morning).where(main_item_id: 3).empty? %>
                 <p>未入力</p>
               <% else %> 
-                <%= Meal.find_by(id: client.records.where(start_time: @default+6.hour...@default+10.hour).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @default+6.hour...@default+10.hour).first.meal_s_id).name %>
+                <%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_s_id).name %>
               <% end %>
             </td>
 
             <%# 水分量の表示 %>
             <td class="client-one-column" rowspan="3">
-              <% if client.records.where(start_time: @default...@defaultend).empty? %>
+              <% if client.records.where(start_time: @default...@defaultend).where(main_item_id: 3).empty? %>
                 <p>未入力</p>
               <% else %>  
                 <%= client.records.where(start_time: @default...@defaultend).pluck(:water_amount).sum %>
@@ -143,19 +143,19 @@
           </tr>
           <tr>
             <td class="meal-one-column">
-              <% if client.records.where(start_time: @default+10.hour...@default+15.hour).empty? %>
+              <% if client.records.where(start_time: @lunch).where(main_item_id:3).empty? %>
                 <p>未入力</p>
               <% else %>  
-                <%= Meal.find_by(id: client.records.where(start_time: @default+10.hour...@default+15.hour).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @default+10.hour...@default+15.hour).first.meal_s_id).name %>
+                <%= Meal.find_by(id: client.records.where(start_time: @lunch).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @lunch).first.meal_s_id).name %>
               <% end %>
             </td>
           </tr>
           <tr>
             <td class="meal-one-column">
-              <% if client.records.where(start_time: @default+16.hour...@default+21.hour).empty? %>
+              <% if client.records.where(start_time: @evening).where(main_item_id:3).empty? %>
                 <p>未入力</p>
               <% else %>  
-                <%= Meal.find_by(id: client.records.where(start_time: @default+16.hour...@default+21.hour).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @default+16.hour...@default+21.hour).first.meal_s_id).name %>
+                <%= Meal.find_by(id: client.records.where(start_time: @evening).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @evening).first.meal_s_id).name %>
               <% end %>
             </td>
           </tr>

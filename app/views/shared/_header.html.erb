@@ -6,6 +6,9 @@
   </div>
   <div class="user-data">
     <% if user_signed_in? %>
+      <%= link_to "/clients/reports", method: :get do %>
+        <%= image_tag "resque.png", size:'60x60', class: "client-dam" %>
+      <% end %>
       <%= link_to "/clients/records/new", method: :get do %>
         <%= image_tag "memo.png", size:'80x80', class: "client-dam" %>
       <% end %>
