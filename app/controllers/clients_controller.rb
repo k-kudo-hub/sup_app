@@ -73,7 +73,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:name, :name_kana, :room_number, :status_id, :picture, :birth, detail_attributes: [:id,], caregiver_attributes: [:id,])
+    params.require(:client).permit(:name, :name_kana, :room_number, :status_id, :picture, :birth, :sex_id, :insurance, :careplan, detail_attributes: [:id,], caregiver_attributes: [:id,])
   end
 
   def detail_params

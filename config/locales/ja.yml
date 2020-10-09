@@ -288,8 +288,9 @@ ja:
     am: 午前
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
-      long: "%Y/%m/%d %H:%M"
+      long: "%Y年%m月%d日 %H時%M分"
       short: "%m/%d %H:%M"
+      mid: "%Y年%m月%d日"
       mini: "%m月%d日 %H:%M"
       nano: "%H:%M"
     pm: 午後

@@ -31,6 +31,10 @@
             <td class="detail-value"><%= @client.birth %></td> 
           </tr>
           <tr>
+            <th class="detail-item">性別</th>
+            <td class="detail-value"><%= @client.sex.name %></td> 
+          </tr>
+          <tr>
             <th class="detail-item">入居状況</th>
             <td class="detail-value"><%= @client.status.name %></td>
           </tr>
@@ -46,7 +50,7 @@
 
         <div class="detail-table">
           <% if user_signed_in? && (current_user.position_id > 1) %> 
-            <%= link_to 'お客様情報の削除', client_path(@client.id), method: :delete, class: "client-gray-btn" %> 
+            <%= link_to 'お客様情報の削除', client_path(@client.id), method: :delete, class: "client-gray-btn", data: {confirm: "お客様のデータを削除しようとしています。お客様のデータを削除すると、チャットルーム・記録などの関連データも削除されます。本当に削除しますか？"} %> 
           <% end %>
         </div>
       </div>
