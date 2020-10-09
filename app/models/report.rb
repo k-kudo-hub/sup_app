@@ -14,8 +14,10 @@ class Report < ApplicationRecord
       validates :client_id
       validates :user_id
       validates :occ_time
-      validates :place_id, :genre_id, :res_id, :level_id,
+      validates :place_id, :res_id, :level_id,
       numericality: { other_than: 1 , message: "が選択されていません。"}
+      validates :genre_id, 
+      numericality: { other_than: 0 , message: "が選択されていません。"}
     end
 
     validate :check_one
