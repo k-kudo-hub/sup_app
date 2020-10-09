@@ -29,7 +29,20 @@
         </div>
         <%= f.text_area :room_number, class:"input-default", id:"room-number" %>
       </div> 
-
+      <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">性別</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"input-default", id:"status"}) %> 
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">保険者番号</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :insurance, class:"input-default", id:"insurance", placeholder:"例) 12345678", maxlength:"8" %>
+    </div>
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">現在の入居情報</label>
