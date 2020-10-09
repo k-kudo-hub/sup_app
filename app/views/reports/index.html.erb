@@ -1,9 +1,40 @@
 <%= render "shared/header" %>
 
 <div class="body-wrap">
-
-<%= link_to "新規作成", new_report_path, method: :get %>
-
+  
+  <div class="form-header">
+    <div class="report-index-text">
+      事故報告書一覧
+    </div>
+    <div class="new-report-btn">
+      <%= link_to "新規作成", new_report_path, method: :get, class:"new-report-text" %>
+    </div>
+  </div>
+  <div class="report-index">
+    <table>
+      <tr class="r-index-tr">
+        <th class="r-index-th">ID</th>
+        <th class="r-index-th">お客様名</th>
+        <th class="r-index-th">居室番号</th>
+        <th class="r-index-th">事故発生日</th>
+        <th class="r-index-th">承認</th>
+        <th class="r-index-th" colspan="2"></th>
+      </tr>
+      <% @report.each do  |report| %>
+        <div class="one-report">
+          <tr class="r-index-tr">
+            <td class="r-index-td"><%= report.id %></td>
+            <td class="r-index-td"><%= report.client.name %></td>
+            <td class="r-index-td"><%= report.client.room_number %></td>
+            <td class="r-index-td"><%= l report.occ_time, format: :mini %></td>
+            <td class="r-index-td"><%= report.check.name %></td>
+            <td class="r-index-td link show" ><%= link_to "詳細へ", report_path(report.id), method: :get, class:"rep-btn" %></td>
+            <td class="r-index-td link edit"><%= link_to "編集する", edit_report_path(report.id), method: :get, class:"rep-btn" %></td>
+          <tr>
+        </div>
+      <% end %>
+    </table>
+  </div>
 </div>
 
 <%= render "shared/footer" %>
