@@ -1,8 +1,19 @@
 class MessagesController < ApplicationController
 
+  def index
+    @room = Room.find(params[:room_id])
+    @message = Message.new
+    @messages = @room.messages.all.order("id ASC")
+    render "messages/index"
+  end
+
+
   def create
-    @message = Message.create(room_params)
-    render json: {message: @message}
+    @message = Message.new(room_params)
+    if @message.save
+      ActionCable.server.broadcast 'message_channel', content: @message
+    end
+    redirect_to and return
   end
 
   private
