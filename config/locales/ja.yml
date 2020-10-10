@@ -21,6 +21,8 @@ ja:
         picture: 写真
         status_id: 入居状況
         careplan: ケアプラン
+        sex_id: 性別
+        insurance: 保険証番号
       detail:
         client_id: お客様名
         past_history: 既往歴

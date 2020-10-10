@@ -1,6 +1,7 @@
 .form-time-wrap {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 10px;
 }
 
 #record_start_time_4i,

@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     if @report.valid?
       @report.save
-      redirect_to :root
+      redirect_to reports_path
     else
       render :new
     end
@@ -33,6 +33,12 @@ class ReportsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @report = Report.find(params[:id])
+    @report.destroy
+    redirect_to reports_path
   end
 
   private
