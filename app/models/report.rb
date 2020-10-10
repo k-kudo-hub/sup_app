@@ -21,13 +21,35 @@ class Report < ApplicationRecord
     end
 
     validate :check_one
+    validate :check_three
+    validate :check_four
+    validate :check_five
 
     def check_one
       if (check_id == 1) && (content == "")
         errors.add(:content, "は本人承認に必要な項目です。")
-      elsif (check_id == 1) && (coping == "")
+      end
+      if (check_id == 1) && (coping == "")
         errors.add(:coping, "は本人承認に必要な項目です。")
       end
+    end
+
+    def check_three
+      if (check_id == 3) && (count_content == "")
+        errors.add(:count_content, "は現場責任者承認に必要な項目です")
+      end
+    end
+
+    def check_four
+      if (check_id == 4) && (desc_content == "")
+        errors.add(:desc_content, "はケアマネージャー承認に必要な項目です")
+      end  
+    end
+
+    def check_five
+      if (check_id == 5) && (count_content == "")
+        errors.add(:count_content, "は施設責任者承認に必要な項目です")
+      end  
     end
 
 end
