@@ -78,7 +78,7 @@
           <div class='form-text-wrap'>
             <label class="form-text">対処の詳細</label>
           </div>
-          <%= f.collection_select(:coping, Meal.all, :id, :name, {}, {class:"input-default", id:"sub-id"}) %> 
+          <%= f.text_area :coping, class:"input-long", id:"sub-id" %> 
         </div>
 
         <div class="form-group">
