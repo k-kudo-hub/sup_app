@@ -18,7 +18,7 @@
         <th class="r-index-th">居室番号</th>
         <th class="r-index-th">事故発生日</th>
         <th class="r-index-th">承認</th>
-        <th class="r-index-th" colspan="2"></th>
+        <th class="r-index-th" colspan="3"></th>
       </tr>
       <% @report.each do  |report| %>
         <div class="one-report">
@@ -28,8 +28,13 @@
             <td class="r-index-td"><%= report.client.room_number %></td>
             <td class="r-index-td"><%= l report.occ_time, format: :mini %></td>
             <td class="r-index-td"><%= report.check.name %></td>
-            <td class="r-index-td link show" ><%= link_to "詳細へ", report_path(report.id), method: :get, class:"rep-btn" %></td>
-            <td class="r-index-td link edit"><%= link_to "編集する", edit_report_path(report.id), method: :get, class:"rep-btn" %></td>
+            <td class="r-index-td link show" ><%= link_to "詳細", report_path(report.id), method: :get, class:"rep-btn" %></td>
+            <% if current_user.id == report.user_id %>
+              <td class="r-index-td link edit"><%= link_to "編集", edit_report_path(report.id), method: :get, class:"rep-btn" %></td>
+            <% end %>
+            <% if current_user.position_id > 6 %>
+              <td class="r-index-td link destroy"><%= link_to "削除", report_path(report.id), method: :delete, class:"rep-btn", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %></td>
+            <% end %>
           <tr>
         </div>
       <% end %>

@@ -12,11 +12,11 @@
   width: 90%;
   text-align: center;
   margin:20px auto;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
   font-family: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "ヒラギノ明朝 ProN", "ヒラギノ明朝 Pro";
 }
 
-span {
+.ymd {
   margin-left: 60px
 }
 
