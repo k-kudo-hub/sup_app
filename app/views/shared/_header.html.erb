@@ -1,38 +1,62 @@
 <header>
-  <div class="logp">
+  <div class="header-center">
     <%= link_to root_path do %>
-      <%= image_tag "logo.png", size:'96x80', class:"logo-image" %>
+      <%= image_tag "logo.png", size:'150x45', class:"logo" %>
     <% end %>
+  </div>  
+  <div class="header-right">
+    <%= image_tag "menu.png", size:"50x50", class:"menu", id:"menu" %>
   </div>
-  <div class="user-data">
-    <% if user_signed_in? %>
-      <%= link_to "/clients/reports", method: :get do %>
-        <%= image_tag "resque.png", size:'60x60', class: "client-dam" %>
-      <% end %>
-      <%= link_to "/clients/records/new", method: :get do %>
-        <%= image_tag "memo.png", size:'80x80', class: "client-dam" %>
-      <% end %>
-      <%= link_to "/clients/records", method: :get do %>
-        <%= image_tag "note.png", size:'60x60', class: "client-dam" %>
-      <% end %>
-      <%= link_to new_client_path, method: :get  do %>
-        <%= image_tag "client.png", size:'80x80', class: "client-dam" %>
-      <% end %>
-        <% unless current_user.picture.file.nil? %>
-          <%= link_to user_path(current_user.id) do %>
-            <%= image_tag (current_user.picture.top_user.url), size:'80x80', class: "user-pic" %>
+  <div class="user-data hidden">
+    <div class="user-data-wrap">
+      <% if user_signed_in? %>
+        <div class="one-icon">
+          <%= link_to "/clients/reports", method: :get do %>
+            <%= image_tag "resque.png", size:'60x60', class: "client-dam" %>
+            <p class="icon-exp">報告書一覧</p>
           <% end %>
-        <% else %>
-          <%= link_to user_path(current_user.id) do %>
-            <%= image_tag "card.png", size:'80x80', class: "user-pic" %>
+        </div>
+        <div class="one-icon">
+          <%= link_to "/clients/records/new", method: :get do %>
+            <%= image_tag "memo.png", size:'80x80', class: "client-dam" %>
+            <p class="icon-exp">新規記録</p>
           <% end %>
-        <% end %>
-      <%= link_to "/users/sign_out", method: :delete do %> 
-        <%= image_tag "yazirushi-down.png", size:'80x80', class: "logout-pic" %>
+        </div>
+        <div class="one-icon">
+          <%= link_to "/clients/records", method: :get do %>
+            <%= image_tag "note.png", size:'60x60', class: "client-dam" %>
+            <p class="icon-exp">記録一覧</p>
+          <% end %>
+        </div>
+        <div class="one-icon">
+          <%= link_to new_client_path, method: :get  do %>
+            <%= image_tag "client.png", size:'80x80', class: "client-dam" %>
+            <p class="icon-exp">お客様登録</p>
+          <% end %>
+        </div>
+        <div class="one-icon">
+          <% unless current_user.picture.file.nil? %>
+            <%= link_to user_path(current_user.id) do %>
+              <%= image_tag (current_user.picture.top_user.url), size:'80x80', class: "user-pic" %>
+              <p class="icon-exp">マイページ</p>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(current_user.id) do %>
+              <%= image_tag "card.png", size:'80x80', class: "user-pic" %>
+              <p class="icon-exp">マイページ</p>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="one-icon">
+          <%= link_to "/users/sign_out", method: :delete do %> 
+            <%= image_tag "yazirushi-down.png", size:'80x80', class: "logout-pic" %>
+            <p class="icon-exp">ログアウト</p>
+          <% end %>
+        </div>
+      <% else %> 
+        <li><%= link_to 'ログイン', new_user_session_path, method: :get, class: "login" %></li>
+        <li><%= link_to '新規登録', "/users/sign_up", class: "sign-up" %></li>
       <% end %>
-    <% else %> 
-      <li><%= link_to 'ログイン', new_user_session_path, method: :get, class: "login" %></li>
-      <li><%= link_to '新規登録', "/users/sign_up", class: "sign-up" %></li>
-    <% end %>
-  </div>
+    </div>
+  </div>  
 </header>
