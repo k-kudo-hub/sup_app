@@ -4,9 +4,8 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     @message = Message.new
     @messages = @room.messages.all.order("id ASC")
-    render "messages/index"
+    # render "messages/index"
   end
-
 
   def create
     @message = Message.new(room_params)
@@ -21,5 +20,5 @@ class MessagesController < ApplicationController
   def room_params
     params.require(:message).permit(:content, :tag_id, :user_id, :room_id, :user_name, :picture).merge(user_id:params[:message][:user_id], room_id:params[:message][:room_id])
   end
-  
+
 end

@@ -4,7 +4,10 @@ class RoomsController < ApplicationController
 
   #トップページ表示のための定義
   def index
-    @clients = Client.includes(:detail, :caregiver, :room).order("room_number ASC")
+    @clients = Client.includes(:detail, :caregiver, :room, :records).order("room_number ASC")
+    default = Time.now.ago(7.days)...Time.now
+    @reports = Report.where(occ_time: default).order("occ_time DESC")
+    @today = Date.today.beginning_of_day...Date.today.end_of_day
   end
 
   def search_clients

@@ -1,10 +1,13 @@
 <%= render "shared/header" %>
 
 <div class="body-wrap">
-  <div class="search-wrap">
-    <%= render "rooms/search_bar" %>
-  </div>
   <% if user_signed_in? %>
+    <div class="top-report-area">
+      <%= render "rooms/report_bar" %>
+    </div>
+    <div class="search-wrap">
+      <%= render "rooms/search_bar" %>
+    </div>
     <%= render "shared/rooms"%>
   <% end %>
 </div>
