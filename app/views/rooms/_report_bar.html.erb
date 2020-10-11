@@ -1,0 +1,16 @@
+<div class="top-report-wrap">
+  <div class="top-report">
+    <h2 class="top-report-title">1週間以内に発生した事故</h2>
+  </div>
+  <div>
+    <% @reports.each do |report| %>
+      <div class="top-one-report">●
+        <%= link_to report_path(report.id), method: :get do %>  
+          <%= l report.occ_time, format: :mini %>
+          <%= report.client.name %>
+          <%= report.genre.name %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

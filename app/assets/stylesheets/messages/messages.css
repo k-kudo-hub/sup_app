@@ -130,6 +130,8 @@
 .message-text {
   font-size: 14px;
   color: #434454;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .message-tag {

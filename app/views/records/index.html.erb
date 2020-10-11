@@ -22,7 +22,7 @@
           <th class="client-column">食事量</th>
           <th class="client-column">水分量</th>
           <% 24.times do |i| %>
-            <th class="head-column"><%=i%></th>
+            <th class="head-column"><%= i.to_s + ":00" %></th>
           <% end %>
         </tr>
       </thead>

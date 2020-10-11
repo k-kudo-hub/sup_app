@@ -26,6 +26,81 @@
           <% end %>
         </div>
         <div class="score-area">
+          <% client.records.where(start_time: @today).order("start_time ASC").each do  |record| %>
+            <div class="one-record">
+              <% case record.sub_item_id %>
+              <% when 2..10 then %>
+                <% if record.carryout_id == 1 %>
+                  <img src="../../assets/excretion.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print top" id="point">
+                <% else %>
+                  <img src="../../assets/excretion.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout top" id="point">
+                <% end %>
+              <% when 11..16 then %>
+                <% if record.carryout_id == 1 %>
+                  <img src="../../assets/meal.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print top" id="point">
+                <% else %>
+                  <img src="../../assets/meal.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout top" id="point">
+                <% end %>
+              <% when 23..29 then %>
+                <% if record.carryout_id == 1 %>
+                  <img src="../../assets/bathing.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print top" id="point">
+                <% else %>
+                  <img src="../../assets/bathing.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout top" id="point">
+                <% end %>
+                <% when 35..40 then %>
+                <% if record.carryout_id == 1 %>
+                  <img src="../../assets/oral.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="printtop " id="point">
+                <% else %>
+                  <img src="../../assets/oral.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout top" id="point">
+                <% end %>
+              <% when 41 then %>
+                <% if record.carryout_id == 1 %>
+                  <img src="../../assets/morning.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print top" id="point">
+                <% else %>
+                  <img src="../../assets/morning.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout top" id="point">
+                <% end %>                      
+              <% when 42 then %>
+                <% if record.carryout_id == 1 %>
+                  <img src="../../assets/night.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print top" id="point">
+                <% else %>
+                  <img src="../../assets/night.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout top" id="point">
+                <% end %>
+              <% when 43 then %>
+                <% if record.carryout_id == 1 %>
+                  <img src="../../assets/bed.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print top" id="point">
+                <% else %>
+                  <img src="../../assets/bed.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout top" id="point">
+                <% end %>
+              <% when 58..95 then %>
+                <% if record.carryout_id == 1 %>
+                  <img src="../../assets/nurthing.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print top" id="point">
+                <% else %>
+                  <img src="../../assets/nurthing.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout top" id="point">
+                <% end %>  
+              <% else %>
+                <% if record.carryout_id == 1 %>
+                  <img src="../../assets/note.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print top" id="point">
+                <% else %>
+                  <img src="../../assets/note.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout top" id="point">
+                <% end %>
+              <% end %>
+              <div class="modal-back" id="modal-back">
+                <div class="modal">
+                  <h2>記録の詳細</h2>
+                  <p>中項目：<%= Main.find(record.main_item_id).name %></p>
+                  <p>小項目：<%= Sub.find(record.sub_item_id).name %></p>
+                  <p>詳細：<%= record.memo %></p>
+                  <p>時間：<%= l record.start_time, format: :mini %> 〜 <%= l record.end_time, format: :mini %></p>
+                  <p>実施ステータス：<%= Carry.find(record.carryout_id).name %></p>
+                  <p>記録者：<%= User.find(record.user_id).name %></p>
+                  <div class="modal-btn">
+                    <%= link_to "この記録を編集", edit_record_path(record.id), method: :get, class: "record-btn edit" %>
+                    <%= link_to "この記録を削除", record_path(record.id), method: :delete, class: "record-btn delete", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %>
+                  </div>
+                </div> 
+              </div>
+             </div> 
+          <% end %> 
         </div>
       </div>
     </div>
