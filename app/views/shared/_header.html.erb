@@ -54,8 +54,18 @@
           <% end %>
         </div>
       <% else %> 
-        <li><%= link_to 'ログイン', new_user_session_path, method: :get, class: "login" %></li>
-        <li><%= link_to '新規登録', "/users/sign_up", class: "sign-up" %></li>
+        <div class="one-icon">
+          <%= link_to "/users/sign_in", method: :get do %> 
+            <%= image_tag "signin.png", size:'80x80', class: "sign-in" %>
+            <p class="icon-exp">ログイン</p>
+          <% end %>
+        </div>        
+        <div class="one-icon">
+          <%= link_to "/users/sign_up", method: :get do %> 
+            <%= image_tag "signup.png", size:'80x80', class: "sign-up" %>
+            <p class="icon-exp">新規登録</p>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>  
