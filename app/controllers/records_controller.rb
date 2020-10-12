@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
   require "date"
   protect_from_forgery only: [:carry_out]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
     @clients = Client.includes(:records).order("room_number ASC")
@@ -96,6 +97,12 @@ class RecordsController < ApplicationController
 
   def record_params
     params.require(:record).permit(:client_id, :major_item_id, :main_item_id, :sub_item_id, :start_time, :end_time, :memo, :remind, :carryout_id, :meal_m_id, :meal_s_id, :water_amount, :exc_shape_id, :exc_amount_id, :urine_amount).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    if (current_user.id != @record.user_id) && (current_user.position_id < 4)
+      redirect_to root_path
+    end
   end
 
 end
