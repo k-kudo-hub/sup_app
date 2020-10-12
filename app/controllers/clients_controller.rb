@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :move_to_index, only: [:new, :create, :create_detail, :create_caregiver, :edhit, :update, :destroy]
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   
   def new
@@ -86,6 +87,12 @@ class ClientsController < ApplicationController
 
   def set_client
     @client = Client.find(params[:id])
+  end
+
+  def move_to_index
+    if current_user.position_id < 4
+      redirect_to root_path
+    end
   end
 
 end

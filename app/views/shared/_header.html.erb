@@ -28,12 +28,14 @@
             <p class="icon-exp">記録一覧</p>
           <% end %>
         </div>
-        <div class="one-icon">
-          <%= link_to new_client_path, method: :get  do %>
-            <%= image_tag "client.png", size:'80x80', class: "client-dam" %>
-            <p class="icon-exp">お客様登録</p>
-          <% end %>
-        </div>
+        <% if current_user.position_id > 3 %>
+          <div class="one-icon">
+            <%= link_to new_client_path, method: :get  do %>
+              <%= image_tag "client.png", size:'80x80', class: "client-dam" %>
+              <p class="icon-exp">お客様登録</p>
+            <% end %>
+          </div>
+        <% end %>
         <div class="one-icon">
           <% unless current_user.picture.file.nil? %>
             <%= link_to user_path(current_user.id) do %>

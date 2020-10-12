@@ -125,8 +125,12 @@
                           <p>実施ステータス：<%= Carry.find(record.carryout_id).name %></p>
                           <p>記録者：<%= User.find(record.user_id).name %></p>
                           <div class="modal-btn">
-                            <%= link_to "この記録を編集", edit_record_path(record.id), method: :get, class: "record-btn edit" %>
-                            <%= link_to "この記録を削除", record_path(record.id), method: :delete, class: "record-btn delete", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %>
+                            <% if (current_user.id == record.user_id) || (current_user.position_id > 3 ) %>
+                              <%= link_to "この記録を編集", edit_record_path(record.id), method: :get, class: "record-btn edit" %>
+                            <% end %>
+                            <% if (current_user.id == record.user_id) || (current_user.position_id > 5 ) %> 
+                              <%= link_to "この記録を削除", record_path(record.id), method: :delete, class: "record-btn delete", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %>
+                            <% end %>
                           </div>
                         </div> 
                       </div>
