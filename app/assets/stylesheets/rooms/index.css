@@ -23,6 +23,11 @@ body {
   width: 300px;
 }
 
+.search {
+  border: none;
+  background-color: white;
+}
+
 .search-btn {
   width: 40px;
   cursor: pointer;
