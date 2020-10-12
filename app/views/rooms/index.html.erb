@@ -1,7 +1,8 @@
 <%= render "shared/header" %>
 
-<div class="body-wrap">
-  <% if user_signed_in? %>
+
+<% if user_signed_in? %>
+  <div class="body-wrap">
     <div class="top-report-area">
       <%= render "rooms/report_bar" %>
     </div>
@@ -9,7 +10,32 @@
       <%= render "rooms/search_bar" %>
     </div>
     <%= render "shared/rooms"%>
-  <% end %>
-</div>
+  </div>
+<% else %>
+  <div class="top-pic-area">
+    <div class="top-pic-mask">
+
+      <div class="btn-wrap">
+        <div class="lower-btn">
+          <div class="one-btn">  
+            <%= link_to "ログイン", new_user_session_path, method: :get, class:"top-sign-in btn" %>
+          </div>
+          <div class="one-btn"> 
+            <%= link_to "新規登録", new_user_registration_path, method: :get, class:"top-sign-up btn" %>
+          </div>
+        </div>
+        <div class="one-btn">
+          <%= link_to "かんたんログイン", new_user_registration_path, method: :get, class:"top-easy-in btn" %>
+        </div>
+      </div>
+
+      <div class="top-message-wrap">
+        <p class="top-message-title">- sup-appとは -</p>
+        <p class="top-message-content">sup-appは、介護事業所に勤務する介護士のためのアプリケーション。介護に必要な「お客様情報管理」「記録」「報告書作成」「職員同士のチャット」が、１つのアプリで行えます。</p>
+      </div>
+
+    </div>
+  </div>
+<% end %>
 
 <%= render "shared/footer" %>

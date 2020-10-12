@@ -1,8 +1,14 @@
 <%= render "shared/header" %>
 
 <div class="body-wrap">
-  <h2>登録が完了しました</h2>
-  <%= link_to "トップへ戻る", root_path%>
+  <div class='form-header'>
+      <h1 class='form-header-text'>
+        登録が完了しました。
+      </h1>
+    </div>
+  <div class="to-root">
+    <%= link_to "トップへ戻る", :root, class:"root-btn" %>
+  </div>
 </div>
 
 <%= render "shared/footer" %>

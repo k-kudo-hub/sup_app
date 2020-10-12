@@ -3,8 +3,8 @@ body {
 }
 
 .body-wrap {
-  width: cover;
-  min-height: 77.2vh;
+  width: 100%;
+  min-height: 83vh;
 }
 
 .search-form {
@@ -30,11 +30,6 @@ body {
 
 .search-btn:hover {
   opacity: 0.6;
-}
-
-.btn {
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
 }
 
 .top-report-area {
@@ -163,4 +158,84 @@ body {
 
 .top {
   margin: 5px 5px;
+}
+
+.top-pic-area {
+  background-image: url("top-caregiver.jpg");
+  background-size: cover;
+  width: 100%;
+  min-height: 83vh;
+}
+
+.top-pic-mask {
+  height: 83vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.btn-wrap {
+  width: 60%;
+  height: 40%;
+  margin: 0 auto;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.lower-btn {
+  display: flex;
+}
+
+.one-btn {
+  margin: 30px auto;
+  width: 40%;
+}
+
+.btn {
+  padding: 16px 20px;
+  border-radius: 5px;
+  color: white;
+}
+
+.top-easy-in {
+  background-color: rgba(187, 122, 2, 0.6);
+}
+
+.top-easy-in:hover {
+  background-color: rgb(187, 122, 2);
+}
+
+.top-sign-in {
+  padding: 16px 40px;
+  background-color: rgba(1, 141, 1, 0.6);
+}
+
+.top-sign-in:hover {
+  background-color: rgb(1, 141, 1);
+}
+
+.top-sign-up {
+  padding: 16px 40px;
+  background-color: rgba(40, 40, 230, 0.6);
+}
+
+.top-sign-up:hover {
+  background-color: rgb(40, 40, 230);
+}
+
+.top-message-wrap {
+  height: 35%;
+  width: 60%;
+  margin: 20px auto;
+  text-align: center;
+  color: rgb(150, 85, 1);
+  font-weight: 900;
+}
+
+.top-message-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.top-message-content {
+  text-align: left;
 }

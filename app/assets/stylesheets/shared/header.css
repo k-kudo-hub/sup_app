@@ -1,6 +1,6 @@
 header {
   height: 10vh;
-  width: cover;
+  width: 100%;
   background-color: rgb(241, 223, 202);
   display: flex;
   align-items: center;
@@ -13,7 +13,6 @@ header {
 
 .header-right {
   float: right;
-  margin-right: 40px;
 }
 
 .header-right:hover {
@@ -66,7 +65,7 @@ a {
   list-style: none;
 }
 
-.user-pic,.client-dam,.logout-pic {
+.user-pic,.client-dam,.logout-pic,.sign-in,.sign-up {
   border-radius: 50px;
   background-color: white;
   border: 8px solid  white;
@@ -75,7 +74,7 @@ a {
   height: 82px;
 }
 
-.user-pic:hover,.client-dam:hover,.logout-pic:hover{
+.user-pic:hover, .client-dam:hover, .logout-pic:hover, .sign-in:hover, .sign-up:hover{
   background-color: rgb(248, 184, 101);
   cursor: pointer;
 }
