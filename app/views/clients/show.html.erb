@@ -43,13 +43,13 @@
 
       <div class="edit-delete-btn">
         <div class="detail-table">
-          <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <% if user_signed_in? && (current_user.position_id > 3) %> 
             <%= link_to '基本情報の編集', edit_client_path(@client.id), method: :get, class: "client-green-btn" %> 
           <% end %>
         </div>
 
         <div class="detail-table">
-          <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <% if user_signed_in? && (current_user.position_id > 5) %> 
             <%= link_to 'お客様情報の削除', client_path(@client.id), method: :delete, class: "client-gray-btn", data: {confirm: "お客様のデータを削除しようとしています。お客様のデータを削除すると、チャットルーム・記録などの関連データも削除されます。本当に削除しますか？"} %> 
           <% end %>
         </div>
@@ -82,7 +82,7 @@
 
       <div class="edit-delete-btn">
         <div class="detail-table">
-          <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <% if user_signed_in? && (current_user.position_id > 3) %> 
           <%= link_to '医療情報の編集', edit_detail_path(@detail.id), method: :get, class: "client-green-btn" %> 
           <% end %>
         </div>
@@ -143,7 +143,7 @@
 
       <div class="edit-top-btn">
         <div class="detail-table">
-          <% if user_signed_in? && (current_user.position_id > 1) %> 
+          <% if user_signed_in? && (current_user.position_id > 3) %> 
             <%= link_to '介護情報の編集', edit_caregiver_path(@caregiver.id), method: :get, class: "client-green-btn" %> 
           <% end %>
         </div>
