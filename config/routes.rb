@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'users/show'
-  mount ActionCable.server => '/cable'
   devise_for :users, controllers: {
             registrations: 'users/registrations'
   }
