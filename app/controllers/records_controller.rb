@@ -1,7 +1,6 @@
 class RecordsController < ApplicationController
   require "date"
   protect_from_forgery only: [:carry_out]
-  before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
     @clients = Client.includes(:records).order("room_number ASC")
@@ -30,10 +29,12 @@ class RecordsController < ApplicationController
 
   def edit
     @record = Record.find(params[:id])
+    move_to_index
   end
 
   def update
     @record = Record.find(params[:id])
+    move_to_index
     if @record.update(record_params)
       redirect_to records_path
     else
@@ -43,6 +44,7 @@ class RecordsController < ApplicationController
 
   def destroy
     @record = Record.find(params[:id])
+    move_to_index
     @record.destroy
     redirect_to records_path
   end
