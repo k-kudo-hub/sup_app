@@ -12,7 +12,7 @@ consumer.subscriptions.create("MessageChannel", {
   received(data) {
     const username = JSON.parse(document.getElementById("user-name").dataset.json);
     const html = `
-    <div class="cuser-one-wrap">
+    <div class="one-message-wrap current">
       <div class="upper-message">
         <div class="message-user">
           ${username}

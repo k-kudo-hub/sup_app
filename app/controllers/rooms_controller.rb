@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
     @clients = Client.includes(:detail, :caregiver, :room, :records).order("room_number ASC")
     default = Time.now.ago(7.days)...Time.now
     @reports = Report.where(occ_time: default).order("occ_time DESC")
+    @threedays = Time.now.ago(3.days)...Time.now
     @today = Date.today.beginning_of_day...Date.today.end_of_day
   end
 

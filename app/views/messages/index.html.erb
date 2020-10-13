@@ -26,18 +26,27 @@
 
   <div class="messages" id="messages">
     <% @messages.each do |message| %>
-    <%if message.user.id == current_user.id %>
-      <div class="cuser-one-wrap">
-    <% else%>
-      <div class="one-message-wrap">
-    <%end%>
+      <%if (message.user.id == current_user.id) && ([1,2].include?(message.tag_id)) %>
+        <div class="one-message-wrap current">
+      <% elsif (message.user.id == current_user.id) && (message.tag_id == 3) %>
+        <div class="one-message-wrap current caution-border"> 
+      <% elsif (message.tag_id === 3) %>
+        <div class="one-message-wrap caution-border">
+      <% else %>
+        <div class="one-message-wrap">
+      <%end%>
         <div class="upper-message">
           <div class="message-user">
             <%= message.user.name%>
           </div>
           <div class="message-date">
             <%= l message.created_at, format: :mini %> 
-          </div> 
+          </div>
+          <% if message.tag_id == 2 %>
+            <%= image_tag ("caution1.png"), size:'22x22', class: 'caution-image' %>
+          <% elsif message.tag_id == 3 %>
+            <%= image_tag ("caution2.png"), size:'22x22', class: 'caution-image' %>
+          <% end %>
         </div>
         <div class="lower-message">
           <div class="message-text">
