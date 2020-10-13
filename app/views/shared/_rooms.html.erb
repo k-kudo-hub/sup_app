@@ -3,9 +3,14 @@
     <div class="one-room-wrap">
       <div class="pic-area">
         <% if client.picture.file.nil? %> 
-          <%= image_tag '/assets/human.png', class:"client-box-img" %> 
+          <%= image_tag '/assets/human.png', class:"client-box-img" %>
         <% else %>
           <%= image_tag (client.picture.url), class:"client-box-img" %>
+        <% end %>
+        <% if client.room.messages.where(created_at: @threedays).where(tag_id: 3).exists? %>
+          <%= image_tag ("caution2.png"), size:'33x33', class: 'top-caution-image' %>
+        <% elsif client.room.messages.where(created_at: @threedays).where(tag_id: 2).exists? %>
+          <%= image_tag ("caution1.png"), size:'33x33', class: 'top-caution-image' %>
         <% end %>
       </div>
       <div class="detail-area">
