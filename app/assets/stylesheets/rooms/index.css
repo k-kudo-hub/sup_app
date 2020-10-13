@@ -113,6 +113,13 @@ body {
   border-radius: 60px;
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.top-caution-image {
+  position: absolute;
+  top: 10%;
+  /* right: 0%; */
 }
 
 .detail-area {

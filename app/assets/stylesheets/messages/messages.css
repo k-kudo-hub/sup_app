@@ -90,25 +90,22 @@
   height: 100vh;
 }
 
-.message {
-  padding: 10px 0px;
-  margin-bottom: 60px;
-}
-
 .one-message-wrap {
   margin-bottom: 10px;
   width: 70%;
   background-color: rgb(199, 238, 196);
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 20px 10px 20px;
+  display: block;
+  float: left;
 }
 
-.cuser-one-wrap {
-  margin-bottom: 10px;
-  width: 70%;
-  background-color: rgb(199, 238, 196);
-  border-radius: 5px;
-  padding: 10px;
+.caution-border {
+  border: 3px solid rgb(233, 86, 86);
+  background-color: rgb(250, 198, 198);
+}
+
+.current {
   float: right;
 }
 
@@ -125,6 +122,10 @@
 .message-date { 
   font-size: 12px;
   color: #999;
+}
+
+.caution-image {
+  margin-left: auto;
 }
 
 .message-text {
