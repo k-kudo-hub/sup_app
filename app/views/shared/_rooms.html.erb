@@ -7,10 +7,12 @@
         <% else %>
           <%= image_tag (client.picture.url), class:"client-box-img" %>
         <% end %>
-        <% if client.room.messages.where(created_at: @threedays).where(tag_id: 3).exists? %>
-          <%= image_tag ("caution2.png"), size:'33x33', class: 'top-caution-image' %>
-        <% elsif client.room.messages.where(created_at: @threedays).where(tag_id: 2).exists? %>
-          <%= image_tag ("caution1.png"), size:'33x33', class: 'top-caution-image' %>
+        <% if client.room.present? %>
+          <% if client.room.messages.where(created_at: @threedays).where(tag_id: 3).exists? %>
+            <%= image_tag ("caution2.png"), size:'33x33', class: 'top-caution-image' %>
+          <% elsif client.room.messages.where(created_at: @threedays).where(tag_id: 2).exists? %>
+            <%= image_tag ("caution1.png"), size:'33x33', class: 'top-caution-image' %>
+          <% end %>
         <% end %>
       </div>
       <div class="detail-area">
