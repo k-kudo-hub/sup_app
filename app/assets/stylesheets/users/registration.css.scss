@@ -183,7 +183,57 @@
   text-align: center;
 }
 
+.click-upload {
+  margin-top: 10px;
+}
+
+.weight-bold-text {
+  font-weight: bold;
+  width: 70%;
+}
+
 .img-upload {
-  margin-top: 30px;
+  margin: 30px 0;
   text-align: center;
 }
+
+@media screen and (max-width: 959px){
+
+
+ }
+@media screen and (max-width: 480px){
+
+.input-default {
+  height: 30px;
+  font-size: 14px;
+  padding: 5px 8px 4px;
+}
+
+.form-birth {
+  width: 100%;
+}
+
+.input-birth-wrap {
+  width: 100%;
+  font-size: 14px;
+}
+
+.input-birth-wrap > select {
+  width: 50px;
+  height: 30px;
+}
+
+.form-header {
+  height: 60px;
+}
+
+.form-header-text {
+  line-height: 50px;
+  font-size: 15px;
+}
+
+.form-group {
+  width: 80%;
+}
+
+ }
