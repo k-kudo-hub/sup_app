@@ -188,3 +188,106 @@
 .hidden {
   display: none;
 }
+
+@media screen and (max-width: 959px){
+
+.side-bar {
+  width: 100px;
+}
+
+.chat {
+  width: calc(100% - 100px);
+}
+
+.header-name > a {
+  font-size: 10px;
+}
+
+.header-title {
+  margin: 26px;
+  font-size: 18px;
+}
+
+}
+
+@media screen and (max-width: 480px){
+
+.side-bar {
+  display: none;
+}
+
+.header-title {
+  font-size: 12px;
+  margin: 14px;
+}
+
+.chat {
+  width: 100%;
+}
+
+.chat-header {
+  height: 50px;
+}
+
+.header-button > a {
+  padding: 8px;
+}
+
+.messages {
+  padding: 23px 20px 10px;
+  height: 70.5vh;
+}
+
+.one-message-wrap {
+  margin-bottom: 8px;
+  padding: 5px 10px;
+  width: 70%;
+}
+
+.message-user {
+  font-size: 12px;
+}
+
+.message-text, .message-date {
+  font-size: 10px;
+}
+
+.form {
+  height: 40px;
+  padding: 5px;
+}
+
+.form-message {
+  height: 35px;
+  font-size: 10px;
+}
+
+.form-input > input {
+  height: 35px;
+  margin-top: 3px;
+}
+
+.form-input {
+  height: 40px;
+}
+
+.message-tag {
+  font-size: 10px;
+  height: 35px;
+}
+
+.form-image {
+  font-size: 10px;
+  padding:  10px 5px;
+  margin: 5px 5px 0;
+}
+
+.form-submit {
+  font-size: 10px;
+  padding: 10px;
+  height: 35px;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+}
