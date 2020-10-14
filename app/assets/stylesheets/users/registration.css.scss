@@ -207,6 +207,7 @@
   height: 30px;
   font-size: 14px;
   padding: 5px 8px 4px;
+  width: 95%;
 }
 
 .form-birth {
@@ -223,6 +224,10 @@
   height: 30px;
 }
 
+.input-long {
+  width: 90%;
+}
+
 .form-header {
   height: 60px;
 }
@@ -233,7 +238,16 @@
 }
 
 .form-group {
-  width: 80%;
+  width: 98%;
+}
+
+.mobile-none {
+  display: none;
+}
+
+.indispensable {
+  font-size: 8px;
+  padding: 2px 4px;
 }
 
  }
