@@ -78,3 +78,58 @@ a {
   background-color: rgb(248, 184, 101);
   cursor: pointer;
 }
+
+@media screen and (max-width: 959px){
+
+  .header-center {
+    margin-right: 12%;
+    margin-left: 40%;
+  }
+  
+  .logo {
+    width: 120px;
+    height: 35px;
+  }
+  
+  .header-right > img {
+    width: 35px;
+    height: 35px;
+  }
+  
+}
+
+@media screen and (max-width: 480px){
+
+.header-center {
+  margin-right: 15%;
+  margin-left: 35%;
+}
+
+.logo {
+  width: 100px;
+  height: 32px;
+}
+
+.header-right > img {
+  width: 32px;
+  height: 32px;
+}
+
+.user-data {
+  width: 270px;
+  height: 200px;
+  padding: 5px;
+}
+
+.one-icon {
+  width: 80px;
+  height: 100px;
+}
+
+.user-pic,.client-dam,.logout-pic,.sign-in,.sign-up {
+  width: 55px;
+  height: 55px;
+  margin-right: 10px;
+}
+
+}

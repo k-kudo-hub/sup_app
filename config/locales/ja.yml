@@ -295,5 +295,6 @@ ja:
       mid: "%Y年%m月%d日"
       mini: "%m月%d日 %H:%M"
       nano: "%H:%M"
+      micro: "%m/%d %H:%M"
     pm: 午後
   

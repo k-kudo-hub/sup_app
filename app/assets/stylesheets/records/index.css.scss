@@ -163,3 +163,76 @@ img[data-carryout_id = "1"] {
 img[data-carryout_id = "2"] {
   background: rgb(199, 198, 198);
 }
+
+@media screen and (max-width: 959px){
+  
+
+}
+
+@media screen and (max-width: 480px){
+
+.record-head {
+  height: 50px;
+}
+
+.rh-btn {
+  width: 100px;
+  height: 30px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.rh-text {
+  padding: 8px 10px;
+  font-size: 10px;
+}
+
+.client-column {
+  font-size: 12px;
+  min-width: 80px;
+
+}
+
+.client-one-column {
+  max-width: 70px;
+  max-height: 50px;
+}
+
+.points-wrap {
+  min-width: 50px;
+  height: 90px;
+}
+
+.one-column {
+  height: 50px;
+}
+
+.client-one-column > a {
+  font-size: 12px;
+}
+
+.client-one-column > p {
+  font-size: 12px;;
+}
+
+.head-column {
+  font-size: 12px;
+}
+
+.record-room-number {
+  font-size: 12px;
+}
+
+.meal-one-column {
+  height: 18px;
+}
+
+.meal-one-column > p {
+  font-size: 12px;
+}
+
+.amount-record {
+  font-size: 12px;
+}
+
+}

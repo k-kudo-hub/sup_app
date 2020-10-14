@@ -17,7 +17,7 @@
         <th class="r-index-th">お客様名</th>
         <th class="r-index-th">居室番号</th>
         <th class="r-index-th">事故発生日</th>
-        <th class="r-index-th">承認</th>
+        <th class="r-index-th mobile-none">承認</th>
         <th class="r-index-th" colspan="3"></th>
       </tr>
       <% @report.each do  |report| %>
@@ -27,7 +27,7 @@
             <td class="r-index-td"><%= report.client.name %></td>
             <td class="r-index-td"><%= report.client.room_number %></td>
             <td class="r-index-td"><%= l report.occ_time, format: :mini %></td>
-            <td class="r-index-td"><%= report.check.name %></td>
+            <td class="r-index-td mobile-none"><%= report.check.name %></td>
             <td class="r-index-td link show" ><%= link_to "詳細", report_path(report.id), method: :get, class:"rep-btn" %></td>
             <% if (current_user.id == report.user_id) || (current_user.position_id > 3) || ([5,6,7,11].include?(current_user.qualification_id)) %>
               <td class="r-index-td link edit"><%= link_to "編集", edit_report_path(report.id), method: :get, class:"rep-btn" %></td>

@@ -75,3 +75,41 @@
   width: 95%;
   height: 95%;
 }
+
+@media screen and (max-width: 959px){
+  
+
+}
+
+@media screen and (max-width: 480px){
+
+.report-index-text {
+  width: 80%;
+  line-height: 60px;
+  font-size: 14px;
+}
+
+.report-index {
+  width: 95%;
+}
+
+.new-report-btn {
+  font-size: 10px;
+  width: 100px;
+  height: 40px;
+}
+
+.new-report-text {
+  padding: 8px 12px;
+}
+
+.r-index-th {
+  height: 28px;
+}
+
+.r-index-tr {
+  font-size: 10px; 
+}
+
+
+}
