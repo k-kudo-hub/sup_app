@@ -11,36 +11,36 @@
       <table>
         <tr class="report-tr">
           <td class="report-major" rowspan="5">事業所</td>
-          <td class="report-td">事業所名</td>
+          <td class="report-td mid">事業所名</td>
           <td class="report-td con" colspan="4">a3</td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">事業所番号</td>
+          <td class="report-td mid">事業所番号</td>
           <td class="report-td con" colspan="4">b3</td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">報告者</td>
+          <td class="report-td mid">報告者</td>
           <td class="report-td con" colspan="4"><%= User.find(@report.user_id).name %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-major" rowspan="13">利用者</td>
-          <td class="report-td">氏名</td>
+          <td class="report-td mid">氏名</td>
           <td class="report-td con" colspan="2"><%= @report.client.name %></td>
           <td class="report-td-sma">性別</td>
           <td class="report-td-sma con"><%= @report.client.sex.name %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">保険者番号</td>
+          <td class="report-td mid">保険者番号</td>
           <td class="report-td con" colspan="4"><%= @report.client.insurance %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">入居年月日</td>
+          <td class="report-td mid">入居年月日</td>
           <td class="report-td con" colspan="2"><%= l @report.client.created_at, format: :mid %></td>
           <td class="report-td-sma">居室番号</td>
           <td class="report-td-sma con"><%= @report.client.room_number %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td" rowspan="7">身体状況等</td>
+          <td class="report-td mid" rowspan="7">身体状況等</td>
           <td class="report-td">要介護度</td>
           <td class="report-td con" colspan="3"><%= @report.client.caregiver.degree.name %></td>
         <tr>
@@ -49,7 +49,7 @@
           <td class="report-td con" colspan="3"><%= @report.client.caregiver.cognition.name %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">移動・移乗機能</td>
+          <td class="report-td">移動機能</td>
           <td class="report-td con" colspan="3"><%= Care.find(@report.client.caregiver.move_id).name %></td>
         <tr>
         <tr class="report-tr">
@@ -58,40 +58,40 @@
         <tr>
         <tr class="report-tr">
           <td class="report-major" rowspan="9">事故の状況</td>
-          <td class="report-td">発生日時</td>
+          <td class="report-td mid">発生日時</td>
           <td class="report-td con" colspan="4"><%= l @report.occ_time, format: :long %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">発生場所</td>
+          <td class="report-td mid">発生場所</td>
           <td class="report-td con" colspan="4"><%= @report.place.name %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">事故の種別</td>
+          <td class="report-td mid">事故の種別</td>
           <td class="report-td con" colspan="4"><%= @report.genre.name %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">受傷の程度</td>
+          <td class="report-td mid">受傷の程度</td>
           <td class="report-td con" colspan="4"><%= @report.level.name %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">事故の内容</td>
+          <td class="report-td mid">事故の内容</td>
           <td class="report-td-lar con" colspan="4"><%= @report.content %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-major" rowspan="5">発生時対応</td>
-          <td class="report-td" rowspan="3">対処状況</td>
+          <td class="report-td mid" rowspan="3">対処状況</td>
           <td class="report-td-mid con" colspan="4"><%= @report.coping %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-td con" colspan="4"><%= @report.contact.name %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">通院（入院）した<br>医療機関</td>
+          <td class="report-td mid">通院（入院）した<br>医療機関</td>
           <td class="report-td con" colspan="4"><%= @report.hospital %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-major" rowspan="7">事故後対応</td>
-          <td class="report-td" rowspan="5">利用者・家族への<br>対応</td>
+          <td class="report-td mid" rowspan="5">利用者・家族への<br>対応</td>
           <td class="report-td con" colspan="4">報告説明日：<%= l @report.desc_date, format: :mid %></td>
         <tr>
         <tr class="report-tr">
@@ -101,12 +101,12 @@
           <td class="report-td-mid con" colspan="4">説明内容等：<%= @report.desc_content %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td">賠償等</td>
+          <td class="report-td mid">賠償等</td>
           <td class="report-td con" colspan="4"></td>
         <tr>
         <tr class="report-tr">
           <td class="report-major" rowspan="3">再発防止策</td>
-          <td class="report-td" rowspan="3">再発防止策<br>（具体的に記入）</td>
+          <td class="report-td mid" rowspan="3">再発防止策<br>（具体的に記入）</td>
           <td class="report-td-lar con" colspan="4"><%= @report.count_content %></td>
         <tr>
         <tr class="report-tr">
