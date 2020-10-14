@@ -12,18 +12,20 @@
 
 @media screen and (max-width: 959px){
   
+.mobile-none {
+  display: none;
+}
 
-  }
+}
   
-  @media screen and (max-width: 480px){
-  
-  #error_explanation > h2 {
-    font-size: 12px;
-  }
-  
-  #error_explanation > ul {
-    font-size: 10px;
-  }
-    
-  
-  }
+@media screen and (max-width: 480px){
+
+#error_explanation > h2 {
+  font-size: 12px;
+}
+
+#error_explanation > ul {
+  font-size: 10px;
+}
+
+}
