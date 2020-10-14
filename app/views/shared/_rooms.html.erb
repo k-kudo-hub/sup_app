@@ -26,7 +26,7 @@
           <% elsif client.room.messages.exists? %>
             <%= link_to room_path(client.room.id),method: :post do %>
               <p class="message-content"><%= client.room.messages.last.content %></p>
-              <p class="message-time">投稿時間：<%= client.room.messages.last.created_at %></p>
+              <p class="message-time">投稿時間：<%= l client.room.messages.last.created_at, format: :micro %></p>
             <% end %>
           <% else %>
             <p class="message-content"><%= link_to "まだメッセージがありません", room_path(client.room.id),method: :post %></p>

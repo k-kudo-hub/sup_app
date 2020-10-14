@@ -31,3 +31,25 @@ footer {
   margin-right: 10px;
   color: rgb(150, 85, 1);
 }
+
+@media screen and (max-width: 959px){
+
+
+
+}
+
+@media screen and (max-width: 480px){
+
+.app-title {
+  font-size: 12px;
+}
+
+.copy {
+  display: none;
+}
+
+.right-fot > p {
+  font-size: 10px;
+}
+
+}
