@@ -9,3 +9,21 @@
   list-style: circle;
   color: rgb(182, 48, 0);
 }
+
+@media screen and (max-width: 959px){
+  
+
+  }
+  
+  @media screen and (max-width: 480px){
+  
+  #error_explanation > h2 {
+    font-size: 12px;
+  }
+  
+  #error_explanation > ul {
+    font-size: 10px;
+  }
+    
+  
+  }
