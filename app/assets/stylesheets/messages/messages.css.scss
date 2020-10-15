@@ -221,6 +221,11 @@
   margin: 14px;
 }
 
+.caution-image {
+  width: 16px;
+  height: 16px;
+}
+
 .chat {
   width: 100%;
 }
@@ -235,13 +240,14 @@
 
 .messages {
   padding: 23px 20px 10px;
-  height: 70.5vh;
+  height: calc(100vh - 90.5px);
 }
 
 .one-message-wrap {
   margin-bottom: 8px;
   padding: 5px 10px;
   width: 70%;
+  
 }
 
 .message-user {
@@ -274,12 +280,14 @@
 .message-tag {
   font-size: 10px;
   height: 35px;
+  border-radius: 3px;
 }
 
 .form-image {
   font-size: 10px;
   padding:  10px 5px;
   margin: 5px 5px 0;
+  border-radius: 3px;
 }
 
 .form-submit {

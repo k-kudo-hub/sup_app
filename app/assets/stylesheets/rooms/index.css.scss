@@ -144,9 +144,15 @@ body {
   border-left: 5px dashed white;
 }
 
-.score-area, .message-area {
+.message-area {
   height: 75px;
   width: 100%;
+}
+
+.score-area {
+  height: 70px;
+  width: 100%;
+  overflow: scroll;
 }
 
 .message-area {
@@ -287,6 +293,40 @@ body {
 }
 
 @media screen and (max-width: 480px){
+
+.btn {
+  font-size: 10px;
+}
+
+.btn-wrap {
+  width: 85%;
+  height: 25%; 
+  padding-top: 20px;
+}
+
+.top-message-wrap {
+  width: 70%;
+}
+
+.top-message-title {
+  font-size: 14px;
+}
+
+.top-message-content {
+  font-size: 8px;
+}
+
+.one-btn {
+  width: 60%;
+  margin: 10px auto;
+}
+
+.top-sign-in,
+.top-sign-up,
+.top-easy-in {
+  padding: 2vh 4vw;
+}
+
 .top-report-area {
   height: 150px;
   margin: 16px 16px;
@@ -380,35 +420,9 @@ body {
   margin: 3px;
 }
 
-.print {
-  width: 20px;
-  height: 20px;
-  border: 2px solid white;
-}
-
-.modal {
-  height: 50%;
-  width: 80%;
-  right: 5%;
-  left: 5%;
-  padding: 15px;
-}
-
-.modal > h2 {
-  font-size: 15px;
-  margin: 8px auto;
-}
-
-.modal > p {
-  font-size: 12px;
-}
-
-.modal-btn {
-  margin-top: 8px;
-}
-
-.record-btn {
-  font-size: 12px;
+.logo {
+  height: 95px;
+  width: 28px;
 }
 
 }

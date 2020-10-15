@@ -235,4 +235,40 @@ img[data-carryout_id = "2"] {
   font-size: 12px;
 }
 
+.modal {
+  height: 35%;
+  width: 80%;
+  right: 5%;
+  left: 5%;
+  padding: 15px;
+}
+
+.modal > h2 {
+  font-size: 15px;
+  margin: 8px auto;
+}
+
+.modal > p {
+  font-size: 12px;
+}
+
+.modal-btn {
+  margin-top: 8px;
+}
+
+.record-btn {
+  font-size: 12px;
+}
+
+.print {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+}
+
+.m-rec {
+  width: 35px;
+  height: 35px;
+}
+
 }
