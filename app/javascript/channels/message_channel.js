@@ -12,31 +12,35 @@ consumer.subscriptions.create("MessageChannel", {
   received(data) {
     const username = JSON.parse(document.getElementById("user-name").dataset.json);
     const html = `
-    <div class="one-message-wrap current">
-      <div class="upper-message">
-        <div class="message-user">
-          ${username}
+      <div class="one-message-wrap current">
+        <div class="upper-message">
+          <div class="message-user">
+            ${username}
+          </div>
+          <div class="message-date">
+            ${data.content.created_at}
+          </div> 
         </div>
-        <div class="message-date">
-          ${data.content.created_at}
-        </div> 
-      </div>
-      <div class="lower-message">
-        <div class="message-text">
-          ${data.content.content}
+        <div class="lower-message">
+          <div class="message-text">
+            ${data.content.content}
+          </div>
+          <div class="message-image">
+            <script>
+              if(data.content.picture.file.exist?){
+              ${data.content.picture.thumb.url}
+              }
+            </script>  
+          </div> 
         </div>
-        <div class="message-image">
-          <script>
-            if(message.picture.file.exist?){
-            ${data.content.picture.thumb.url}
-            }
-          </script>  
-        </div> 
-      </div>
-     </div>`;
+      </div>`;
     const messages = document.getElementById('messages');
     const newMessage = document.getElementById('content');
-    messages.insertAdjacentHTML("beforeend", html); 
+    messages.insertAdjacentHTML("beforeend", html);
+    const target = messages.lastChild;
+    if(data.content.tag_id == 3){
+      $(target).addClass("caution-border");
+    };
     newMessage.value='';
     $(".messages").scrollTop($("#messages")[0].scrollHeight);
   }
