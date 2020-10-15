@@ -293,6 +293,40 @@ body {
 }
 
 @media screen and (max-width: 480px){
+
+.btn {
+  font-size: 10px;
+}
+
+.btn-wrap {
+  width: 85%;
+  height: 25%; 
+  padding-top: 20px;
+}
+
+.top-message-wrap {
+  width: 70%;
+}
+
+.top-message-title {
+  font-size: 14px;
+}
+
+.top-message-content {
+  font-size: 8px;
+}
+
+.one-btn {
+  width: 60%;
+  margin: 10px auto;
+}
+
+.top-sign-in,
+.top-sign-up,
+.top-easy-in {
+  padding: 2vh 4vw;
+}
+
 .top-report-area {
   height: 150px;
   margin: 16px 16px;
@@ -384,6 +418,11 @@ body {
 
 .top {
   margin: 3px;
+}
+
+.logo {
+  height: 95px;
+  width: 28px;
 }
 
 }
