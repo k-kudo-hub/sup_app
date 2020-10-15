@@ -240,7 +240,7 @@ body {
 
 .root-btn {
   font-size: 12px;
-  padding: 2vh 6vw;
+  padding: 1.5vh 6vw;
 }
 
 .name {
@@ -264,14 +264,65 @@ body {
 }
 
 .detail-item {
-  font-size: 12px;
+  font-size: 10px;
   width: 30%;
 }
 
 .detail-value {
-  font-size: 12px;
+  font-size: 10px;
   width: 70%;
   padding: 15px;
 }
 
-  }
+.client-img-content {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.client-img-content > img {
+  height: 180px;
+  width: 180px;
+}
+
+.client-box > .name {
+  font-size: 16px;
+}
+
+.name {
+  margin: 20px auto 10px ;
+}
+
+.client-room-box {
+  margin: 15px auto;
+}
+
+.follow {
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.follow-btn {
+  font-size: 12px;
+  padding: 2vh 6vw;
+}
+
+.client-green-btn,
+.client-gray-btn {
+  font-size: 12px;
+  padding: 2vh 6vw;
+}
+
+.detail-table {
+  margin: 15px auto;
+}
+
+.remind-title {
+  font-size: 14px;
+}
+
+.remind-index > p {
+  font-size: 12px;
+}
+
+}
