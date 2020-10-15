@@ -38,5 +38,6 @@ consumer.subscriptions.create("MessageChannel", {
     const newMessage = document.getElementById('content');
     messages.insertAdjacentHTML("beforeend", html); 
     newMessage.value='';
+    $(".messages").scrollTop($("#messages")[0].scrollHeight);
   }
 });
