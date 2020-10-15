@@ -9,7 +9,8 @@ function record() {
       point.setAttribute("data-load", "true");
 
       point.addEventListener("dblclick", () => {
-        const pointId = point.getAttribute("data-id");
+        const pointDiv = point.parentNode;
+        const pointId = pointDiv.getAttribute("data-id")
         const XHR = new XMLHttpRequest();
         XHR.open("PATCH", `/client/records/${pointId}`, true);
         XHR.responseType = "json";

@@ -62,57 +62,57 @@
                       <% case record.sub_item_id %>
                       <% when 2..10 then %>
                         <% if record.carryout_id == 1 %>
-                          <img src="../../assets/excretion.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("excretion.png"), class: "print m-rec", id: "point" %></div>
                         <% else %>
-                          <img src="../../assets/excretion.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("excretion.png"), class: "print carryout m-rec", id: "point" %></div>
                         <% end %>
                       <% when 11..16 then %>
                         <% if record.carryout_id == 1 %>
-                          <img src="../../assets/meal.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("meal.png"), class: "print m-rec", id: "point" %></div>
                         <% else %>
-                          <img src="../../assets/meal.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("meal.png"), class: "print carryout m-rec", id: "point" %></div>
                         <% end %>
                       <% when 23..29 then %>
                         <% if record.carryout_id == 1 %>
-                          <img src="../../assets/bathing.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bathing.png"), class: "print m-rec", id: "point" %></div>
                         <% else %>
-                          <img src="../../assets/bathing.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bathing.png"), class: "print carryout m-rec", id: "point" %></div>
                         <% end %>
-                       <% when 35..40 then %>
+                        <% when 35..40 then %>
                         <% if record.carryout_id == 1 %>
-                          <img src="../../assets/oral.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("oral.png"), class: "print m-rec", id: "point" %></div>
                         <% else %>
-                          <img src="../../assets/oral.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("excretion.png"), class: "print carryout m-rec", id: "point" %></div>
                         <% end %>
                       <% when 41 then %>
                         <% if record.carryout_id == 1 %>
-                          <img src="../../assets/morning.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("morning.png"), class: "print m-rec", id: "point" %></div>
                         <% else %>
-                          <img src="../../assets/morning.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("morning.png"), class: "print carryout m-rec", id: "point" %></div>
                         <% end %>                      
                       <% when 42 then %>
                         <% if record.carryout_id == 1 %>
-                          <img src="../../assets/night.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("night.png"), class: "print m-rec", id: "point" %></div>
                         <% else %>
-                          <img src="../../assets/night.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("night.png"), class: "print carryout m-rec", id: "point" %></div>
                         <% end %>
                       <% when 43 then %>
                         <% if record.carryout_id == 1 %>
-                          <img src="../../assets/bed.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bed.png"), class: "print m-rec", id: "point" %></div>
                         <% else %>
-                          <img src="../../assets/bed.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bed.png"), class: "print carryout m-rec", id: "point" %></div>
                         <% end %>
                       <% when 58..95 then %>
                         <% if record.carryout_id == 1 %>
-                          <img src="../../assets/nurthing.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("nurthing.png"), class: "print m-rec", id: "point" %></div>
                         <% else %>
-                          <img src="../../assets/nurthing.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("nurthing.png"), class: "print carryout m-rec", id: "point" %></div>
                         <% end %>  
                       <% else %>
                         <% if record.carryout_id == 1 %>
-                          <img src="../../assets/note.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("note.png"), class: "print m-rec", id: "point" %></div>
                         <% else %>
-                          <img src="../../assets/note.png" data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %> class="print carryout m-rec" id="point">
+                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("note.png"), class: "print carryout m-rec", id: "point" %></div>
                         <% end %>
                       <% end %>
                       <div class="modal-back" id="modal-back">

@@ -1,6 +1,6 @@
 $(document).on("click", "#point", function(e){
   e.preventDefault();
-  $(this).next().delay(500).fadeIn();
+  $(this).parent().next().delay(500).fadeIn();
 });
 
 $(document).on("click", function(e){
