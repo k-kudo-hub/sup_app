@@ -236,10 +236,42 @@ body {
 
 }
   
-  @media screen and (max-width: 480px){
-  
-  .root-btn {
-    font-size: 12px;
-  }
+@media screen and (max-width: 480px){
+
+.root-btn {
+  font-size: 12px;
+  padding: 2vh 6vw;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.user-image-content {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.user-image-content > img {
+  height: 180px;
+  width: 180px;
+}
+
+.show-table {
+  width: 85%;
+}
+
+.detail-item {
+  font-size: 12px;
+  width: 30%;
+}
+
+.detail-value {
+  font-size: 12px;
+  width: 70%;
+  padding: 15px;
+}
 
   }
