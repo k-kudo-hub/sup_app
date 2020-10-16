@@ -32,15 +32,23 @@ Things you may want to cover:
 | name           | string  | null: false |
 | name_kana      | string  | null: false |
 | birth          | date    | null: false |
+| room_number    | integer | null: false |
 | picture        | text    |             |
 | status_id      | integer | null: false |
-| room_number    | integer |             |
+| careplan       | text    |             |
+| sex_id         | integer | null: false |
+| insurance      | integer |             |
+
 
 ### Association
 
 - has_one :detail
 - has_one :care
 - has_one :room
+- has_many :relationships
+- has_many :users, through: :relationships
+- has_many :records
+- has_many :reports
 
 
 ##  detail テーブル
@@ -51,6 +59,7 @@ Things you may want to cover:
 | past_history   | text    |                                |
 | illness        | text    |                                |
 | medicine       | text    |                                |
+| doctor         | text    |                                |
 | mbp_high       | integer | null: false                    |
 | mbp_low        | integer | null: false                    |
 
@@ -77,6 +86,7 @@ Things you may want to cover:
 | oral_exp       | text    |                                |
 | bathing_id     | integer | null: false                    |
 | bathing_exp    | text    |                                |
+| memo           | text    |                                |
 
 ### Association
 
@@ -100,6 +110,8 @@ Things you may want to cover:
 - has_many :rooms, through: room_user
 - has_many :room_users
 - has_many :messages
+- has_many :relationships
+- has_many :clients, through: :relationships
 
 
 ## rooms テーブル
@@ -120,7 +132,7 @@ Things you may want to cover:
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | room_id   | integer    | null: false, foreign_key: true |
-| staff_id  | integer    | null: false  foreign_key: true |
+| user_id   | integer    | null: false  foreign_key: true |
 
 ### Association
 - belongs_to :room
@@ -131,11 +143,75 @@ Things you may want to cover:
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| staff_id  | integer    | null: false, foreign_key: true |
+| user_id   | integer    | null: false, foreign_key: true |
 | room_id   | integer    | null: false  foreign_key: true |
 | content   | text       | null: false                    |
 | picture   | text       |                                |
+| tag_id    | integer    |                                |
 
 ### Association
 - belongs_to :room
 - belongs_to :user
+
+
+## relationships テーブル
+
+| Column    | Type        | Options                        |
+| --------- | ----------- | ------------------------------ |
+| user      | references  | null: false, foreign_key: true |
+| client    | references  | null: false  foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_to :client
+
+
+## records テーブル
+
+| Column         | Type       | Options                        |
+| -------------- | ---------- | -------------------------------|
+| client         | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
+| start_time     | datetime   | null: false                    |
+| end_time       | datetime   | null: false                    |
+| major_item_id  | integer    | null: false                    |
+| main_item_id   | integer    | null: false                    |
+| sub_item_id    | integer    | null: false                    |
+| remind         | boolean    |                                |
+| carryout_id    | integer    | null: false                    |
+| meal_m_id      | integer    |                                |
+| meal_s_id      | integer    |                                |
+| water_amount   | integer    | default: 0                     |
+| exc_shape_id   | integer    |                                |
+| exc_amount_id  | integer    |                                |
+| urine_amount   | integer    | default: 0                     |
+| memo           | text       |                                |
+
+### Association
+- belongs_to :client
+
+
+## reports テーブル
+
+| Column         | Type       | Options                        |
+| -------------- | ---------- | -------------------------------|
+| client_id      | integer    | null: false                    |
+| user_id        | integer    | null: false                    |
+| occ_time       | datetime   | null: false                    |
+| place_id       | integer    | null: false                    |
+| genre_id       | integer    | null: false                    |
+| res_id         | integer    | null: false                    |
+| level_id       | integer    | null: false                    |
+| content        | text       |                                |
+| picture        | text       |                                |
+| coping         | text       |                                |
+| contact_id     | integer    |                                |
+| hospital       | text       |                                |
+| desc_date      | datetime   |                                |
+| desc_user      | integer    |                                |
+| desc_content   | text       |                                |
+| count_content  | text       |                                |
+| check_id       | integer    | null: false, default: 0        |
+
+### Association
+- belongs_to :client
