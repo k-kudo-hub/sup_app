@@ -24,9 +24,23 @@
             <%= link_to "新規登録", new_user_registration_path, method: :get, class:"top-sign-up btn" %>
           </div>
         </div>
-        <div class="one-btn">
-          <%= link_to "かんたんログイン", new_user_registration_path, method: :get, class:"top-easy-in btn" %>
-        </div>
+        <div class="lower-btn">
+          <div class="one-btn">
+            <%=  form_for(User.new, url:user_session_path) do |f| %>
+              <%= f.hidden_field :email, value: "guest@example.com" %>
+              <%= f.hidden_field :password, value: "guest111" %>
+              <%= f.submit "かんたんログイン", class:"top-easy-in btn" %>
+              <p>採用ご担当者様用</p>
+            <% end %>
+          </div>
+          <div class="one-btn">
+            <%=  form_for(User.new, url:user_session_path) do |f| %>
+              <%= f.hidden_field :email, value: "dispatch@example.com" %>
+              <%= f.hidden_field :password, value: "dispatch11" %>
+              <%= f.submit "派遣ログイン", class:"dispatch-easy-in btn" %>
+              <p>派遣・スポット用</p>
+            <% end %>
+          </div>
       </div>
 
       <div class="top-message-wrap">
