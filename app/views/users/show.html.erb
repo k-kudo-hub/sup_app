@@ -93,7 +93,9 @@
     <%= render "shared/rooms" %>
 
     <div class="to-root">
-      <%= link_to "スタッフ情報の編集", edit_user_registration_path, class:"edit-btn" %>
+      <% unless (current_user.email == "guest@example.com") || (current_user.email == "dispatch@example.com") %>
+        <%= link_to "スタッフ情報の編集", edit_user_registration_path, class:"edit-btn" %>
+      <% end %>
       <%= link_to "トップへ戻る", :root, class:"root-btn" %> 
     </div>
 

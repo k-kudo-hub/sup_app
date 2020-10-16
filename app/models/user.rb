@@ -13,7 +13,7 @@ class User < ApplicationRecord
     validates :password, :password_confirmation,  
                              format:{with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i, message: "は8文字以上の半角英数字混合で登録できます。"}    
   end
-   validates :position_id, :qualification_id, :work_style_id,
+   validates :qualification_id, :work_style_id,
                              numericality:{ other_than: 1 , message: "が選択されていません"}
 
   has_many :room_users
