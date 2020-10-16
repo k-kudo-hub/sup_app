@@ -211,12 +211,26 @@ body {
   color: white;
 }
 
+.btn:hover {
+  cursor: pointer;
+}
+
 .top-easy-in {
   background-color: rgba(187, 122, 2, 0.6);
+  border: none;
 }
 
 .top-easy-in:hover {
   background-color: rgb(187, 122, 2);
+}
+
+.dispatch-easy-in {
+  background-color: rgba(242, 144, 255, 0.6);
+  border: none;
+}
+
+.dispatch-easy-in:hover {
+  background-color: rgb(242, 144, 255);
 }
 
 .top-sign-in {
@@ -316,7 +330,8 @@ body {
 
 .top-sign-in,
 .top-sign-up,
-.top-easy-in {
+.top-easy-in,
+.dispatch-easy-in {
   padding: 2vh 4vw;
 }
 
@@ -416,6 +431,10 @@ body {
 .logo {
   height: 95px;
   width: 28px;
+}
+
+.new_user > p {
+  font-size: 10px;
 }
 
 }
