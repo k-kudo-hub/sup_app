@@ -3,7 +3,7 @@ before_action :set_report, only: [:show, :edit, :update, :destroy]
 before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
-    @report = Report.includes(:client).order("occ_time DESC")
+    @report = Report.includes(:client).page(params[:page]).per(10).order("occ_time DESC")
   end
 
   def new
