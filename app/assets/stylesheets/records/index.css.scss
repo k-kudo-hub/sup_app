@@ -55,6 +55,15 @@
   max-height: 80px;
 }
 
+.record-client-name {
+  color: black;
+  font-weight: bold;
+}
+
+.record-client-name:hover {
+  border-bottom: 1px solid black
+}
+
 .meal-one-column {
   border: 2px solid gray;
   max-width: 120px;
@@ -164,8 +173,25 @@ img[data-carryout_id = "2"] {
   background: rgb(199, 198, 198);
 }
 
+.bulk-btn {
+  background-color: rgb(150, 85, 1);
+  color: white;
+  font-size: 14px;;
+  font-weight: bold;
+  padding: 2px 4px;
+}
+
 @media screen and (max-width: 959px){
   
+.rh-text {
+  font-size: 12px;
+}
+
+.rh-btn {
+  width: 150px;
+  margin: 40px auto 20px;
+  text-align: center;
+}
 
 }
 
