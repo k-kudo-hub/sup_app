@@ -167,7 +167,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @client.records.where(remind: true).order("start_time DESC").each do |record| %>
+              <% @client.records.where(remind: true).order(start_time: :ASC).each do |record| %>
                 <tr>
                   <div class="remind-one">
                     <td class="remind-one-column"><%= l record.start_time, format: :nano %></td>
