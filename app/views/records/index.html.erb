@@ -3,7 +3,7 @@
 <div class="body-wrap">
   <div class="record-head">
     <div class="rh-btn">
-      <%= link_to "食事・水分の記録", clients_records_create_path, method: :get, class: "water-record-text rh-text" %>
+      <%= link_to "食事・水分の記録", new_nutrition_path, method: :get, class: "water-record-text rh-text" %>
     </div>
     <div class="rh-btn">
       <%= link_to "排泄の記録", clients_records_create_path, method: :get, class: "excretion-record-text rh-text" %>
@@ -31,9 +31,9 @@
         <% @clients.each do |client| %>
           <tr>
             <td class="client-one-column" rowspan="3">
-              <%= link_to "#{client.name} 様", client_path(client.id), method: :get %>
+              <%= link_to "#{client.name} 様", client_path(client.id), method: :get, class: "record-client-name" %>
               <div class="record-room-number"><%= client.room_number %></div>
-              <%= link_to "一括実施", client_record_path(client_id: client.id), method: :patch %>
+              <%= link_to "一括実施", client_record_path(client_id: client.id), method: :patch, class:"bulk-btn" %>
             </td>
 
             <%# 食事量の表示 %>
@@ -41,7 +41,7 @@
               <% if client.records.where(start_time: @morning).where(main_item_id: 3).empty? %>
                 <p>未入力</p>
               <% else %> 
-                <div class="amount-record"><%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_s_id).name %></div>
+                <div class="amount-record"><%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_s_id).name</div> %>
               <% end %>
             </td>
 
@@ -50,7 +50,7 @@
               <% if client.records.where(start_time: @default...@defaultend).where(main_item_id: 3).empty? %>
                 <p>未入力</p>
               <% else %>  
-                <div class="amount-record"><%= client.records.where(start_time: @default...@defaultend).pluck(:water_amount).sum %></div>
+                <%# <div class="amount-record"><%= client.records.where(start_time: @default...@defaultend).pluck(:water_amount).sum %>
               <% end %>
             </td>
             
@@ -135,12 +135,12 @@
                         </div> 
                       </div>
                     <% end %>
-                  <%= link_to "", new_record_path(client_id: client.id), method: :get, class:"points-wrap" %>
+                  <%= link_to "", new_record_path(client_id: client.id, start_time: i), method: :get, class:"points-wrap" %>
                   </div>
                 </td>
               <% else %>
                 <td class="one-column" rowspan="3">
-                  <%= link_to "", new_record_path(client_id: client.id), method: :get, class:"points-wrap" %>
+                  <%= link_to "", new_record_path(client_id: client.id, start_time: i), method: :get, class:"points-wrap" %>
                 </td>
               <% end %>
             <% end %>

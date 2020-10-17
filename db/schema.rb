@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_080703) do
+ActiveRecord::Schema.define(version: 2020_10_17_050153) do
 
   create_table "caregivers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "client_id", null: false
@@ -72,6 +72,27 @@ ActiveRecord::Schema.define(version: 2020_10_09_080703) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "nutritions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "client_id", null: false
+    t.integer "user_id", null: false
+    t.date "date", null: false
+    t.integer "six_water_amount", default: 0, null: false
+    t.integer "morning_meal_m_id", default: 1, null: false
+    t.integer "morning_meal_s_id", default: 1, null: false
+    t.integer "morning_water_amount", default: 0, null: false
+    t.integer "ten_water_amount", default: 0, null: false
+    t.integer "lunch_meal_m_id", default: 1, null: false
+    t.integer "lunch_meal_s_id", default: 1, null: false
+    t.integer "lunch_water_amount", default: 0, null: false
+    t.integer "fifty_water_amount", default: 0, null: false
+    t.integer "dinner_meal_m_id", default: 1, null: false
+    t.integer "dinner_meal_s_id", default: 1, null: false
+    t.integer "dinner_water_amount", default: 0, null: false
+    t.integer "twenty_water_amount", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "user_id", null: false
@@ -82,9 +103,6 @@ ActiveRecord::Schema.define(version: 2020_10_09_080703) do
     t.integer "sub_item_id", null: false
     t.boolean "remind"
     t.integer "carryout_id", null: false
-    t.integer "meal_m_id"
-    t.integer "meal_s_id"
-    t.integer "water_amount", default: 0
     t.integer "exc_shape_id"
     t.integer "exc_amount_id"
     t.integer "urine_amount", default: 0

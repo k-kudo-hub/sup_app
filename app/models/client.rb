@@ -10,6 +10,7 @@ class Client < ApplicationRecord
   has_many :users, through: :relationships
   has_many :records
   has_many :reports
+  has_many :nutritions
 
   mount_uploader :picture, PictureUploader
 

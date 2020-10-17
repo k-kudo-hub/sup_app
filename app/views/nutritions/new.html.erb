@@ -1,0 +1,75 @@
+<%= render "shared/header" %>
+
+<div class="body-wrap">
+
+  <div class="table-wrap">
+    <table class="table">
+      <tr>
+        <th class="head-column">お客様名</th>
+        <th class="head-column">水分合計</th>
+        <th class="head-column">6時水分量</th>
+        <th class="head-column">朝食事量</th>
+        <th class="head-column">朝水分量</th>
+        <th class="head-column">10時水分量</th>
+        <th class="head-column">昼食事量</th>
+        <th class="head-column">昼水分量</th>
+        <th class="head-column">15時水分量</th>
+        <th class="head-column">夕食事量</th>
+        <th class="head-column">夕水分量</th>
+        <th class="head-column">20時水分量</th>
+      </tr>
+        <% @clients.each do |client| %>
+          <tr>
+            <%= form_with model: @nutrition, url: nutritions_path, method: :post, class: 'record-main', local: true do |f| %>
+              <td class="one-column">
+                <%= link_to "#{client.name} 様", client_path(client.id), method: :get, class: "record-client-name" %>
+                <div class="record-room-number"><%= client.room_number %></div>
+              </td>
+              <td class="one-column">
+              </td>
+              <td class="one-column">
+                <%= f.number_field :six_water_amount, class:"water-default", id:"carry-id" %> 
+              </td>
+              <td class="one-column">
+                <%= f.collection_select(:morning_meal_m_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
+                <%= f.collection_select(:morning_meal_s_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
+              </td>
+              <td class="one-column">
+                <%= f.number_field :morning_water_amount, class:"water-default", id:"carry-id" %> 
+              </td>
+              <td class="one-column">
+                <%= f.number_field :ten_water_amount, class:"water-default", id:"carry-id" %> 
+              </td>
+              <td class="one-column">
+                <%= f.collection_select(:lunch_meal_m_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
+                <%= f.collection_select(:lunch_meal_s_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
+              </td>
+              <td class="one-column">
+                <%= f.number_field :lunch_water_amount, class:"water-default", id:"carry-id" %> 
+              </td>
+              <td class="one-column">
+                <%= f.number_field :fifty_water_amount, class:"water-default", id:"carry-id" %> 
+              </td>
+              <td class="one-column">
+                <%= f.collection_select(:dinner_meal_m_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
+                <%= f.collection_select(:dinner_meal_s_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
+              </td>
+              <td class="one-column">
+                <%= f.number_field :dinner_water_amount, class:"water-default", id:"carry-id" %> 
+              </td>
+              <td class="one-column">
+                <%= f.number_field :twenty_water_amount, class:"water-default", id:"carry-id" %> 
+              </td>
+              <td>  
+                <%= f.hidden_field :client_id, value: client.id %>        
+                <%= f.submit "上記の内容を記録する" ,class:"register-red-btn" %>
+              </td>
+            <% end %>
+          </tr>      
+        <% end %>
+      </table>
+  </div>
+</div>
+
+
+<%= render "shared/footer"%>
