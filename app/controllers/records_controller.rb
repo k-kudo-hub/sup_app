@@ -1,14 +1,10 @@
 class RecordsController < ApplicationController
   require "date"
   protect_from_forgery only: [:carry_out]
+  before_action :set_timezone, only: [:index, :new, :by_item_new]
 
   def index
     @clients = Client.includes(:records).order("room_number ASC")
-    @default = Date.today.beginning_of_day.in_time_zone
-    @defaultend = Date.today.end_of_day.in_time_zone
-    @morning = @default+6.hour...@default+10.hour
-    @lunch = @default+11.hour...@default+14.hour
-    @evening = @default+17.hour...@default+21.hour
   end
 
   def new
@@ -49,6 +45,7 @@ class RecordsController < ApplicationController
     redirect_to records_path
   end
 
+  #リマインドの一括出力を定義
   def bulk_create
     @records = Record.where(remind: true)
     @records.each do |record|
@@ -73,6 +70,7 @@ class RecordsController < ApplicationController
     redirect_to :root
   end
 
+  #お客様ごとの一括実施を定義
   def bulk_carry
     @client = Client.find(params[:client_id])
     @records = @client.records.where(start_time: Date.today.beginning_of_day...Time.now)
@@ -81,9 +79,9 @@ class RecordsController < ApplicationController
         carryout_id: 2
       )
     end
-    redirect_to :root
   end
 
+  #アイコンのダブルクリックによる実施切り替えを定義
   def carry_out
     record = Record.find(params[:id])
     if record.carryout_id == 1
@@ -93,6 +91,16 @@ class RecordsController < ApplicationController
     end
     carry = Record.find(params[:id])
     render json: { record: carry }
+  end
+
+  #項目別の入力を定義
+  def by_item_new
+    @records = Record.where(@default...@defaultend) 
+
+  end
+
+  def by_item_create
+
   end
 
   private
@@ -105,6 +113,14 @@ class RecordsController < ApplicationController
     if (current_user.id != @record.user_id) && (current_user.position_id < 4)
       redirect_to root_path
     end
+  end
+
+  def set_timezone
+    @default = Date.today.beginning_of_day.in_time_zone
+    @defaultend = Date.today.end_of_day.in_time_zone
+    @morning = @default+6.hour...@default+10.hour
+    @lunch = @default+11.hour...@default+14.hour
+    @evening = @default+17.hour...@default+21.hour
   end
 
 end

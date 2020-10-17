@@ -1,5 +1,4 @@
 <%= render "shared/header" %>
-
 <div class="body-wrap">
   <%= form_with model: @record, url: records_path, method: :post, class: 'record-main', local: true do |f| %>
     <div class='form-wrap'>
@@ -28,7 +27,11 @@
           <span class="indispensable">必須</span>
         </div>
         <div class='form-time-wrap'>
-          <%= f.time_select :start_time, {default: Time.current.in_time_zone - 15.minute}, prompt:true, ignore_data:true, class:"time-default", id:"start-time" %> 
+          <% unless params[:start_time].blank? %>
+            <%= f.time_select :start_time, {default: (@default + params[:start_time].to_i.hour), minute_step: 5 }, prompt:true, ignore_data:true, class:"time-default", id:"start-time" %>           
+          <% else %>
+            <%= f.time_select :start_time, {default: Time.current.in_time_zone - 15.minute,minute_step: 5 }, prompt:true, ignore_data:true, class:"time-default", id:"start-time" %> 
+          <% end %>
         </div>
       </div>
       <div class="form-group">
@@ -37,7 +40,11 @@
           <span class="indispensable">必須</span>
         </div>
         <div class='form-time-wrap'>
-          <%= f.time_select :end_time, {default: Time.current.in_time_zone - 1.minute}, prompt:true, ignore_data:true, class:"time-default", id:"end-time" %> 
+          <% unless params[:start_time].blank? %>
+            <%= f.time_select :end_time, {default: (@default + params[:start_time].to_i.hour), minute_step: 5}, prompt:true, ignore_data:true, class:"time-default", id:"end-time" %> 
+          <% else %>
+            <%= f.time_select :end_time, {default: Time.current.in_time_zone - 1.minute, minute_step: 5}, prompt:true, ignore_data:true, class:"time-default", id:"end-time" %> 
+          <% end %>
         </div>
       </div>
       <div class="form-group">

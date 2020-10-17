@@ -31,9 +31,9 @@
         <% @clients.each do |client| %>
           <tr>
             <td class="client-one-column" rowspan="3">
-              <%= link_to "#{client.name} 様", client_path(client.id), method: :get %>
+              <%= link_to "#{client.name} 様", client_path(client.id), method: :get, class: "record-client-name" %>
               <div class="record-room-number"><%= client.room_number %></div>
-              <%= link_to "一括実施", client_record_path(client_id: client.id), method: :patch %>
+              <%= link_to "一括実施", client_record_path(client_id: client.id), method: :patch, class:"bulk-btn" %>
             </td>
 
             <%# 食事量の表示 %>
@@ -135,12 +135,12 @@
                         </div> 
                       </div>
                     <% end %>
-                  <%= link_to "", new_record_path(client_id: client.id), method: :get, class:"points-wrap" %>
+                  <%= link_to "", new_record_path(client_id: client.id, start_time: i), method: :get, class:"points-wrap" %>
                   </div>
                 </td>
               <% else %>
                 <td class="one-column" rowspan="3">
-                  <%= link_to "", new_record_path(client_id: client.id), method: :get, class:"points-wrap" %>
+                  <%= link_to "", new_record_path(client_id: client.id, start_time: i), method: :get, class:"points-wrap" %>
                 </td>
               <% end %>
             <% end %>
