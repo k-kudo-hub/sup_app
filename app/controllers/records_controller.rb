@@ -60,9 +60,6 @@ class RecordsController < ApplicationController
         user_id: current_user.id,
         carryout_id: 1,
         remind: false,
-        meal_m_id: record[:meal_m_id],
-        meal_s_id: record[:meal_s_id],
-        water_amount: record[:water_amount],
         exc_amount_id: record[:exc_amount_id],
         exc_shape_id: record[:exc_shape_id]
       )
@@ -93,20 +90,10 @@ class RecordsController < ApplicationController
     render json: { record: carry }
   end
 
-  #項目別の入力を定義
-  def by_item_new
-    @records = Record.where(@default...@defaultend) 
-
-  end
-
-  def by_item_create
-
-  end
-
   private
 
   def record_params
-    params.require(:record).permit(:client_id, :major_item_id, :main_item_id, :sub_item_id, :start_time, :end_time, :memo, :remind, :carryout_id, :meal_m_id, :meal_s_id, :water_amount, :exc_shape_id, :exc_amount_id, :urine_amount).merge(user_id: current_user.id)
+    params.require(:record).permit(:client_id, :major_item_id, :main_item_id, :sub_item_id, :start_time, :end_time, :memo, :remind, :carryout_id, :exc_shape_id, :exc_amount_id, :urine_amount).merge(user_id: current_user.id)
   end
 
   def move_to_index
