@@ -3,7 +3,7 @@
 <div class="body-wrap">
   <div class="record-head">
     <div class="rh-btn">
-      <%= link_to "食事・水分の記録", clients_records_create_path, method: :get, class: "water-record-text rh-text" %>
+      <%= link_to "食事・水分の記録", new_nutrition_path, method: :get, class: "water-record-text rh-text" %>
     </div>
     <div class="rh-btn">
       <%= link_to "排泄の記録", clients_records_create_path, method: :get, class: "excretion-record-text rh-text" %>
@@ -41,7 +41,7 @@
               <% if client.records.where(start_time: @morning).where(main_item_id: 3).empty? %>
                 <p>未入力</p>
               <% else %> 
-                <div class="amount-record"><%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_s_id).name %></div>
+                <div class="amount-record"><%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_m_id).name %>/<%= Meal.find_by(id: client.records.where(start_time: @morning).first.meal_s_id).name</div> %>
               <% end %>
             </td>
 
@@ -50,7 +50,7 @@
               <% if client.records.where(start_time: @default...@defaultend).where(main_item_id: 3).empty? %>
                 <p>未入力</p>
               <% else %>  
-                <div class="amount-record"><%= client.records.where(start_time: @default...@defaultend).pluck(:water_amount).sum %></div>
+                <%# <div class="amount-record"><%= client.records.where(start_time: @default...@defaultend).pluck(:water_amount).sum %>
               <% end %>
             </td>
             

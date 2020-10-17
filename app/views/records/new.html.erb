@@ -68,26 +68,6 @@
         </div>
         <%= f.collection_select(:sub_item_id, Sub.all, :id, :name, {}, {class:"sub-default", id:"sub-id"}) %> 
       </div>
-      <div class="meal-form-wrap" id="meal-form-wrap">
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">食事量（主食）</label>
-          </div>
-          <%= f.collection_select(:meal_m_id, Meal.all, :id, :name, {}, {class:"input-default", id:"sub-id"}) %> 
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">食事量（副食）</label>
-          </div>
-          <%= f.collection_select(:meal_s_id, Meal.all, :id, :name, {}, {class:"input-default", id:"sub-id"}) %> 
-        </div>
-        <div class="form-group">
-          <div class='form-text-wrap'>
-            <label class="form-text">水分量（単位：ml）</label>
-          </div>
-          <%= f.number_field :water_amount, class:"input-default", id:"carry-id" %> 
-        </div>
-      </div>
       <div class="exc-form-wrap" id="exc-form-wrap">
         <div class="form-group">
           <div class='form-text-wrap'>
