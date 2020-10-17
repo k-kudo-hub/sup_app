@@ -20,8 +20,8 @@ class Record < ApplicationRecord
     validates :end_time
   end
   
-  validates :water_amount, :urine_amount, numericality: { only_integer: true, message: "は数字で入力してください。" }
-  validates :water_amount, :urine_amount, format: {with: /\A[0-9]+\z/, message: "は半角数字のみ使用できます。"}
+  validates :urine_amount, numericality: { only_integer: true, message: "は数字で入力してください。" }
+  validates :urine_amount, format: {with: /\A[0-9]+\z/, message: "は半角数字のみ使用できます。"}
   validate :time_check
 
   def time_check
