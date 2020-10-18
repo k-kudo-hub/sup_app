@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
 
   #ルームの作成とチャット画面の表示
   def create
-    @users = User.all.ids
+    @users = User.pluck(:id)
     @client = Client.find(params[:format])
     @room = Room.new(client_id: @client.id)
     if @room.save
@@ -31,7 +31,7 @@ class RoomsController < ApplicationController
 
   #ルームへのメンバー追加とチャット画面への遷移
   def add_user
-    @users = User.all.ids
+    @users = User.pluck(:id)
     @room = Room.find(params[:id])
     @roomusers = RoomUser.select(:room_id == @room.id)
     @whereme = @roomusers.pluck(:user_id)

@@ -4,7 +4,6 @@ class MessagesController < ApplicationController
     @room = Room.find(params[:room_id])
     @message = Message.new
     @messages = @room.messages.all.order("id ASC")
-    # render "messages/index"
   end
 
   def create
@@ -12,7 +11,6 @@ class MessagesController < ApplicationController
     if @message.save
       ActionCable.server.broadcast 'message_channel', content: @message
     end
-    # redirect_to and return
   end
 
   private
