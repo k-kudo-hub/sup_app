@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       end
       resources :records, only: [:index, :new, :create, :edit, :update, :destroy]
       resources :reports
-      resources :nutritions, only: [:new, :create]
+      resources :nutritions, only: [:new, :create, :edit, :update]
     end
   end
 
