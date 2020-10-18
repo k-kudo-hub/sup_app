@@ -3,12 +3,20 @@ before_action :set_timezone, only: [:new, :create]
 
   def new
     @nutritions = Nutrition.where(date: Date.today)
-    @clients = Client.includes(:nutritions).order(room_number: :desc)
+    @clients = Client.includes(:nutritions).order(room_number: :asc)
   end
 
   def create
     @nutrition = Nutrition.new(nutrition_params)
-    @nutrition.save
+    @history = Nutrition.where(client_id: nutrition_params[:client_id]).where(date: Date.today)
+    if @nutrition.valid? && @history.blank?
+      @nutrition.save
+    elsif @nutrition.valid? && @history.exists?
+      Nutrition.destroy(@history.ids)
+      @nutrition.save
+    end
+    @clients = Client.all.order(room_number: :asc)
+    redirect_to new_nutrition_path
   end
 
 
