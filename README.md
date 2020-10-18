@@ -71,6 +71,9 @@
 
 ## 以下全てテーブル設計
 
+### ER図
+![alt](app/assets/images/er-chart.png)
+
 ### client テーブル
 
 | Column         | Type    | Options     |
@@ -234,6 +237,28 @@
 | memo           | text       |                                |
 
 #### Association
+- belongs_to :client
+
+### nutritions テーブル
+
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | -------------------------------|
+| client              | references | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
+| date                | date       | null: false                    |
+| six_water_amount    | integer    | null: false, default: 0        |
+| morning_meal_m_id   | integer    | null: false, default: 1        |
+| morning_meal_s_id   | integer    | null: false, default: 1        |
+| ten_water_amount    | integer    | null: false, default: 0        |
+| lunch_meal_m_id     | integer    | null: false, default: 1        |
+| lunch_meal_s_id     | integer    | null: false, default: 1        |
+| lunch_water_amount  | integer    | null: false, default: 0        |
+| fifty_water_amount  | integer    | null: false, default: 0        | | dinner_meal_m_id    | integer    | null: false, default: 1        |
+| dinner_meal_s_id    | integer    | null: false, default: 1        |
+| dinner_water_amount | integer    | null: false, default: 0        |
+| twenty_water_amount | integer    | null: false, default: 0        |
+
+### Association
 - belongs_to :client
 
 
