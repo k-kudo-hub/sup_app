@@ -18,6 +18,7 @@ class CreateNutritions < ActiveRecord::Migration[6.0]
       t.integer :dinner_water_amount,  null:false, default: 0
       t.integer :twenty_water_amount,  null:false, default: 0
       t.timestamps
+      t.index [:date, :client_id],     unique: true
     end
   end
 end

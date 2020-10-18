@@ -20,49 +20,107 @@
       </tr>
         <% @clients.each do |client| %>
           <tr>
-            <%= form_with model: @nutrition, url: nutritions_path, method: :post, class: 'record-main', local: true do |f| %>
+            <%= form_with model: @nutrition, url: nutritions_path, method: :post, class: 'record-main', local: true do |f| %> 
               <td class="one-column">
                 <%= link_to "#{client.name} 様", client_path(client.id), method: :get, class: "record-client-name" %>
                 <div class="record-room-number"><%= client.room_number %></div>
               </td>
               <td class="one-column">
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                 <p>未入力</p>
+                <% else %>
+                  <%= client.nutritions.find_by(date: Date.today).six_water_amount + 
+                  client.nutritions.find_by(date: Date.today).morning_water_amount +
+                  client.nutritions.find_by(date: Date.today).ten_water_amount +
+                  client.nutritions.find_by(date: Date.today).lunch_water_amount +
+                  client.nutritions.find_by(date: Date.today).fifty_water_amount +
+                  client.nutritions.find_by(date: Date.today).dinner_water_amount +
+                  client.nutritions.find_by(date: Date.today).twenty_water_amount %>
+                <% end %>
               </td>
               <td class="one-column">
-                <%= f.number_field :six_water_amount, class:"water-default", id:"carry-id" %> 
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.number_field :six_water_amount, class:"water-default", id:"six-water" %> 
+                <% else %>
+                  <%= f.number_field :six_water_amount, value: client.nutritions.find_by(date: Date.today).six_water_amount, class:"water-default", id:"six-water" %> 
+                <% end %>
               </td>
               <td class="one-column">
-                <%= f.collection_select(:morning_meal_m_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
-                <%= f.collection_select(:morning_meal_s_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.collection_select(:morning_meal_m_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"morning-main"}) %>
+                  <%= f.collection_select(:morning_meal_s_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"morning-sub"}) %>
+                <% else %>
+                  <%= f.collection_select(:morning_meal_m_id, Meal.all, :id, :name, {selected: client.nutritions.find_by(date: Date.today).morning_meal_m_id}, {class:"input-default", id:"morning-main"}) %>
+                  <%= f.collection_select(:morning_meal_s_id, Meal.all, :id, :name, {selected: client.nutritions.find_by(date: Date.today).morning_meal_s_id}, {class:"input-default", id:"morning-sub"}) %>
+                <% end %>
               </td>
               <td class="one-column">
-                <%= f.number_field :morning_water_amount, class:"water-default", id:"carry-id" %> 
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.number_field :morning_water_amount, class:"water-default", id:"morning-water" %> 
+                <% else %>
+                  <%= f.number_field :morning_water_amount, value: client.nutritions.find_by(date: Date.today).morning_water_amount, class:"water-default", id:"morning-water" %> 
+                <% end %>              
               </td>
               <td class="one-column">
-                <%= f.number_field :ten_water_amount, class:"water-default", id:"carry-id" %> 
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.number_field :ten_water_amount, class:"water-default", id:"ten-water" %> 
+                <% else %>
+                  <%= f.number_field :ten_water_amount, value: client.nutritions.find_by(date: Date.today).ten_water_amount, class:"water-default", id:"ten-water" %> 
+                <% end %>    
               </td>
               <td class="one-column">
-                <%= f.collection_select(:lunch_meal_m_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
-                <%= f.collection_select(:lunch_meal_s_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.collection_select(:lunch_meal_m_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"lunch-main"}) %>
+                  <%= f.collection_select(:lunch_meal_s_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"lunch-sub"}) %>
+                <% else %>
+                  <%= f.collection_select(:lunch_meal_m_id, Meal.all, :id, :name, {selected: client.nutritions.find_by(date: Date.today).lunch_meal_m_id}, {class:"input-default", id:"lunch-main"}) %>
+                  <%= f.collection_select(:lunch_meal_s_id, Meal.all, :id, :name, {selected: client.nutritions.find_by(date: Date.today).lunch_meal_s_id}, {class:"input-default", id:"lunch-sub"}) %>
+                <% end %>
               </td>
               <td class="one-column">
-                <%= f.number_field :lunch_water_amount, class:"water-default", id:"carry-id" %> 
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.number_field :lunch_water_amount, class:"water-default", id:"lunch-water" %> 
+                <% else %>
+                  <%= f.number_field :lunch_water_amount, value: client.nutritions.find_by(date: Date.today).lunch_water_amount, class:"water-default", id:"lunch-water" %> 
+                <% end %>
               </td>
               <td class="one-column">
-                <%= f.number_field :fifty_water_amount, class:"water-default", id:"carry-id" %> 
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.number_field :fifty_water_amount, class:"water-default", id:"fifty-water" %> 
+                <% else %>
+                  <%= f.number_field :fifty_water_amount, value: client.nutritions.find_by(date: Date.today).fifty_water_amount, class:"water-default", id:"fifty-water" %> 
+                <% end %>
               </td>
               <td class="one-column">
-                <%= f.collection_select(:dinner_meal_m_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
-                <%= f.collection_select(:dinner_meal_s_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"sub-id"}) %>
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.collection_select(:dinner_meal_m_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"dinner-main"}) %>
+                  <%= f.collection_select(:dinner_meal_s_id, Meal.all, :id, :name, {selected: 1}, {class:"input-default", id:"dinner-sub"}) %>
+                <% else %>
+                  <%= f.collection_select(:dinner_meal_m_id, Meal.all, :id, :name, {selected: client.nutritions.find_by(date: Date.today).dinner_meal_m_id}, {class:"input-default", id:"dinner-main"}) %>
+                  <%= f.collection_select(:dinner_meal_s_id, Meal.all, :id, :name, {selected: client.nutritions.find_by(date: Date.today).dinner_meal_s_id}, {class:"input-default", id:"dinner-sub"}) %>
+                <% end %>  
               </td>
               <td class="one-column">
-                <%= f.number_field :dinner_water_amount, class:"water-default", id:"carry-id" %> 
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.number_field :dinner_water_amount, class:"water-default", id:"dinner-water" %> 
+                <% else %>
+                  <%= f.number_field :dinner_water_amount, value: client.nutritions.find_by(date: Date.today).dinner_water_amount,  class:"water-default", id:"dinner-water" %> 
+                <% end %>
               </td>
               <td class="one-column">
-                <%= f.number_field :twenty_water_amount, class:"water-default", id:"carry-id" %> 
+                <% if client.nutritions.find_by(date: Date.today).nil? %>
+                  <%= f.number_field :twenty_water_amount, class:"water-default", id:"twenty-water" %> 
+                <% else %>
+                  <%= f.number_field :twenty_water_amount, value: client.nutritions.find_by(date: Date.today).twenty_water_amount, class:"water-default", id:"twenty-water" %> 
+                <% end %>
               </td>
               <td>  
                 <%= f.hidden_field :client_id, value: client.id %>        
-                <%= f.submit "上記の内容を記録する" ,class:"register-red-btn" %>
+                <% if client.nutritions.where(date: Date.today).blank? %>
+                  <%= f.submit "記録する" ,class:"submit-btn", id:"nutrition-submit" %>
+                <% else %>
+                  <%= f.submit "更新する" ,class:"submit-btn", id:"nutrition-submit" %>
+                <% end %>
               </td>
             <% end %>
           </tr>      

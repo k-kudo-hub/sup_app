@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_10_17_050153) do
     t.integer "twenty_water_amount", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["date", "client_id"], name: "index_nutritions_on_date_and_client_id", unique: true
   end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

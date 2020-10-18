@@ -1,5 +1,10 @@
 # Sup-App
 
+## URL
+http://www.sup-app.net/
+
+## アプリの概要
+
 介護施設で勤務する全ての介護士を、
 「煩雑な記録」「紙の報告書」「長い申し送り」から解放します。
 
@@ -24,7 +29,7 @@
 ## 使用技術
 * Ruby:2.6.5, Rails:6.0.0
 * webpacker(css/js/jQuery)
-* ngix,puma(soclets通信)
+* ngix,puma(sockets通信)
 * Rspec
 
 ## 機能一覧
@@ -56,6 +61,7 @@
 * rails構文規約チェックツール（rubocop）
 * テストデータ投入（faker）
 * テストの実施(Rspec)
+* ドメインの取得（Route53）
 
 ## 工夫点
 * ユーザビリティ向上のため、現役介護士に定期的なフィードバックを受けてアプリを改善した。
