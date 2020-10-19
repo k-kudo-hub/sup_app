@@ -6,3 +6,36 @@
   width: 100px;
 }
 
+.nutrition-head {
+  height: 80px;
+  width: 100%;
+}
+
+.submit-btn {
+  background-color: darkblue;
+  color: white;
+  border: none;
+  padding: 2px 6px;
+  font-weight: bold;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.update {
+  background-color: darkgreen;
+}
+
+.to-record {
+  font-size: 14px;
+  padding: 10px 4vw;
+}
+
+.nutrition-box-img {
+  height: 35px;
+  width: 35px;
+  border-radius: 20px;
+  border: 2px solid  white;
+}
