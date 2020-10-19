@@ -76,19 +76,19 @@ ActiveRecord::Schema.define(version: 2020_10_17_050153) do
     t.integer "client_id", null: false
     t.integer "user_id", null: false
     t.date "date", null: false
-    t.integer "six_water_amount", default: 0, null: false
+    t.integer "six_water_amount", default: 0
     t.integer "morning_meal_m_id", default: 1, null: false
     t.integer "morning_meal_s_id", default: 1, null: false
-    t.integer "morning_water_amount", default: 0, null: false
-    t.integer "ten_water_amount", default: 0, null: false
+    t.integer "morning_water_amount", default: 0
+    t.integer "ten_water_amount", default: 0
     t.integer "lunch_meal_m_id", default: 1, null: false
     t.integer "lunch_meal_s_id", default: 1, null: false
-    t.integer "lunch_water_amount", default: 0, null: false
-    t.integer "fifty_water_amount", default: 0, null: false
+    t.integer "lunch_water_amount", default: 0
+    t.integer "fifty_water_amount", default: 0
     t.integer "dinner_meal_m_id", default: 1, null: false
     t.integer "dinner_meal_s_id", default: 1, null: false
-    t.integer "dinner_water_amount", default: 0, null: false
-    t.integer "twenty_water_amount", default: 0, null: false
+    t.integer "dinner_water_amount", default: 0
+    t.integer "twenty_water_amount", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["date", "client_id"], name: "index_nutritions_on_date_and_client_id", unique: true
