@@ -1,6 +1,11 @@
 <%= render "shared/header" %>
 
 <div class="body-wrap">
+  <div class="nutrition-head">
+    <div class="to-root">
+      <%= link_to "記録一覧へ戻る", records_path, class:"root-btn to-record" %>
+    </div> 
+  </div>
 
   <div class="table-wrap">
     <table class="table">
@@ -17,11 +22,20 @@
         <th class="head-column">夕食事量</th>
         <th class="head-column">夕水分量</th>
         <th class="head-column">20時水分量</th>
+        <th class="head-column">記録／更新</th>
       </tr>
         <% @clients.each do |client| %>
           <tr>
-            <%= form_with model: @nutrition, url: nutritions_path, method: :post, class: 'record-main', local: true do |f| %> 
-              <td class="one-column">
+            <%= form_with model: @nutrition, url: nutritions_path, method: :post, class: 'record-main', local: true do |f| %>
+              <%# <%= render 'shared/error_messages', model: f.object %>
+              <td class="client-one-column">
+                <div class="nutrition-box">
+                  <% if client.picture.file.nil? %> 
+                    <%= image_tag '/assets/human.png', size: "30x30",class:"nutrition-box-img" %>
+                  <% else %>
+                    <%= image_tag (client.picture.url), size: "30x30", class:"nutrition-box-img" %>
+                  <% end %>
+                </div>
                 <%= link_to "#{client.name} 様", client_path(client.id), method: :get, class: "record-client-name" %>
                 <div class="record-room-number"><%= client.room_number %></div>
               </td>
@@ -40,7 +54,7 @@
               </td>
               <td class="one-column">
                 <% if client.nutritions.find_by(date: Date.today).nil? %>
-                  <%= f.number_field :six_water_amount, class:"water-default", id:"six-water" %> 
+                  <%= f.number_field :six_water_amount, value: 0, class:"water-default", id:"six-water" %> 
                 <% else %>
                   <%= f.number_field :six_water_amount, value: client.nutritions.find_by(date: Date.today).six_water_amount, class:"water-default", id:"six-water" %> 
                 <% end %>
@@ -56,14 +70,14 @@
               </td>
               <td class="one-column">
                 <% if client.nutritions.find_by(date: Date.today).nil? %>
-                  <%= f.number_field :morning_water_amount, class:"water-default", id:"morning-water" %> 
+                  <%= f.number_field :morning_water_amount, value: 0,  class:"water-default", id:"morning-water" %> 
                 <% else %>
                   <%= f.number_field :morning_water_amount, value: client.nutritions.find_by(date: Date.today).morning_water_amount, class:"water-default", id:"morning-water" %> 
                 <% end %>              
               </td>
               <td class="one-column">
                 <% if client.nutritions.find_by(date: Date.today).nil? %>
-                  <%= f.number_field :ten_water_amount, class:"water-default", id:"ten-water" %> 
+                  <%= f.number_field :ten_water_amount, value: 0, class:"water-default", id:"ten-water" %> 
                 <% else %>
                   <%= f.number_field :ten_water_amount, value: client.nutritions.find_by(date: Date.today).ten_water_amount, class:"water-default", id:"ten-water" %> 
                 <% end %>    
@@ -79,14 +93,14 @@
               </td>
               <td class="one-column">
                 <% if client.nutritions.find_by(date: Date.today).nil? %>
-                  <%= f.number_field :lunch_water_amount, class:"water-default", id:"lunch-water" %> 
+                  <%= f.number_field :lunch_water_amount, value: 0, class:"water-default", id:"lunch-water" %> 
                 <% else %>
                   <%= f.number_field :lunch_water_amount, value: client.nutritions.find_by(date: Date.today).lunch_water_amount, class:"water-default", id:"lunch-water" %> 
                 <% end %>
               </td>
               <td class="one-column">
                 <% if client.nutritions.find_by(date: Date.today).nil? %>
-                  <%= f.number_field :fifty_water_amount, class:"water-default", id:"fifty-water" %> 
+                  <%= f.number_field :fifty_water_amount, value: 0, class:"water-default", id:"fifty-water" %> 
                 <% else %>
                   <%= f.number_field :fifty_water_amount, value: client.nutritions.find_by(date: Date.today).fifty_water_amount, class:"water-default", id:"fifty-water" %> 
                 <% end %>
@@ -102,24 +116,24 @@
               </td>
               <td class="one-column">
                 <% if client.nutritions.find_by(date: Date.today).nil? %>
-                  <%= f.number_field :dinner_water_amount, class:"water-default", id:"dinner-water" %> 
+                  <%= f.number_field :dinner_water_amount, value: 0, class:"water-default", id:"dinner-water" %> 
                 <% else %>
                   <%= f.number_field :dinner_water_amount, value: client.nutritions.find_by(date: Date.today).dinner_water_amount,  class:"water-default", id:"dinner-water" %> 
                 <% end %>
               </td>
               <td class="one-column">
                 <% if client.nutritions.find_by(date: Date.today).nil? %>
-                  <%= f.number_field :twenty_water_amount, class:"water-default", id:"twenty-water" %> 
+                  <%= f.number_field :twenty_water_amount, value: 0, class:"water-default", id:"twenty-water" %> 
                 <% else %>
                   <%= f.number_field :twenty_water_amount, value: client.nutritions.find_by(date: Date.today).twenty_water_amount, class:"water-default", id:"twenty-water" %> 
                 <% end %>
               </td>
-              <td>  
-                <%= f.hidden_field :client_id, value: client.id %>        
+                <%= f.hidden_field :client_id, value: client.id %>
+              <td class="one-column">  
                 <% if client.nutritions.where(date: Date.today).blank? %>
                   <%= f.submit "記録する" ,class:"submit-btn", id:"nutrition-submit" %>
                 <% else %>
-                  <%= f.submit "更新する" ,class:"submit-btn", id:"nutrition-submit" %>
+                  <%= f.submit "更新する" ,class:"submit-btn update", id:"nutrition-submit" %>
                 <% end %>
               </td>
             <% end %>
