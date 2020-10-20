@@ -21,6 +21,13 @@ before_action :move_to_index, only: [:edit, :update, :destroy]
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.csv do
+        filename = ERB::Util.url_encode('report.csv')
+        send_data render_to_string, filename: filename, type: :csv
+      end
+    end
   end
 
   def edit
