@@ -1,5 +1,5 @@
 # Sup-App
-![alt](app/assets/images/sup-top.png)
+![alt](app/assets/images/sup-top.jpg)
 
 ## URL
 【アプリケーションURL】
