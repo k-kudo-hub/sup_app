@@ -1,7 +1,7 @@
 # Sup-App
 
 ## URL
-[Sup-App](http://www.sup-app.net/)
+[Sup-App](http://www.sup-app.net/)(http://www.sup-app.net/)
 
 ## アプリの概要
 
