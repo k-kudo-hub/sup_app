@@ -74,9 +74,13 @@ a {
   height: 82px;
 }
 
-.user-pic:hover, .client-dam:hover, .logout-pic:hover, .sign-in:hover, .sign-up:hover{
+.client-dam:hover, .logout-pic:hover, .sign-in:hover, .sign-up:hover{
   background-color: rgb(248, 184, 101);
   cursor: pointer;
+}
+
+.user-pic:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 959px){
