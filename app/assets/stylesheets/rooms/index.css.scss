@@ -58,7 +58,7 @@ body {
 }
 
 .top-one-report {
-  margin: 10px 0 0 20px;
+  margin: 10px 0 0 10vw;
   font-weight: bold;
 }
 
@@ -72,6 +72,7 @@ body {
   width: 100px;
   border-radius: 60px;
   border: 10px solid  white;
+  margin: 0 auto;
 }
 
 .client-box-img:hover {
@@ -110,7 +111,7 @@ body {
 }
 
 .pic-area {
-  width: 150px;
+  width: 15%;
   height: 100%;
   margin-left: 10px;
   background-color: rgb(241, 223, 202);
@@ -123,11 +124,11 @@ body {
 .top-caution-image {
   position: absolute;
   top: 10%;
-  /* right: 0%; */
+  left: 14%; 
 }
 
 .detail-area {
-  width: 30%;
+  width: 25%;
   font-size: 20px;
   text-decoration: none;
   display: flex;
@@ -157,6 +158,13 @@ body {
   padding: 10px;
   text-align: left;
   border-bottom: 5px dashed white;
+}
+
+.index-message-content {
+  font-size: 14px;
+  height: 40px;
+  overflow: hidden;
+  width: 95%;
 }
 
 .message-content {
