@@ -1,7 +1,11 @@
 # Sup-App
 
 ## URL
+【アプリケーションURL】
 [Sup-App](http://www.sup-app.net/)(http://www.sup-app.net/)
+
+【GitHubリポジトリ】
+
 
 ## アプリの概要
 
