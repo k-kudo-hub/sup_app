@@ -1,7 +1,11 @@
 # Sup-App
+![alt](app/assets/images/sup-top.png)
 
 ## URL
-[Sup-App](http://www.sup-app.net/)
+【アプリケーションURL】
+[Sup-App](http://www.sup-app.net/)(http://www.sup-app.net/)
+
+【GitHubリポジトリ】https://github.com/k-kudo-hub/sup_app
 
 ## アプリの概要
 
