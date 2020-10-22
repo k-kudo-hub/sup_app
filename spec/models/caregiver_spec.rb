@@ -32,32 +32,32 @@ RSpec.describe Caregiver, type: :model do
       it "degree_idが1だと登録できない" do
         @caregiver.degree_id = ""
         @caregiver.valid?
-        expect(@caregiver.errors.full_messages).to include("Degree が選択されていません")
+        expect(@caregiver.errors.full_messages).to include("要介護度が選択されていません")
       end
       it "cognition_idが1だと登録できない" do
         @caregiver.cognition_id = ""
         @caregiver.valid?
-        expect(@caregiver.errors.full_messages).to include("Cognition が選択されていません")
+        expect(@caregiver.errors.full_messages).to include("認知機能が選択されていません")
       end
       it "move_idが1だと登録できない" do
         @caregiver.move_id = ""
         @caregiver.valid?
-        expect(@caregiver.errors.full_messages).to include("Move が選択されていません")
+        expect(@caregiver.errors.full_messages).to include("移動が選択されていません")
       end
       it "meal_idが1だと登録できない" do
         @caregiver.meal_id = ""
         @caregiver.valid?
-        expect(@caregiver.errors.full_messages).to include("Meal が選択されていません")
+        expect(@caregiver.errors.full_messages).to include("食事が選択されていません")
       end
       it "excretion_idが1だと登録できない" do
         @caregiver.excretion_id = ""
         @caregiver.valid?
-        expect(@caregiver.errors.full_messages).to include("Excretion が選択されていません")
+        expect(@caregiver.errors.full_messages).to include("排泄が選択されていません")
       end
       it "bathing_idが1だと登録できない" do
         @caregiver.bathing_id = ""
         @caregiver.valid?
-        expect(@caregiver.errors.full_messages).to include("Bathing が選択されていません")
+        expect(@caregiver.errors.full_messages).to include("入浴が選択されていません")
       end
     end
 

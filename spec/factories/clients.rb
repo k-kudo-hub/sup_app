@@ -6,5 +6,7 @@ FactoryBot.define do
     status_id             {2}
     sex_id                {2}
     birth                 {Faker::Date.between(from: '1920-01-01', to: '2015-12-31')}
+    careplan              {3000}
+    insurance             {12345678}
   end
 end

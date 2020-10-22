@@ -22,27 +22,27 @@ RSpec.describe Client, type: :model do
       it "nameが空だと登録できない" do
         @client.name = ""
         @client.valid?
-        expect(@client.errors.full_messages).to include("Name が空です")
+        expect(@client.errors.full_messages).to include("名前が入力されていません。")
       end
       it "name_kanaが空だと登録できない" do
         @client.name_kana = ""
         @client.valid?
-        expect(@client.errors.full_messages).to include("Name kana が空です")
+        expect(@client.errors.full_messages).to include("フリガナ（カタカナ）が入力されていません。")
       end
       it "room_numberが空だと登録できない" do
         @client.room_number = nil
         @client.valid?
-        expect(@client.errors.full_messages).to include("Room number が空です")
+        expect(@client.errors.full_messages).to include("居室番号が入力されていません。")
       end
       it "status_idが1だと登録できない" do
         @client.status_id = 1
         @client.valid?
-        expect(@client.errors.full_messages).to include("Status が選択されていません。")
+        expect(@client.errors.full_messages).to include("入居状況が選択されていません。")
       end
       it "name_kanaがカタカナ以外だと登録できない" do
         @client.name_kana = "すずきたろう"
         @client.valid?
-        expect(@client.errors.full_messages).to include("Name kana は全角カタカナのみ登録できます。")
+        expect(@client.errors.full_messages).to include("フリガナ（カタカナ）は全角カタカナのみ登録できます。")
       end
     end
   end

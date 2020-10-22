@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :record do
     association :client
-    id                    {1}
     user_id               {1}
     start_time            {Time.now - 1.minute}
     end_time              {Time.now - 1.minute}
@@ -10,9 +9,6 @@ FactoryBot.define do
     sub_item_id           {11}
     remind                {1}
     carryout_id           {1}
-    meal_m_id             {Faker::Number.between(from: 1, to: 12)}
-    meal_s_id             {Faker::Number.between(from: 1, to: 12)}
-    water_amount          {Faker::Number.between(from: 0, to: 300)}
     exc_shape_id          {Faker::Number.between(from: 0, to: 5)}
     exc_amount_id         {Faker::Number.between(from: 0, to: 5)}
     urine_amount          {Faker::Number.between(from: 0, to: 300)}

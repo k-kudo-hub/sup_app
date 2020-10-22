@@ -30,22 +30,22 @@ RSpec.describe Detail, type: :model do
       it "mbp_highが空だと登録できない" do
         @detail.mbp_high = nil
         @detail.valid?
-        expect(@detail.errors.full_messages).to include("Mbp high が空です")
+        expect(@detail.errors.full_messages).to include("平均血圧（収縮期）が空です")
       end
       it "mbp_lowが空だと登録できない" do
         @detail.mbp_low = nil
         @detail.valid?
-        expect(@detail.errors.full_messages).to include("Mbp low が空です")
+        expect(@detail.errors.full_messages).to include("平均血圧（拡張期）が空です")
       end
       it "mbp_highが数字以外だと登録できない" do
         @detail.mbp_high = "あああ"
         @detail.valid?
-        expect(@detail.errors.full_messages).to include("Mbp high は半角数字で入力してください")
+        expect(@detail.errors.full_messages).to include("平均血圧（収縮期）は半角数字で入力してください")
       end
       it "mbp_lowが空だと登録できない" do
         @detail.mbp_low = "あああ"
         @detail.valid?
-        expect(@detail.errors.full_messages).to include("Mbp low は半角数字で入力してください")
+        expect(@detail.errors.full_messages).to include("平均血圧（拡張期）は半角数字で入力してください")
       end
     end
 
