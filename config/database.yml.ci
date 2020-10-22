@@ -1,5 +1,5 @@
 test:
-  adapter: mysql2
+  adapter: mysql
   encoding: utf8
   pool: 5
   username: 'root'
