@@ -1,0 +1,27 @@
+# コンテナについての記述。この部分をホストがマウントする。
+version: '3.8'
+services:
+  db: # DBについての記述
+    image: mysql:5.6.47
+    environment:
+      MYSQL_USER: root #ユーザー名
+      MYSQL_PASSWORD:
+      MYSQL_ROOT_PASSWORD: secret #パスワード（docker）
+    ports:
+      - "4306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql #左がローカル:右がコンテナ
+  web:
+    build: . #カレントディレクトリを指している
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/sup_app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    stdin_open: true
+    tty: true
+volumes:
+  mysql-data:
+    driver: local
