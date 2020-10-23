@@ -7,7 +7,7 @@ services:
       MYSQL_USER: root #ユーザー名
       MYSQL_PASSWORD:
       MYSQL_ROOT_PASSWORD: secret #パスワード（docker）
-      DATABASE_PASSWORD: tongari6824
+      DATABASE_PASSWORD: 'tongari6824'
     ports:
       - "4306:3306"
     volumes:
