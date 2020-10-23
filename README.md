@@ -3,7 +3,7 @@
 
 ## URL
 【アプリケーションURL】
-[Sup-App](http://www.sup-app.net/)(http://www.sup-app.net/)
+[Sup-App](https://www.sup-app.net/)(https://www.sup-app.net/)
 
 【GitHubリポジトリ】https://github.com/k-kudo-hub/sup_app
 
