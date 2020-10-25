@@ -13,11 +13,13 @@ class Record < ApplicationRecord
 
   with_options presence: {nessage: "が入力されていません。"} do
     validates :client_id
+    validates :user_id
     validates :major_item_id,  numericality:{ other_than: 1 , message: "が選択されていません。"}
     validates :main_item_id,   numericality:{ other_than: 1 , message: "が選択されていません。"}
     validates :sub_item_id,    numericality:{ other_than: 1 , message: "が選択されていません。"}
     validates :start_time
     validates :end_time
+    validates :carryout_id
   end
   
   validates :urine_amount, numericality: { only_integer: true, message: "は数字で入力してください。" }

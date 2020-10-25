@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :client do
+    id                    {1}
     name                  {"鈴木太郎"}
     name_kana             {"スズキタロウ"}
     room_number           {444}
