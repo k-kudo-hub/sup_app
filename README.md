@@ -5,7 +5,6 @@
 【アプリケーションURL】
 [Sup-App](https://www.sup-app.net/)(https://www.sup-app.net/)
 
-【GitHubリポジトリ】https://github.com/k-kudo-hub/sup_app
 
 ## アプリの概要
 
@@ -88,10 +87,8 @@
 ![alt](app/assets/images/sup_app.ER-infrastructure.png)
 
 ## 今後の改善・修正予定
-* Docker,CircleCIを導入し、現場で用いられている開発環境に近づける。
 * 通知機能、既読機能を実装し、機能の充実を図る。
 * テストコードの記述、バリデーションの見直しを通して、アプリケーションの安全性を確保する。
-* 通信をSSL化し、個人情報を扱うアプリケーションとして最低限の個人情報保護を図る。
 
 ## 作成の背景
 新卒入社した介護施設で感じた「不便」が、このアプリを作成したきっかけです。
