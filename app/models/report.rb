@@ -21,6 +21,7 @@ class Report < ApplicationRecord
     end
 
     validate :check_one
+    validate :check_two
     validate :check_three
     validate :check_four
     validate :check_five
@@ -31,6 +32,15 @@ class Report < ApplicationRecord
       end
       if (check_id == 1) && (coping == "")
         errors.add(:coping, "は本人承認に必要な項目です。")
+      end
+    end
+    
+    def check_two
+      if (check_id == 2) && (content == "")
+        errors.add(:content, "は本人承認時に必要な項目です。")
+      end
+      if (check_id == 2) && (coping == "")
+        errors.add(:coping, "は本人承認時に必要な項目です。")
       end
     end
 
@@ -70,10 +80,13 @@ class Report < ApplicationRecord
       end
       if (check_id == 5) && (desc_content == "")
         errors.add(:desc_content, "はケアマネージャー承認時に必要な項目です")
-      end  
+      end 
       if (check_id == 5) && (count_content == "")
         errors.add(:count_content, "は施設責任者承認に必要な項目です")
-      end  
+      end
+      if (check_id == 5) && (desc_date > Date.today )
+        errors.add(:desc_date, "は未来の日時を設定することはできません")
+      end
     end
 
 end

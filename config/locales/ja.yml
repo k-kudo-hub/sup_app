@@ -71,18 +71,18 @@ ja:
         memo: 記録の詳細
       report:
         client: お客様名
-        user: ユーザーID
+        user_id: ユーザーID
         occ_time: 事故の発生時刻
         place_id: 事故の発生場所
         genre_id: 事故の種別
         res_id: 事故の状況
         level_id: 受傷の程度
         content: 事故の内容
-        picture: 対処の詳細
-        coping: 施設内での報告
-        contact_id: 受診（入院）した医療機関名
-        hospital: 家族への報告
-        desc_date: 家族への報告
+        picture: 写真
+        coping: 対処の詳細
+        contact_id: 施設内での報告
+        hospital: 受診・入院した医療機関名
+        desc_date: 家族への報告日
         desc_user: 家族への説明担当者
         desc_content: 家族への説明内容
         count_content: 再発防止策の内容
