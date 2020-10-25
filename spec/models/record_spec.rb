@@ -5,7 +5,6 @@ RSpec.describe Record, type: :model do
   before do
     @record = FactoryBot.build(:record)
   end
-  binding.pry
 
   # bundle exec rspec spec/models/record_spec.rb 
 
