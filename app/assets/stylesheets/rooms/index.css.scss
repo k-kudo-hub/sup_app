@@ -439,7 +439,8 @@ body {
 }
 
 .score-area {
-  height: 32px;
+  height: 40%;
+  padding: 2px;
 }
 
 .top {
@@ -458,9 +459,10 @@ body {
 
 .index-message-content {
   font-size: 10px;
-  height: 50%;
+  height: 70%;
   overflow: hidden;
   width: 95%;
+  overflow: scroll;
 }
 
 }
