@@ -22,7 +22,7 @@ class RecordsController < ApplicationController
       render :new
     end
   end
-
+ 
   def edit
     @record = Record.find(params[:id])
     move_to_index
