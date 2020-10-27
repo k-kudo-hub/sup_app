@@ -5,6 +5,12 @@ class Message < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
+  validates :content, presence: true, unless: :was_attached?
+
+  def was_attached?
+    self.picture.file.present?
+  end
+
   belongs_to :room 
   belongs_to :user
 
