@@ -27,10 +27,10 @@ class Record < ApplicationRecord
   validate :time_check
 
   def time_check
-    if (carryout_id == 2) && (start_time > Time.now)
+    if (carryout_id == 2) && (start_time > Time.current)
       errors.add(:start_time, "未来の記録はできません")
     end
-    if (carryout_id == 2) && (end_time > Time.now)
+    if (carryout_id == 2) && (end_time > Time.current)
       errors.add(:end_time, "未来の記録はできません")
     end
   end

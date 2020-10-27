@@ -3,8 +3,8 @@ FactoryBot.define do
     association :client
     client_id             {1}
     user_id               {1}
-    start_time            {Time.now - 2.minute}
-    end_time              {Time.now - 1.minute}
+    start_time            {Time.current - 2.minute}
+    end_time              {Time.current - 1.minute}
     major_item_id         {2}
     main_item_id          {3}
     sub_item_id           {11}

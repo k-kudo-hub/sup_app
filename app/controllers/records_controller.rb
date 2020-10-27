@@ -55,7 +55,7 @@ class RecordsController < ApplicationController
         main_item_id: record[:main_item_id],
         sub_item_id: record[:sub_item_id],
         start_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:start_time].hour,record[:start_time].min,record[:start_time].sec),
-        end_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:start_time].hour,record[:start_time].min,record[:start_time].sec),
+        end_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:end_time].hour,record[:end_time].min,record[:end_time].sec),
         memo: record[:memo],
         user_id: current_user.id,
         carryout_id: 1,
@@ -70,7 +70,7 @@ class RecordsController < ApplicationController
   #お客様ごとの一括実施を定義
   def bulk_carry
     @client = Client.find(params[:client_id])
-    @records = @client.records.where(start_time: Date.today.beginning_of_day...Time.now)
+    @records = @client.records.where(start_time: Date.today.beginning_of_day...Time.current)
     @records.each do |record|
       record.update(
         carryout_id: 2

@@ -87,7 +87,7 @@ RSpec.describe Record, type: :model do
         expect(@record.errors.full_messages).to include("尿量は数字で入力してください。")
       end
       it "開始時刻が未来の場合は保存できない" do
-        @record.start_time =  Time.now + 1.minute
+        @record.start_time =  Time.current + 1.minute
         @record.carryout_id = 2
         @record.valid?
         expect(@record.errors.full_messages).to include("開始時刻未来の記録はできません")
