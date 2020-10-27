@@ -27,8 +27,8 @@ private
   end
 
   def set_timezone
-    @default = Date.today.beginning_of_day.in_time_zone
-    @defaultend = Date.today.end_of_day.in_time_zone
+    @default = Date.today.beginning_of_day
+    @defaultend = Date.today.end_of_day
     @morning = @default+6.hour...@default+10.hour
     @lunch = @default+11.hour...@default+14.hour
     @evening = @default+17.hour...@default+21.hour
