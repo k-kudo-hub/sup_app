@@ -334,11 +334,12 @@ body {
 }
 
 .top-message-title {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .top-message-content {
-  font-size: 8px;
+  font-size: 14px;
 }
 
 .one-btn {
@@ -347,7 +348,11 @@ body {
 }
 
 .top-sign-in,
-.top-sign-up,
+.top-sign-up {
+  padding: 2vh 7vw;
+}
+
+
 .top-easy-in,
 .dispatch-easy-in {
   padding: 2vh 4vw;
