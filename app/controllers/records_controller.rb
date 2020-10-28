@@ -48,23 +48,43 @@ class RecordsController < ApplicationController
   #リマインドの一括出力を定義
   def bulk_create
     @records = Record.where(remind: true)
-    @records.each do |record|
-      @record = Record.create(
-        client_id: record[:client_id],
-        major_item_id: record[:major_item_id],
-        main_item_id: record[:main_item_id],
-        sub_item_id: record[:sub_item_id],
-        start_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:start_time].hour,record[:start_time].min,record[:start_time].sec),
-        end_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:end_time].hour,record[:end_time].min,record[:end_time].sec),
-        memo: record[:memo],
-        user_id: current_user.id,
-        carryout_id: 1,
-        remind: false,
-        exc_amount_id: record[:exc_amount_id],
-        exc_shape_id: record[:exc_shape_id]
-      )
+    if Rails.env.development?
+      @records.each do |record|
+        @record = Record.create(
+          client_id: record[:client_id],
+          major_item_id: record[:major_item_id],
+          main_item_id: record[:main_item_id],
+          sub_item_id: record[:sub_item_id],
+          start_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:start_time].hour,record[:start_time].min,record[:start_time].sec),
+          end_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:end_time].hour,record[:end_time].min,record[:end_time].sec),
+          memo: record[:memo],
+          user_id: current_user.id,
+          carryout_id: 1,
+          remind: false,
+          exc_amount_id: record[:exc_amount_id],
+          exc_shape_id: record[:exc_shape_id]
+        )
+      end
+      redirect_to :root
+    else
+      @records.each do |record|
+        @record = Record.create(
+          client_id: record[:client_id],
+          major_item_id: record[:major_item_id],
+          main_item_id: record[:main_item_id],
+          sub_item_id: record[:sub_item_id],
+          start_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:start_time].hour,record[:start_time].min,record[:start_time].sec - 9.hour),
+          end_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:end_time].hour,record[:end_time].min,record[:end_time].sec - 9.hour),
+          memo: record[:memo],
+          user_id: current_user.id,
+          carryout_id: 1,
+          remind: false,
+          exc_amount_id: record[:exc_amount_id],
+          exc_shape_id: record[:exc_shape_id]
+        )
+      end
+      redirect_to :root
     end
-    redirect_to :root
   end
 
   #お客様ごとの一括実施を定義
