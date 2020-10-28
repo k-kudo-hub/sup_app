@@ -87,6 +87,23 @@ ja:
         desc_content: 家族への説明内容
         count_content: 再発防止策の内容
         check_id: 承認レベル
+      nutrition:
+        client_id: お客様ID
+        user_id: ユーザーID
+        date: 日付
+        six_water_amount: 6時の水分量
+        morning_meal_m_id: 朝食（主食）食事量
+        morning_meal_s_id: 朝食（副食）食事量
+        morning_water_amount: 朝食の水分量
+        ten_water_amount: 10時の水分量
+        lunch_meal_m_id: 昼食（主食）食事量
+        lunch_meal_s_id: 昼食（副食）食事量
+        lunch_water_amount: 昼食の水分量
+        fifty_water_amount: 15時の水分量
+        dinner_meal_m_id: 夕食（主食）食事量
+        dinner_meal_s_id: 夕食（副食）食事量
+        dinner_water_amount: 夕食の水分量
+        twenty_water_amount: 20時の水分量
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
