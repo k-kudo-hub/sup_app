@@ -3,7 +3,7 @@
     <div class="one-room-wrap">
       <div class="pic-area">
         <% if client.picture.file.nil? %> 
-          <%= image_tag '/assets/human.png', class:"client-box-img" %>
+          <%= image_tag 'human.png', class:"client-box-img" %>
         <% else %>
           <%= image_tag (client.picture.url), class:"client-box-img" %>
         <% end %>
