@@ -18,7 +18,7 @@ class DetailsController < ApplicationController
   private
 
   def detail_params
-    params.require(:detail).permit(:past_history, :illness, :medicine, :mbp_high, :mbp_low)
+    params.require(:detail).permit(:past_history, :illness, :doctor, :medicine, :mbp_high, :mbp_low)
   end
 
   def set_detail
