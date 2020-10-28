@@ -4,6 +4,14 @@ before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
     @report = Report.includes(:client).page(params[:page]).per(10).order("occ_time DESC")
+    @report_month = Report.where(occ_time: Time.current.all_month)
+    respond_to do |format|
+      format.html
+      format.csv do
+        filename = ERB::Util.url_encode('this-month-report.csv')
+        send_data render_to_string, filename: filename, type: :csv
+      end
+    end
   end
 
   def new
