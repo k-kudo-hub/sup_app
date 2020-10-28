@@ -13,10 +13,12 @@
 }
 
 .new-report-btn {
-  width: 200px;
+  width: 300px;
   height: 50px;
   float: right;
   font-size: 16px;
+  display: flex;
+  margin: 0 20px 20px 0;
 }
 
 .new-report-text { 
@@ -27,6 +29,11 @@
   padding: 15px 20px;
   background-color: darkgreen;
   border-radius: 5px;
+  margin-right: 20px;
+}
+
+.blue-btn {
+  background-color: darkblue;
 }
 
 .report-index {

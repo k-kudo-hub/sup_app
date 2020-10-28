@@ -8,6 +8,9 @@
     </div>
     <div class="new-report-btn">
       <%= link_to "新規作成", new_report_path, method: :get, class:"new-report-text" %>
+      <% if @report_month.exists? %>
+        <%= link_to "今月分を出力", reports_path(format: :csv), method: :get, class:"new-report-text blue-btn" %>
+      <% end %>
     </div>
   </div>
   <div class="report-index">
