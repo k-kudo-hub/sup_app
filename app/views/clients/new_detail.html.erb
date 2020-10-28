@@ -23,7 +23,12 @@
     </div>
     <%= f.text_area :illness, class:"input-default", id:"illness", placeholder:"例) アルツハイマー型認知症" %>
   </div> 
-
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">かかりつけ医</label>
+    </div>
+    <%= f.text_field :doctor, class:"input-default", id:"doctor", placeholder:"例) 〇〇クリニック" %>
+  </div> 
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">服用中の薬</label>
