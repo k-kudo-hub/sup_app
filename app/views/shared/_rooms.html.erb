@@ -58,7 +58,7 @@
                 <% if record.carryout_id == 1 %>
                   <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("oral.png"), class: "print top", id: "point" %></div>
                 <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("excretion.png"), class: "print carryout top", id: "point" %></div>
+                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("oral.png"), class: "print carryout top", id: "point" %></div>
                 <% end %>
               <% when 41 then %>
                 <% if record.carryout_id == 1 %>
