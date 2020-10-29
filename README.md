@@ -53,7 +53,7 @@
 
 ## 使用技術
 * Ruby:2.6.5, Rails:6.0.0
-* webpacker(css/js/jQuery)
+* webpacker(css/Javascrict)
 * ngix,puma(sockets通信)
 * Docker(ローカル環境)
 * Circleci(自動テスト)
@@ -72,13 +72,13 @@
 
 【③チャットルーム機能】
 * 非同期チャット機能（json,ActionCable）
-* 自動スクロール（jQuery）
+* 自動スクロール
 * メッセージのタグ付け機能
 * 画像投稿、テキスト投稿機能
 
 【④記録機能】
 * 介護記録の個別作成、編集、削除、一覧表示機能
-* シングルクリックでモーダル表示（jQuery）
+* シングルクリックでモーダル表示
 * ダブルクリックで介助の実施／非実施切り替え（Javascript）
 * 項目別記録（水分量・食事量）機能
 
