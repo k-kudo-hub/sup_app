@@ -6,6 +6,6 @@ class Contact < ActiveHash::Base
     { id: 4, name: 'ケアマネージャー' },
     { id: 5, name: '施設長' },
     { id: 6, name: '家族' },
-    { id: 7, name: 'その他' },
-  ] 
+    { id: 7, name: 'その他' }
+  ]
 end

@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
- before_action :set_client, only: [:create, :destroy]
- 
+  before_action :set_client, only: %i[create destroy]
+
   def create
     following = Relationship.new(client_id: @client.id, user_id: current_user.id)
     if following.save
@@ -28,5 +28,4 @@ class RelationshipsController < ApplicationController
   def set_client
     @client = Client.find(params[:client_id])
   end
-
 end

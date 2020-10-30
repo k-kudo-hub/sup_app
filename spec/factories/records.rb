@@ -13,6 +13,6 @@ FactoryBot.define do
     exc_shape_id          {Faker::Number.between(from: 0, to: 5)}
     exc_amount_id         {Faker::Number.between(from: 0, to: 5)}
     urine_amount          {Faker::Number.between(from: 0, to: 300)}
-    memo                  {"特変なし。"}
+    memo                  {'特変なし。'}
   end
 end

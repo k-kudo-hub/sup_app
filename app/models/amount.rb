@@ -6,5 +6,5 @@ class Amount < ActiveHash::Base
     { id: 3, name: '普通量' },
     { id: 4, name: '多量' },
     { id: 5, name: '超多量' }
-  ] 
+  ]
 end

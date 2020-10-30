@@ -1,12 +1,10 @@
 class CaregiversController < ApplicationController
-  before_action :set_caregiver, only: [:edit, :update]
-  before_action :move_to_index, only: [:new, :edit, :update]
-  
-  def new
-  end
+  before_action :set_caregiver, only: %i[edit update]
+  before_action :move_to_index, only: %i[new edit update]
 
-  def edit
-  end
+  def new; end
+
+  def edit; end
 
   def update
     if @caregiver.update(caregiver_params)
@@ -27,9 +25,6 @@ class CaregiversController < ApplicationController
   end
 
   def move_to_index
-    if current_user.position_id < 4
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.position_id < 4
   end
-
 end

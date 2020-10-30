@@ -6,15 +6,15 @@ class User < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
-  with_options presence: {message: "が空です。"} do
+  with_options presence: { message: 'が空です。' } do
     validates :name
-    validates :name_kana,    format:{with:/\A[ァ-ヶー－]+\z/, message:"は全角カタカナのみ登録できます。"}
-    validates :staff_number, format:{with: /\A[0-9]+\z/, message:"は数字のみ登録できます。"}
-    validates :password, :password_confirmation,  
-                             format:{with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i, message: "は8文字以上の半角英数字混合で登録できます。"}    
+    validates :name_kana,    format: { with: /\A[ァ-ヶー－]+\z/, message: 'は全角カタカナのみ登録できます。' }
+    validates :staff_number, format: { with: /\A[0-9]+\z/, message: 'は数字のみ登録できます。' }
+    validates :password, :password_confirmation,
+              format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i, message: 'は8文字以上の半角英数字混合で登録できます。' }
   end
-   validates :qualification_id, :work_style_id,
-                             numericality:{ other_than: 1 , message: "が選択されていません"}
+  validates :qualification_id, :work_style_id,
+            numericality: { other_than: 1, message: 'が選択されていません' }
 
   has_many :room_users
   has_many :rooms, through: :room_users
@@ -22,5 +22,4 @@ class User < ApplicationRecord
 
   has_many :relationships
   has_many :clients, through: :relationships
-
 end

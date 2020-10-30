@@ -18,6 +18,6 @@ class Place < ActiveHash::Base
     { id: 16, name: 'マシンルーム' },
     { id: 17, name: '健康管理室' },
     { id: 18, name: '外出先' },
-    { id: 19, name: 'その他' },
-  ] 
+    { id: 19, name: 'その他' }
+  ]
 end

@@ -7,5 +7,5 @@ class Check < ActiveHash::Base
     { id: 4, name: 'ケアマネージャー確認済み' },
     { id: 5, name: '施設責任者確認済み' },
     { id: 6, name: '報告済み' }
-  ] 
+  ]
 end

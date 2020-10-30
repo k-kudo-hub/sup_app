@@ -2,7 +2,7 @@ require 'csv'
 require 'nkf'
 
 csv_data = CSV.generate do |csv|
-  csv << %w(id 名前 性別 生年月日 記録者 発生時刻 発生場所 種別 単独／介助 程度 事故の内容 事故対応 連絡 通院・入院した病院 報告説明日 説明担当者 説明内容 再発防止策 )
+  csv << %w[id 名前 性別 生年月日 記録者 発生時刻 発生場所 種別 単独／介助 程度 事故の内容 事故対応 連絡 通院・入院した病院 報告説明日 説明担当者 説明内容 再発防止策]
   @report_month.each do |report|
     csv << [
       report.id,
@@ -26,4 +26,4 @@ csv_data = CSV.generate do |csv|
     ]
   end
 end
-NKF::nkf('--sjis -Lw', csv_data)
+NKF.nkf('--sjis -Lw', csv_data)

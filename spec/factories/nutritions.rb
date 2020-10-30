@@ -16,6 +16,6 @@ FactoryBot.define do
     dinner_meal_m_id       {Faker::Number.between(from: 1, to: 11)}
     dinner_meal_s_id       {Faker::Number.between(from: 1, to: 11)}
     dinner_water_amount    {Faker::Number.between(from: 1, to: 200)}
-    twenty_water_amount    {Faker::Number.between(from: 1, to: 200)}    
+    twenty_water_amount    {Faker::Number.between(from: 1, to: 200)}
   end
 end

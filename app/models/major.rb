@@ -4,6 +4,6 @@ class Major < ActiveHash::Base
     { id: 2, name: '身体介助' },
     { id: 3, name: '生活援助' },
     { id: 4, name: '看護・処置' },
-    { id: 5, name: 'リハビリテーション' },
-  ] 
+    { id: 5, name: 'リハビリテーション' }
+  ]
 end

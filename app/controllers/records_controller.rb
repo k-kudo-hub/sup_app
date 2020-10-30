@@ -1,28 +1,28 @@
 class RecordsController < ApplicationController
-  require "date"
+  require 'date'
   protect_from_forgery only: [:carry_out]
-  before_action :set_timezone, only: [:index, :new, :by_item_new]
+  before_action :set_timezone, only: %i[index new by_item_new]
 
   def index
-    @clients = Client.includes(:records).order("room_number ASC")
+    @clients = Client.includes(:records).order('room_number ASC')
   end
 
   def new
     params[:client_id]
     @record = Record.new
-    @clients = Client.includes(:detail, :caregiver, :room).order("room_number ASC")
+    @clients = Client.includes(:detail, :caregiver, :room).order('room_number ASC')
   end
 
   def create
     @record = Record.new(record_params)
-    if @record.valid? 
+    if @record.valid?
       @record.save
-      redirect_to 
+      redirect_to
     else
       render :new
     end
   end
- 
+
   def edit
     @record = Record.find(params[:id])
     move_to_index
@@ -45,7 +45,7 @@ class RecordsController < ApplicationController
     redirect_to records_path
   end
 
-  #リマインドの一括出力を定義
+  # リマインドの一括出力を定義
   def bulk_create
     @records = Record.where(remind: true)
     if Rails.env.development?
@@ -55,8 +55,8 @@ class RecordsController < ApplicationController
           major_item_id: record[:major_item_id],
           main_item_id: record[:main_item_id],
           sub_item_id: record[:sub_item_id],
-          start_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:start_time].hour,record[:start_time].min,record[:start_time].sec),
-          end_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:end_time].hour,record[:end_time].min,record[:end_time].sec),
+          start_time: Time.new(Date.today.year, Date.today.mon, Date.today.day, record[:start_time].hour, record[:start_time].min, record[:start_time].sec),
+          end_time: Time.new(Date.today.year, Date.today.mon, Date.today.day, record[:end_time].hour, record[:end_time].min, record[:end_time].sec),
           memo: record[:memo],
           user_id: current_user.id,
           carryout_id: 1,
@@ -73,8 +73,8 @@ class RecordsController < ApplicationController
           major_item_id: record[:major_item_id],
           main_item_id: record[:main_item_id],
           sub_item_id: record[:sub_item_id],
-          start_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:start_time].hour,record[:start_time].min,record[:start_time].sec) - 9.hour,
-          end_time: Time.new(Date.today.year,Date.today.mon,Date.today.day,record[:end_time].hour,record[:end_time].min,record[:end_time].sec) - 9.hour,
+          start_time: Time.new(Date.today.year, Date.today.mon, Date.today.day, record[:start_time].hour, record[:start_time].min, record[:start_time].sec) - 9.hour,
+          end_time: Time.new(Date.today.year, Date.today.mon, Date.today.day, record[:end_time].hour, record[:end_time].min, record[:end_time].sec) - 9.hour,
           memo: record[:memo],
           user_id: current_user.id,
           carryout_id: 1,
@@ -87,7 +87,7 @@ class RecordsController < ApplicationController
     end
   end
 
-  #お客様ごとの一括実施を定義
+  # お客様ごとの一括実施を定義
   def bulk_carry
     @client = Client.find(params[:client_id])
     @records = @client.records.where(start_time: Date.today.beginning_of_day...Time.current)
@@ -98,7 +98,7 @@ class RecordsController < ApplicationController
     end
   end
 
-  #アイコンのダブルクリックによる実施切り替えを定義
+  # アイコンのダブルクリックによる実施切り替えを定義
   def carry_out
     record = Record.find(params[:id])
     if record.carryout_id == 1
@@ -117,17 +117,14 @@ class RecordsController < ApplicationController
   end
 
   def move_to_index
-    if (current_user.id != @record.user_id) && (current_user.position_id < 4)
-      redirect_to root_path
-    end
+    redirect_to root_path if (current_user.id != @record.user_id) && (current_user.position_id < 4)
   end
 
   def set_timezone
     @default = Date.today.beginning_of_day
     @defaultend = Date.today.end_of_day
-    @morning = @default+6.hour...@default+10.hour
-    @lunch = @default+11.hour...@default+14.hour
-    @evening = @default+17.hour...@default+21.hour
+    @morning = @default + 6.hour...@default + 10.hour
+    @lunch = @default + 11.hour...@default + 14.hour
+    @evening = @default + 17.hour...@default + 21.hour
   end
-
 end

@@ -1,5 +1,5 @@
 class NutritionsController < ApplicationController
-before_action :set_timezone, only: [:new, :create]
+  before_action :set_timezone, only: %i[new create]
 
   def new
     @nutritions = Nutrition.where(date: Date.today)
@@ -19,8 +19,7 @@ before_action :set_timezone, only: [:new, :create]
     redirect_to new_nutrition_path
   end
 
-
-private
+  private
 
   def nutrition_params
     params.permit(:six_water_amount, :morning_water_amount, :morning_meal_m_id, :morning_meal_s_id, :ten_water_amount, :lunch_water_amount, :lunch_meal_m_id, :lunch_meal_s_id, :fifty_water_amount, :dinner_water_amount, :dinner_meal_m_id, :dinner_meal_s_id, :twenty_water_amount).merge(user_id: current_user.id, client_id: params[:client_id], date: Date.today)
@@ -29,9 +28,8 @@ private
   def set_timezone
     @default = Date.today.beginning_of_day
     @defaultend = Date.today.end_of_day
-    @morning = @default+6.hour...@default+10.hour
-    @lunch = @default+11.hour...@default+14.hour
-    @evening = @default+17.hour...@default+21.hour
+    @morning = @default + 6.hour...@default + 10.hour
+    @lunch = @default + 11.hour...@default + 14.hour
+    @evening = @default + 17.hour...@default + 21.hour
   end
-
 end

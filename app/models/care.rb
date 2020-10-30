@@ -5,5 +5,5 @@ class Care < ActiveHash::Base
     { id: 3, name: '要見守り' },
     { id: 4, name: '一部介助' },
     { id: 5, name: '全介助' }
-  ] 
+  ]
 end

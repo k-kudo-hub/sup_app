@@ -3,5 +3,5 @@ class Carry < ActiveHash::Base
     { id: 1, name: '未実施' },
     { id: 2, name: '実施' },
     { id: 3, name: '非実施' }
-  ] 
+  ]
 end

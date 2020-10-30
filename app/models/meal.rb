@@ -13,5 +13,5 @@ class Meal < ActiveHash::Base
     { id: 10, name: '1' },
     { id: 11, name: '0' },
     { id: 12, name: '欠食' }
-  ] 
+  ]
 end

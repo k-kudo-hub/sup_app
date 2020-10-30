@@ -6,5 +6,5 @@ class Shape < ActiveHash::Base
     { id: 3, name: '軟便' },
     { id: 4, name: '普通便' },
     { id: 5, name: '硬便' }
-  ] 
+  ]
 end

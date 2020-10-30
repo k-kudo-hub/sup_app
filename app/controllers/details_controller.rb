@@ -1,6 +1,6 @@
 class DetailsController < ApplicationController
-  before_action :set_detail, only: [:edit, :update]
-  before_action :move_to_index, only: [:edit, :update]
+  before_action :set_detail, only: %i[edit update]
+  before_action :move_to_index, only: %i[edit update]
 
   def edit
     @detail = Detail.find(params[:id])
@@ -26,10 +26,6 @@ class DetailsController < ApplicationController
   end
 
   def move_to_index
-    if current_user.position_id < 4
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.position_id < 4
   end
-
-
 end

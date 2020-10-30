@@ -1,39 +1,36 @@
 class ClientsController < ApplicationController
-  before_action :move_to_index, only: [:new, :create, :create_detail, :create_caregiver, :edhit, :update, :destroy]
-  before_action :set_client, only: [:show, :edit, :update, :destroy]
-  
+  before_action :move_to_index, only: %i[new create create_detail create_caregiver edhit update destroy]
+  before_action :set_client, only: %i[show edit update destroy]
+
   def new
     @client = Client.new
   end
 
   def create
     @client = Client.new(client_params)
-     unless @client.valid?
-      render :new and return
-     end
-    session[:client_data] = {client: @client.attributes}
+    render :new and return unless @client.valid?
+
+    session[:client_data] = { client: @client.attributes }
     @detail = @client.build_detail
     render :new_detail
   end
 
   def create_detail
     @detail = Detail.new(detail_params)
-      unless @detail.valid?
-        render :new_detail and return
-      end
-    session[:detail_data] = {detail: @detail.attributes}
-    @client = Client.new(session[:client_data]["client"])
+    render :new_detail and return unless @detail.valid?
+
+    session[:detail_data] = { detail: @detail.attributes }
+    @client = Client.new(session[:client_data]['client'])
     @caregiver = @client.build_caregiver
     render :new_caregiver
   end
 
   def create_caregiver
-    @client = Client.new(session[:client_data]["client"])
-    @detail = Detail.new(session[:detail_data]["detail"])
+    @client = Client.new(session[:client_data]['client'])
+    @detail = Detail.new(session[:detail_data]['detail'])
     @caregiver = Caregiver.new(caregiver_params)
-      unless @caregiver.valid?
-        render :new_caregiver and return
-      end
+    render :new_caregiver and return unless @caregiver.valid?
+
     @client.save
     session[:client_data].clear
     @detail.client_id = @client.id
@@ -51,8 +48,7 @@ class ClientsController < ApplicationController
     @follow = current_user.relationships.select(client_id: @client.id).ids
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @client.update(client_params)
@@ -74,7 +70,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:name, :name_kana, :room_number, :status_id, :picture, :birth, :sex_id, :insurance, :careplan, detail_attributes: [:id,], caregiver_attributes: [:id,])
+    params.require(:client).permit(:name, :name_kana, :room_number, :status_id, :picture, :birth, :sex_id, :insurance, :careplan, detail_attributes: [:id], caregiver_attributes: [:id])
   end
 
   def detail_params
@@ -90,9 +86,6 @@ class ClientsController < ApplicationController
   end
 
   def move_to_index
-    if current_user.position_id < 4
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.position_id < 4
   end
-
 end

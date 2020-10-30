@@ -8,5 +8,5 @@ class Level < ActiveHash::Base
     { id: 6, name: '要入院治療' },
     { id: 7, name: '死亡' },
     { id: 8, name: 'その他' }
-  ] 
+  ]
 end

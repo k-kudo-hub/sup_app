@@ -9,5 +9,5 @@ class Degree < ActiveHash::Base
     { id: 7, name: '要介護3' },
     { id: 8, name: '要介護4' },
     { id: 9, name: '要介護5' }
-  ] 
+  ]
 end
