@@ -19,23 +19,16 @@ Rails.application.routes.draw do
       resources :nutritions, only: [:new, :create, :edit, :update]
     end
   end
-
   get 'details', to: 'clients#new_detail'
   post 'details', to: 'clients#create_detail'
   get '/edit/client', to: 'clients#edit'
-
   get 'caregivers', to: 'clients#new_caregiver'
   post 'caregivers', to: 'clients#create_caregiver'
-
   post 'clients/rooms/:id', to: 'rooms#add_user' 
   get 'clients/rooms/:id', to: 'rooms#add_user'
-
   get '/clients/records/create', to: 'records#bulk_create'
   post '/clients/records/create', to: 'records#bulk_create'
-
   patch 'client/record', to: 'records#bulk_carry'
   put 'client/record', to: 'records#bulk_carry'
-
   patch 'client/records/:id', to: 'records#carry_out'
-
 end
