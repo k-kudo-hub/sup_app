@@ -1,5 +1,5 @@
 AllCops:
-   Exclude:
+  Exclude:
      - "vendor/**/*"
      - "db/**/*"
      - "config/**/*"
