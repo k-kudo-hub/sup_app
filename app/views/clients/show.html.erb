@@ -164,9 +164,9 @@
               <tr>
                 <th class="remind-head-column">開始時間</th>
                 <th class="remind-head-column">終了時間</th>
-                <th class="remind-head-column">大項目</th>
-                <th class="remind-head-column">中項目</th>
+                <th class="remind-head-column mobile-none">中項目</th>
                 <th class="remind-head-column">小項目</th>
+                <th class="remind-head-column">編集/削除</th>
                 <th class="remind-head-column mobile-none">記録の詳細</th>
               </tr>
             </thead>
@@ -176,9 +176,12 @@
                   <div class="remind-one">
                     <td class="remind-one-column"><%= l record.start_time, format: :nano %></td>
                     <td class="remind-one-column"><%= l record.end_time, format: :nano %></td>
-                    <td class="remind-one-column"><%= Major.find(record.major_item_id).name %></td>
-                    <td class="remind-one-column"><%= Main.find(record.main_item_id).name %></td>
+                    <td class="remind-one-column mobile-none"><%= Main.find(record.main_item_id).name %></td>
                     <td class="remind-one-column"><%= Sub.find(record.sub_item_id).name %></td>
+                    <td class="remind-one-column">
+                      <%= link_to "編集", edit_record_path(record.id), method: :get, class:"rec-btn rec-green" %> 
+                      <%= link_to "削除", record_path(record.id), method: :delete, class:"rec-btn rec-red", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %>
+                    </td>
                     <td class="remind-one-column"><%= record.memo %></td>
                   </tr>
                 </div>

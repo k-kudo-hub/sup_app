@@ -2,12 +2,6 @@ body {
   min-height: 100vh;
 }
 
-.name {
-  text-align: center;
-  font-size: 24px;
-  margin: 30px 0;
-}
-
 .client-img-content, .user-image-content {
   text-align: center; 
 }
@@ -18,11 +12,99 @@ body {
   border-radius: 15px;
 }
 
-
-.title-area {
+.client-green-btn {
+  text-decoration: none;
   text-align: center;
-  margin: 30px 0px auto;
+  background-color: green;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 60px 0px;
+  padding: 2vh 10vw;
+  border-radius: 5px;
+}
+
+.client-gray-btn {
+  text-decoration: none;
+  text-align: center;
+  background-color: gray;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 60px 0px;
+  padding: 2vh 8vw;
+  border-radius: 5px;
+}
+
+.client-box>.name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.client-room-box {
+  margin: 25px 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.client-room-box>.client-room-number {
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+.client-room-box>.item-postage {
+  font-size: 16px;
+}
+
+.client-destroy {
+  background-color: lightgray;
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  margin: 20px 0px;
+  padding: 2vh 10vw;
+}
+
+.comment-flag {
+  display: flex;
+  justify-content: center;
+}
+
+.comment-flag-icon {
+  margin: 10px 5px 0 0;
+}
+
+.detail-table {
+  margin: 30px auto;
+  width: 95%;
+}
+
+.detail-item {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+.edit-delete-btn {
+  display: flex;
+  text-align: center;
+}
+
+.edit-top-btn {
   height: 100px;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .follow {
@@ -52,79 +134,31 @@ body {
   cursor: pointer;
 }
 
-.client-box>.name {
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
-}
-
-.client-room-box {
-  margin: 25px 0px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.client-room-box>.client-room-number {
-  font-size: 4vh;
-  font-weight: bold;
-}
-
-.client-room-box>.item-postage {
-  font-size: 16px;
-}
-
-.edit-delete-btn {
-  display: flex;
-  text-align: center;
-}
-
-
-.client-green-btn {
-  text-decoration: none;
-  text-align: center;
-  background-color: green;
-  font-size: 18px;
-  font-weight: bold;
-  color: #FFF;
-  margin: 60px 0px;
-  padding: 2vh 10vw;
-  border-radius: 5px;
-}
-
-.client-gray-btn {
-  text-decoration: none;
-  text-align: center;
-  background-color: gray;
-  font-size: 18px;
-  font-weight: bold;
-  color: #FFF;
-  margin: 60px 0px;
-  padding: 2vh 8vw;
-  border-radius: 5px;
-}
-
-.or-text {
-  font-size: 20px;
-}
-
-.client-destroy {
-  background-color: lightgray;
-  text-align: center;
-  font-size: 24px;
-  color: black;
-  margin: 20px 0px;
-  padding: 2vh 10vw;
-}
-
 .item-explain-box {
   font-size: 18px;
   margin: 40px 0px;
 }
 
-.detail-table {
-  margin: 30px auto;
-  width: 95%;
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+}
+
+.name {
+  text-align: center;
+  font-size: 24px;
+  margin: 30px 0;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.or-text {
+  font-size: 20px;
 }
 
 .show-table {
@@ -132,25 +166,37 @@ body {
   width: 70%;
 }
 
-.detail-item {
-  width: 20%;
-  background-color: #eee;
-  border: 1px solid #dedede;
+.title-area {
+  text-align: center;
+  margin: 30px 0px auto;
+  height: 100px;
+}
+
+.remind-index {
+  width: 98vw;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.remind-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.remind-head-column {
   font-size: 14px;
   text-align: center;
+  border: 1px solid #dedede;
+  background-color: #eee;
+  padding: 12px 0;
 }
 
-.detail-value {
-  width: 80%;
-  padding: 20px;
+.remind-one-column {
   border: 1px solid #dedede;
   font-size: 14px;
-}
-
-.option {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+  padding: 12px 0;
 }
 
 .report-btn {
@@ -169,27 +215,6 @@ body {
   margin-right: 5px;
 }
 
-.comment-flag {
-  display: flex;
-  justify-content: center;
-}
-
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
-}
-
-.links {
-  display: flex;
-  justify-content: space-between;
-  width: 50vw;
-}
-
-.edit-top-btn {
-  height: 100px;
-  margin-bottom: 50px;
-  text-align: center;
-}
-
 .root-btn {
   text-decoration: none;
   text-align: center;
@@ -202,42 +227,32 @@ body {
   border-radius: 5px;
 }
 
-.remind-index {
-  width: 98vw;
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 40px;
-}
-
-.remind-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
 .table {
   text-align: center;
   width: 90vw;
   margin: auto;
 }
 
-.remind-head-column {
-  font-size: 14px;
-  text-align: center;
-  border: 1px solid #dedede;
-  background-color: #eee;
-  padding: 12px 0;
+.rec-btn {
+  background-color: black;
+  padding: 1vh 2vw;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
-.remind-one-column {
-  border: 1px solid #dedede;
-  font-size: 14px;
-  padding: 12px 0;
+.rec-green {
+  background-color: green;
+}
+
+.rec-red {
+  background-color: rgb(184, 0, 0);
 }
 
 @media screen and (max-width: 959px){
 
 
+  
 }
   
 @media screen and (max-width: 480px){
@@ -327,6 +342,10 @@ body {
 
 .remind-index > p {
   font-size: 12px;
+}
+
+.rec-btn {
+  padding: 1vh 2vw;
 }
 
 }
