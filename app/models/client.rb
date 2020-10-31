@@ -14,18 +14,6 @@ class Client < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
-  scope :search, lambda { |search_params|
-    return if search_params.blank?
-
-    names(search_params[:name])
-      .name_kanas(search_params[:name_kana])
-      .room_numbers(search_params[:room_number])
-  }
-
-  scope :names, ->(name) { where(name: name.to_s) if name.present? }
-  scope :name_kanas, ->(name_kana) { where(name_kana: name_kana.to_s) if name_kana.present? }
-  scope :room_numbers, ->(room_number) { where(room_number: room_number.to_s) if room_number.present? }
-
   with_options presence: { message: 'が入力されていません。' } do
     validates :name
     validates :name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: 'は全角カタカナのみ登録できます。' }
