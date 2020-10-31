@@ -1,7 +1,7 @@
-<%= form_with(scope: :search, url: search_clients_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :name, placeholder: "名前で検索", value: @search_params[:name], class: "search-input" %>
-  <%= form.text_field :name_kana, placeholder: "フリガナで検索", value: @search_params[:name_kana], class: "search-input" %>
-  <%= form.text_field :room_number, placeholder: "居室番号で検索", value: @search_params[:room_number], class: "search-input" %>
+<%= search_form_for @p, url: search_clients_path, class: "search-form" do |f| %>
+  <%= f.text_field :name_eq, placeholder: "名前で検索", class: "search-input" %>
+  <%= f.text_field :name_kana_eq, placeholder: "フリガナで検索", class: "search-input" %>
+  <%= f.text_field :room_number_eq, placeholder: "居室番号で検索", class: "search-input" %>
   <%= button_tag type: :submit, class:"search" do %>
     <%= image_tag "search.png", class: "search-btn" %>
   <% end %>

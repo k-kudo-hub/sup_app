@@ -5,13 +5,18 @@ class RoomsController < ApplicationController
   # トップページ表示のための定義
   def index
     @clients = Client.includes(:detail, :caregiver, :room, :records).order('room_number ASC')
-    default = Time.current.ago(7.days)...Time.current
-    @reports = Report.where(occ_time: default).page(params[:page]).per(5).order('occ_time DESC')
-    @threedays = Time.current.ago(3.days)...Time.current
+    @default = Time.current.ago(7.days)...Time.current
     @today = Date.today.beginning_of_day...Date.today.end_of_day
+    @reports = Report.where(occ_time: @default).page(params[:page]).per(5).order('occ_time DESC')
+    @threedays = Time.current.ago(3.days)...Time.current
+    set_serach_column
   end
 
-  def search_clients; end
+  def search_clients
+    @clients = @p.result.includes(:records, :room)
+    @default = Time.current.ago(7.days)...Time.current
+    @today = Date.today.beginning_of_day...Date.today.end_of_day
+  end
 
   # ルームの作成とチャット画面の表示
   def create
@@ -49,8 +54,13 @@ class RoomsController < ApplicationController
   end
 
   def set_search
-    @search_params = client_search_params
-    @clients = Client.search(@search_params)
+    @p = Client.ransack(params[:q])
+  end
+
+  def set_serach_column
+    @client_name = Client.select("name").distinct
+    @client_name_kana = Client.select("name_kana").distinct
+    @client_room_number = Client.select("room_number").distinct
   end
 
   def set_client
