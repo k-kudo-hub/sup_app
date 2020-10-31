@@ -3,7 +3,7 @@
     <%= link_to root_path do %>
       <%= image_tag "logo.png", size:'150x45', class:"logo" %>
     <% end %>
-  </div>  
+  </div>
   <div class="header-right">
     <%= image_tag "menu.png", size:"50x50", class:"menu", id:"menu" %>
   </div>
@@ -11,9 +11,9 @@
     <div class="user-data-wrap">
       <% if user_signed_in? %>
         <div class="one-icon">
-          <%= link_to "/clients/reports", method: :get do %>
-            <%= image_tag "resque.png", size:'60x60', class: "client-dam" %>
-            <p class="icon-exp">報告書一覧</p>
+          <%= link_to " /clients/nutritions/new", method: :get do %>
+            <%= image_tag "water.png", size:'60x60', class: "client-dam" %>
+            <p class="icon-exp">食事・水分記録</p>
           <% end %>
         </div>
         <div class="one-icon">
@@ -26,6 +26,12 @@
           <%= link_to "/clients/records", method: :get do %>
             <%= image_tag "note.png", size:'60x60', class: "client-dam" %>
             <p class="icon-exp">記録一覧</p>
+          <% end %>
+        </div>
+        <div class="one-icon">
+          <%= link_to "/clients/reports", method: :get do %>
+            <%= image_tag "resque.png", size:'60x60', class: "client-dam" %>
+            <p class="icon-exp">報告書一覧</p>
           <% end %>
         </div>
         <% if current_user.position_id > 3 %>

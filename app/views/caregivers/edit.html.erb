@@ -1,99 +1,99 @@
 <%= render "shared/header"%>
 
 <%= form_with model: @caregiver, url:caregiver_path, method: :patch, class: 'registration-main', local: true do |f| %>
-<div class='form-wrap'>
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      お客様情報入力（詳細情報）
-    </h1>
-  </div>
- 
-  <%= render 'shared/error_messages', model: f.object %>
-
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">要介護度</label>
-      <span class="indispensable">必須</span>
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <h1 class='form-header-text'>
+        お客様情報入力（詳細情報）
+      </h1>
     </div>
-    <%= f.collection_select(:degree_id, Degree.all, :id, :name, {}, {class:"input-default", id:"degree"}) %> 
-  </div> 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">認知機能</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.collection_select(:cognition_id, Cognition.all, :id, :name, {}, {class:"input-default", id:"cognition"}) %> 
-  </div> 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">移動</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.collection_select(:move_id, Care.all, :id, :name, {}, {class:"input-default", id:"move-id"}) %> 
-  </div> 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">移動（詳細）</label>
-    </div>
-    <%= f.text_area :move_exp, class:"input-default", id:"move-exp", placeholder:"例) 杖を使えば自立歩行可能" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">食事</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.collection_select(:meal_id, Care.all, :id, :name, {}, {class:"input-default", id:"meal-id"}) %> 
-  </div> 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">食事（詳細）</label>
-    </div>
-    <%= f.text_area :meal_exp, class:"input-default", id:"meal-exp", placeholder:"例) 刻み、とろみ食" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">排泄</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.collection_select(:excretion_id, Care.all, :id, :name, {}, {class:"input-default", id:"excretion-id"}) %> 
-  </div> 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">排泄（詳細）</label>
-    </div>
-    <%= f.text_area :excretion_exp, class:"input-default", id:"excretion-exp", placeholder:"例) ポータブルトイレ使用" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">口腔</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.collection_select(:oral_id, Care.all, :id, :name, {}, {class:"input-default", id:"oral-id"}) %> 
-  </div> 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">口腔（詳細）</label>
-    </div>
-    <%= f.text_area :oral_exp, class:"input-default", id:"oral-exp", placeholder:"例) 上義歯あり" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">入浴</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.collection_select(:bathing_id, Care.all, :id, :name, {}, {class:"input-default", id:"bathing-id"}) %> 
-  </div> 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">入浴（詳細）</label>
-    </div>
-    <%= f.text_area :bathing_exp, class:"input-default", id:"bathing-exp", placeholder:"例) 機械浴、シャワーのみ" %>
-  </div>
   
-  <div class='register-btn'>
-    <%= f.submit "お客様情報登録" ,class:"register-red-btn" %>
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">要介護度</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:degree_id, Degree.all, :id, :name, {}, {class:"input-default", id:"degree"}) %> 
+    </div> 
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">認知機能</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:cognition_id, Cognition.all, :id, :name, {}, {class:"input-default", id:"cognition"}) %> 
+    </div> 
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">移動</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:move_id, Care.all, :id, :name, {}, {class:"input-default", id:"move-id"}) %> 
+    </div> 
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">移動（詳細）</label>
+      </div>
+      <%= f.text_area :move_exp, class:"input-default", id:"move-exp", placeholder:"例) 杖を使えば自立歩行可能" %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">食事</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:meal_id, Care.all, :id, :name, {}, {class:"input-default", id:"meal-id"}) %> 
+    </div> 
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">食事（詳細）</label>
+      </div>
+      <%= f.text_area :meal_exp, class:"input-default", id:"meal-exp", placeholder:"例) 刻み、とろみ食" %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">排泄</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:excretion_id, Care.all, :id, :name, {}, {class:"input-default", id:"excretion-id"}) %> 
+    </div> 
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">排泄（詳細）</label>
+      </div>
+      <%= f.text_area :excretion_exp, class:"input-default", id:"excretion-exp", placeholder:"例) ポータブルトイレ使用" %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">口腔</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:oral_id, Care.all, :id, :name, {}, {class:"input-default", id:"oral-id"}) %> 
+    </div> 
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">口腔（詳細）</label>
+      </div>
+      <%= f.text_area :oral_exp, class:"input-default", id:"oral-exp", placeholder:"例) 上義歯あり" %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">入浴</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:bathing_id, Care.all, :id, :name, {}, {class:"input-default", id:"bathing-id"}) %> 
+    </div> 
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">入浴（詳細）</label>
+      </div>
+      <%= f.text_area :bathing_exp, class:"input-default", id:"bathing-exp", placeholder:"例) 機械浴、シャワーのみ" %>
+    </div>
+    
+    <div class='register-btn'>
+      <%= f.submit "お客様情報登録" ,class:"register-red-btn" %>
+    </div>
   </div>
-</div>
 <% end %> 
 
 <%= render "shared/footer" %> 

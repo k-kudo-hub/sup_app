@@ -5,9 +5,9 @@
     <div class="rh-btn">
       <%= link_to "食事・水分の記録", new_nutrition_path, method: :get, class: "water-record-text rh-text" %>
     </div>
-    <%# <div class="rh-btn">
-      <%= link_to "排泄の記録", clients_records_create_path, method: :get, class: "excretion-record-text rh-text" %>
-    <%# </div> %>
+    <div class="rh-btn">
+      <%= link_to "新規記録", new_record_path, method: :get, class: "excretion-record-text rh-text" %>
+    </div>
     <div class="bulk-save-btn rh-btn">
       <%= link_to "プランの一括追加", clients_records_create_path, method: :post, class: "bulk-save-text rh-text" %>
     </div>

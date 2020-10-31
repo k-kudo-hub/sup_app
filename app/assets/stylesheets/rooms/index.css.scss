@@ -7,6 +7,10 @@ body {
   min-height: 83vh;
 }
 
+.client-radius-image {
+  border-radius: 60px;
+}
+
 .search-form {
   height: 50px;
   width: 90%;
@@ -106,8 +110,7 @@ body {
 }
 
 .detail-area > a:hover {
-  border-bottom: 1px black solid;
-
+  opacity: 0.4;
 }
 
 .pic-area {
@@ -302,7 +305,7 @@ body {
 
 .search-input {
   width: 140px;
-  height: 30px;
+  height: 40px;
   margin: 0 5px 0 0;
 }
 
@@ -327,6 +330,11 @@ body {
   width: 85%;
   height: 25%; 
   padding-top: 20px;
+}
+
+.client-radius-image {
+  height: 30px;
+  width: 30px;
 }
 
 .top-message-wrap {

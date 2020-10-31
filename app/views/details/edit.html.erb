@@ -1,59 +1,59 @@
 <%= render "shared/header"%>
 
 <%= form_with model: @detail, url: detail_path, method: :patch, class: 'registration-main', local: true do |f| %>
-<div class='form-wrap'>
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      お客様情報入力（詳細情報）
-    </h1>
-  </div>
- 
-  <%= render 'shared/error_messages', model: f.object %>
-
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">既往歴</label>
+  <div class='form-wrap'>
+    <div class='form-header'>
+      <h1 class='form-header-text'>
+        お客様情報入力（詳細情報）
+      </h1>
     </div>
-    <%= f.text_area :past_history, class:"input-default", id:"post-history", placeholder:"例) 大腸癌、肺炎" %>
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">現病歴</label>
-    </div>
-    <%= f.text_area :illness, class:"input-default", id:"illness", placeholder:"例) アルツハイマー型認知症" %>
-  </div> 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">かかりつけ医</label>
-    </div>
-    <%= f.text_field :doctor, class:"input-default", id:"doctor", placeholder:"例) 〇〇クリニック" %>
-  </div> 
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">服用中の薬</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.text_area :medicine, class:"input-default", id:"medicine" %> 
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">平均血圧（収縮期）</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.text_area :mbp_high, class:"input-default", id:"mbp-high" %> 
-  </div>
-  <div class="form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">平均血圧（拡張期）</label>
-      <span class="indispensable">必須</span>
-    </div>
-    <%= f.text_area :mbp_low, class:"input-default", id:"mbp-low" %> 
-  </div>
   
-  <div class='register-btn'>
-    <%= f.submit "お客様情報登録" ,class:"register-red-btn" %>
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">既往歴</label>
+      </div>
+      <%= f.text_area :past_history, class:"input-default", id:"post-history", placeholder:"例) 大腸癌、肺炎" %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">現病歴</label>
+      </div>
+      <%= f.text_area :illness, class:"input-default", id:"illness", placeholder:"例) アルツハイマー型認知症" %>
+    </div> 
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">かかりつけ医</label>
+      </div>
+      <%= f.text_field :doctor, class:"input-default", id:"doctor", placeholder:"例) 〇〇クリニック" %>
+    </div> 
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">服用中の薬</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :medicine, class:"input-default", id:"medicine" %> 
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">平均血圧（収縮期）</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :mbp_high, class:"input-default", id:"mbp-high" %> 
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">平均血圧（拡張期）</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :mbp_low, class:"input-default", id:"mbp-low" %> 
+    </div>
+    
+    <div class='register-btn'>
+      <%= f.submit "お客様情報登録" ,class:"register-red-btn" %>
+    </div>
   </div>
-</div>
 <% end %> 
 
 <%= render "shared/footer" %> 
