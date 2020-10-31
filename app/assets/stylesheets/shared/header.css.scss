@@ -30,7 +30,7 @@ header {
   background-color: rgba(252, 252, 252, 0.6);
   float: right;
   width: 330px;
-  height: 270px;
+  height: 400px;
   position: fixed;
   top: 10%;
   right: 0%;
@@ -121,13 +121,17 @@ a {
 
 .user-data {
   width: 270px;
-  height: 200px;
+  height: 320px;
   padding: 5px;
 }
 
 .one-icon {
   width: 80px;
   height: 100px;
+}
+
+.icon-exp {
+  font-size: 11px;
 }
 
 .user-pic,.client-dam,.logout-pic,.sign-in,.sign-up {
