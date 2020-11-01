@@ -58,9 +58,9 @@ class RoomsController < ApplicationController
   end
 
   def set_serach_column
-    @client_name = Client.select("name").distinct
-    @client_name_kana = Client.select("name_kana").distinct
-    @client_room_number = Client.select("room_number").distinct
+    @client_name = Client.select('name').distinct
+    @client_name_kana = Client.select('name_kana').distinct
+    @client_room_number = Client.select('room_number').distinct
   end
 
   def set_client

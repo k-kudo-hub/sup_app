@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :caregiver do
-    degree_id        { Faker::Number.between(from: 2, to: 6)}
+    degree_id        { Faker::Number.between(from: 2, to: 6) }
     cognition_id     {Faker::Number.between(from: 2, to: 9)}
     move_id          {Faker::Number.between(from: 2, to: 5)}
     move_exp         {'付き添い歩行'}
