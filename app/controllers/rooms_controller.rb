@@ -9,7 +9,6 @@ class RoomsController < ApplicationController
     @today = Date.today.beginning_of_day...Date.today.end_of_day
     @reports = Report.where(occ_time: @default).page(params[:page]).per(5).order('occ_time DESC')
     @threedays = Time.current.ago(3.days)...Time.current
-    set_serach_column
   end
 
   def search_clients
@@ -55,12 +54,6 @@ class RoomsController < ApplicationController
 
   def set_search
     @p = Client.ransack(params[:q])
-  end
-
-  def set_serach_column
-    @client_name = Client.select('name').distinct
-    @client_name_kana = Client.select('name_kana').distinct
-    @client_room_number = Client.select('room_number').distinct
   end
 
   def set_client
