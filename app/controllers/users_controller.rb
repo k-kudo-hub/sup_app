@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.includes(:relationships).order('position_id DESC')
+  end
+  
   def show
     @user = User.find(params[:id])
     clientsid = @user.relationships.pluck(:client_id)
