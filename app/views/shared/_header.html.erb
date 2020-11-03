@@ -56,6 +56,12 @@
           <% end %>
         </div>
         <div class="one-icon">
+          <%= link_to "/users", method: :get do %> 
+            <%= image_tag "team.png", size:'80x80', class: "logout-pic" %>
+            <p class="icon-exp">スタッフ一覧</p>
+          <% end %>
+        </div>
+        <div class="one-icon">
           <%= link_to "/users/sign_out", method: :delete do %> 
             <%= image_tag "yazirushi-down.png", size:'80x80', class: "logout-pic" %>
             <p class="icon-exp">ログアウト</p>

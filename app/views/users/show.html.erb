@@ -86,7 +86,7 @@
       </tbody>
     </table>
     <div class="to-root">
-      <% unless (current_user.email == "guest@example.com") || (current_user.email == "dispatch@example.com") %>
+      <% if (current_user.email != "guest@example.com") && (current_user.email != "dispatch@example.com") && (current_user.id == @user.id) %>
           <%= link_to "スタッフ情報の編集", edit_user_registration_path, class:"edit-btn" %>
       <% end %>
     </div>
