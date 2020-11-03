@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/show'
   devise_for :users, controllers: {
             registrations: 'users/registrations'
   }
   root to: "rooms#index"
-  resources :users, only: [:show]
+  resources :users, only: [:index, :show]
   resources :relationships, only: [:create, :destroy]
   resources :clients, only: [:new, :create, :show, :edit, :update, :destroy] do
     collection do
