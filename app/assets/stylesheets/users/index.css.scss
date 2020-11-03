@@ -1,0 +1,64 @@
+.user-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  min-height: 400px;
+  max-height: 70vh;
+  margin: 0 auto 10px;
+  overflow: scroll;
+}
+
+.one-user {
+  height: 180px;
+  width: 180px;
+  margin: 0 10px;
+}
+
+.one-user:hover {
+  opacity: 0.6;
+}
+
+.user-index-box-img {
+  height: 120px;
+  width: 120px;
+  border-radius: 60px;
+  margin-top: 10px;
+}
+
+.user-index-name {
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 959px){
+
+.one-user {
+  height: 140px;
+  width: 120px;
+}
+
+}
+  
+@media screen and (max-width: 480px){
+.user-wrap {
+  min-height: 300px;
+}
+  
+
+.one-user {
+  height: 120px;
+  width: 80px;
+  margin: 0 5px;
+}
+
+.user-index-box-img {
+  height: 70px;;
+  width: 70px;
+}
+
+.user-index-name {
+  font-size: 12px;
+}
+
+}

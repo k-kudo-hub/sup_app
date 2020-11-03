@@ -1,0 +1,23 @@
+<%= render "shared/header" %>
+
+<div class="body-wrap">
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      スタッフ一覧
+    </h1>
+    <div class="user-wrap">
+      <% @users.each do |user| %>
+        <%= link_to user_path(user.id), class:"one-user" do %>
+          <% if user.picture.file.nil? %> 
+            <%= image_tag '/assets/card.png', class:"user-index-box-img" %>
+          <% else %>
+            <%= image_tag (user.picture.url), class:"user-index-box-img" %>
+          <% end %>
+          <p class="user-index-name"><%= user.name %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>
