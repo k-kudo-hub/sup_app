@@ -127,6 +127,7 @@
   color: white;
   text-decoration: none;
   padding: 10px 15px;
+  border-radius: 6px;
 }
 
 .edit {
@@ -177,9 +178,10 @@ img[data-carryout_id = "2"] {
 .bulk-btn {
   background-color: rgb(150, 85, 1);
   color: white;
-  font-size: 14px;;
+  font-size: 12px;;
   font-weight: bold;
-  padding: 2px 4px;
+  padding: 4px 6px;
+  border-radius: 4px;
 }
 
 @media screen and (max-width: 959px){
