@@ -12,7 +12,7 @@
 
         <%= render 'shared/error_messages', model: f.object %>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">お客様氏名</label>
             <span class="indispensable check_0">下書き必須</span>
@@ -25,7 +25,7 @@
           <% end %>
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の発生時刻</label>
             <span class="indispensable check_0">下書き必須</span>
@@ -36,7 +36,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の発生場所</label>
             <span class="indispensable check_0">下書き必須</span>
@@ -45,7 +45,7 @@
             <%= f.collection_select(:place_id, Place.all,:id, :name, {}, {class:"input-default", id:"occ-time"}) %> 
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の種別</label>
             <span class="indispensable check_0">下書き必須</span>
@@ -54,7 +54,7 @@
           <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"input-default", id:"genre-id"}) %> 
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の状況</label>
             <span class="indispensable check_0">下書き必須</span>
@@ -63,7 +63,7 @@
           <%= f.collection_select(:res_id, Re.all, :id, :name, {}, {class:"input-default", id:"res-id"}) %> 
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">受傷の程度</label>
             <span class="indispensable check_0">下書き必須</span>
@@ -72,7 +72,7 @@
           <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"input-default", id:"level-id"}) %> 
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の内容</label>
             <span class="indispensable">本人承認必須</span>
@@ -80,7 +80,7 @@
           <%= f.text_area :content, class:"input-long", id:"sub-id" %> 
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">対処の詳細</label>
             <span class="indispensable">本人承認必須</span>
@@ -88,7 +88,7 @@
           <%= f.text_area :coping, class:"input-long", id:"sub-id" %> 
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">施設内での報告</label>
             <span class="indispensable">本人承認必須</span>
@@ -96,7 +96,7 @@
           <%= f.collection_select(:contact_id, Contact.all, :id, :name, {}, {class:"input-default", id:"carry-id"}) %>
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">受診（入院）した医療機関名</label>
             <span class="indispensable check_2">看護承認必須</span>
@@ -104,7 +104,7 @@
           <%= f.text_area :hospital, class:"input-default", id:"exc-shape-id" %> 
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">家族への報告・説明日</label>
             <span class="indispensable check_4">事務所承認必須</span>
@@ -115,7 +115,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">家族への報告担当者</label>
             <span class="indispensable check_4">事務所承認必須</span>
@@ -123,7 +123,7 @@
           <%= f.collection_select(:desc_user, User.all, :id, :name, {}, {class:"input-default", id:"carry-id"}) %> 
         </div>  
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">家族への説明内容</label>
             <span class="indispensable check_4">事務所承認必須</span>
@@ -131,7 +131,7 @@
           <%= f.text_area :desc_content, class:"input-long", id:"carry-id" %> 
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">再発防止策の内容（具体的に記入してください）</label>
             <span class="indispensable check_3">現場責任者承認必須</span>
@@ -140,7 +140,7 @@
           <%= f.text_area :count_content, class:"input-long", id:"carry-id" %> 
         </div>
 
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">承認レベル</label>
             <span class="indispensable">必須</span>

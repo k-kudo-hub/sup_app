@@ -34,7 +34,7 @@
   margin: 0 auto;
 }
 
-.form-group {
+.one-form {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
   padding-top: 20px;
 }
 
-.form-group:first-child {
+.one-form:first-child {
   padding: 0;
 }
 
@@ -241,7 +241,7 @@
   font-size: 15px;
 }
 
-.form-group {
+.one-form {
   width: 98%;
 }
 

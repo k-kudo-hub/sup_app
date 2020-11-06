@@ -9,9 +9,9 @@
       <% @users.each do |user| %>
         <%= link_to user_path(user.id), class:"one-user" do %>
           <% if user.picture.file.nil? %> 
-            <%= image_tag '/assets/card.png', class:"user-index-box-img" %>
+            <%= image_tag '/assets/card.png', class:"user-index-img-box" %>
           <% else %>
-            <%= image_tag (user.picture.url), class:"user-index-box-img" %>
+            <%= image_tag (user.picture.url), class:"user-index-img-box" %>
           <% end %>
           <p class="user-index-name"><%= user.name %></p>
         <% end %>

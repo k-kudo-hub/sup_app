@@ -9,9 +9,9 @@
     </div>
     <div class="user-image-content">
       <% if @user.picture.file.nil? %> 
-        <%= image_tag '/assets/card.png', class:"user-show-box-img" %>
+        <%= image_tag '/assets/card.png', class:"user-show-img-box" %>
       <% else %>
-        <%= image_tag (@user.picture.url), class:"user-show-box-img" %>
+        <%= image_tag (@user.picture.url), class:"user-show-img-box" %>
       <% end %>
     </div>
     <table class="show-table">

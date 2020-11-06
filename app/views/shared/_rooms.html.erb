@@ -3,9 +3,9 @@
     <div class="one-room-wrap">
       <div class="pic-area">
         <% if client.picture.file.nil? %> 
-          <%= link_to (image_tag ('human.png'), size:'100x100', class:"client-radius-image"),client_path(client.id), class:"client-box-img" %>
+          <%= link_to (image_tag ('human.png'), size:'100x100', class:"client-radius-image"),client_path(client.id), class:"client-img-box" %>
         <% else %>
-          <%= link_to (image_tag (client.picture.url), size:'100x100', class:"client-radius-image"),client_path(client.id), class:"client-box-img" %>
+          <%= link_to (image_tag (client.picture.url), size:'100x100', class:"client-radius-image"),client_path(client.id), class:"client-img-box" %>
         <% end %>
         <% if client.room.present? %>
           <% if client.room.messages.where(created_at: @threedays).where(tag_id: 3).exists? %> 

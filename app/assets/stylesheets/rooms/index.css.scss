@@ -71,7 +71,7 @@ body {
   width: cover;
 }
 
-.client-box-img {
+.client-img-box {
   height: 100px;
   width: 100px;
   border-radius: 60px;
@@ -79,12 +79,12 @@ body {
   margin: 0 auto;
 }
 
-.client-box-img:hover {
+.client-img-box:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
-.client-show-box-img, .user-show-box-img {
+.client-show-img-box, .user-show-img-box {
   height: 300px;
   width: 300px;
   border-radius: 160px;
@@ -276,7 +276,7 @@ body {
   margin-bottom: 20px;
 }
 
-.top-message-content {
+.top-message-text {
   text-align: left;
 }
 
@@ -346,7 +346,7 @@ body {
   font-weight: bold;
 }
 
-.top-message-content {
+.top-message-text {
   font-size: 14px;
 }
 
@@ -416,7 +416,7 @@ body {
   width:30px;
 }
 
-.client-box-img {
+.client-img-box {
   height: 30px;
   width: 30px;
   border: 2px solid white;

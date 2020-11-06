@@ -10,7 +10,7 @@
  
       <%= render 'shared/error_messages', model: f.object %> 
 
-      <div class="form-group">
+      <div class="one-form">
         <div class='form-text-wrap'>
           <label class="form-text">お客様氏名</label>
           <span class="indispensable">必須</span>
@@ -21,7 +21,7 @@
           <%= f.collection_select(:client_id, Client.all, :id, :name, {}, {class:"client-default", id:"client-name"}) %> 
         <% end %>
       </div>
-      <div class="form-group">
+      <div class="one-form">
         <div class='form-text-wrap'>
           <label class="form-text">開始時刻</label>
           <span class="indispensable">必須</span>
@@ -34,7 +34,7 @@
           <% end %>
         </div>
       </div>
-      <div class="form-group">
+      <div class="one-form">
         <div class='form-text-wrap'>
           <label class="form-text">終了時刻</label>
           <span class="indispensable">必須</span>
@@ -47,21 +47,21 @@
           <% end %>
         </div>
       </div>
-      <div class="form-group">
+      <div class="one-form">
         <div class='form-text-wrap'>
           <label class="form-text">大項目</label>
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:major_item_id, Major.all, :id, :name, {}, {class:"major-default", id:"major-id"}) %> 
       </div>
-      <div class="form-group">
+      <div class="one-form">
         <div class='form-text-wrap'>
           <label class="form-text">中項目</label>
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:main_item_id, Main.all, :id, :name, {}, {class:"main-default", id:"main-id"}) %> 
       </div>
-      <div class="form-group">
+      <div class="one-form">
         <div class='form-text-wrap'>
           <label class="form-text">小項目</label>
           <span class="indispensable">必須</span>
@@ -69,39 +69,39 @@
         <%= f.collection_select(:sub_item_id, Sub.all, :id, :name, {}, {class:"sub-default", id:"sub-id"}) %> 
       </div>
       <div class="exc-form-wrap" id="exc-form-wrap">
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">便状態</label>
           </div>
           <%= f.collection_select(:exc_shape_id, Shape.all, :id, :name, {selected: 0}, {class:"input-default", id:"exc-shape-id"}) %> 
         </div>
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">便量</label>
           </div>
           <%= f.collection_select(:exc_amount_id, Amount.all, :id, :name, {selected: 0}, {class:"input-default", id:"exc-amount-id"}) %> 
         </div>
-        <div class="form-group">
+        <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">尿量</label>
           </div>
           <%= f.number_field :urine_amount, class:"input-default", id:"carry-id" %> 
         </div>
       </div>  
-      <div class="form-group">
+      <div class="one-form">
         <div class='form-text-wrap'>
           <label class="form-text">実施ステータス</label>
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:carryout_id, Carry.all, :id, :name, {selected: 2}, {class:"carry-default", id:"carry-id"}) %> 
       </div>
-      <div class="form-group">
+      <div class="one-form">
         <div class='form-text-wrap'>
           <label class="form-text">詳細な記録</label>
         </div>
         <%= f.text_area :memo, class:"input-default", id:"memo" %>
       </div>
-      <div class="form-group">
+      <div class="one-form">
         <div class='form-text-wrap'>
           <label class="form-text">この記録をリマインドにする</label>
         </div>

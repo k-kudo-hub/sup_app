@@ -31,9 +31,9 @@
               <td class="client-one-column">
                 <div class="nutrition-box">
                   <% if client.picture.file.nil? %> 
-                    <%= image_tag '/assets/human.png', size: "30x30",class:"nutrition-box-img" %>
+                    <%= image_tag '/assets/human.png', size: "30x30",class:"nutrition-img-box" %>
                   <% else %>
-                    <%= image_tag (client.picture.url), size: "30x30", class:"nutrition-box-img" %>
+                    <%= image_tag (client.picture.url), size: "30x30", class:"nutrition-img-box" %>
                   <% end %>
                 </div>
                 <%= link_to "#{client.name} 様", client_path(client.id), method: :get, class: "record-client-name" %>

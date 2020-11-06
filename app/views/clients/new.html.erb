@@ -10,48 +10,48 @@
     </div>
   <%= render 'shared/error_messages', model: f.object %> 
 
-    <div class="form-group">
+    <div class="one-form">
       <div class='form-text-wrap'>
         <label class="form-text">お名前</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例) 田中太郎", maxlength:"40" %>
     </div> 
-    <div class="form-group">
+    <div class="one-form">
       <div class='form-text-wrap'>
         <label class="form-text">フリガナ</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :name_kana, class:"input-default", id:"name_kana", placeholder:"例) タナカタロウ", maxlength:"40" %>
     </div>
-    <div class="form-group">
+    <div class="one-form">
       <div class='form-text-wrap'>
         <label class="form-text">性別</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"input-default", id:"status"}) %> 
     </div>
-    <div class="form-group">
+    <div class="one-form">
       <div class='form-text-wrap'>
         <label class="form-text">保険者番号</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :insurance, class:"input-default", id:"insurance", placeholder:"例) 12345678", maxlength:"8" %>
     </div>
-    <div class="form-group">
+    <div class="one-form">
       <div class='form-text-wrap'>
         <label class="form-text">居室（お客様）番号</label>
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :room_number, class:"input-default", id:"room-number" %>
     </div>
-    <div class="form-group">
+    <div class="one-form">
       <div class='form-text-wrap'>
         <label class="form-text">ケアプラン</label>
       </div>
       <%= f.file_field :careplan, id:"careplan" %>
     </div> 
-    <div class="form-group">
+    <div class="one-form">
       <div class='form-text-wrap'>
         <label class="form-text">現在の入居情報</label>
         <span class="indispensable">必須</span>
@@ -69,7 +69,7 @@
         <%= f.file_field :picture, id:"item-image" %>
       </div>
     </div> 
-    <div class="form-group form-birth">
+    <div class="one-form form-birth">
       <div class='form-text-wrap'>
         <label class="form-text">生年月日</label>
         <span class="indispensable">必須</span>
