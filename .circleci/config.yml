@@ -47,6 +47,12 @@ jobs:
       #     command: bundle exec rubocop
 
       - run:
+          name: yarn Install
+          command: yarn install
+      
+      - run: bundle exec bin/webpack
+
+      - run:
           name: run tests
           command: |
             mkdir /tmp/test-results
