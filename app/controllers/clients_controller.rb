@@ -9,12 +9,10 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     render :new and return unless @client.valid?
-
     session[:client_data] = { client: @client.attributes }
     @detail = @client.build_detail
     render :new_detail
   end
-
   def create_detail
     @detail = Detail.new(detail_params)
     render :new_detail and return unless @detail.valid?
@@ -24,13 +22,11 @@ class ClientsController < ApplicationController
     @caregiver = @client.build_caregiver
     render :new_caregiver
   end
-
   def create_caregiver
     @client = Client.new(session[:client_data]['client'])
     @detail = Detail.new(session[:detail_data]['detail'])
     @caregiver = Caregiver.new(caregiver_params)
     render :new_caregiver and return unless @caregiver.valid?
-
     @client.save
     session[:client_data].clear
     @detail.client_id = @client.id
