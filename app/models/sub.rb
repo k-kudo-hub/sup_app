@@ -8,7 +8,7 @@ class Sub < ActiveHash::Base
     { id: 10, name: 'その他の排泄介助' },
 
     { id: 11, name: '摂食介助' }, { id: 12, name: '水分介助' }, { id: 13, name: 'おやつ介助' },
-    { id: 14, name: '配茶・コーヒー' }, { id: 15, name: '配下膳' }, { id: 16, name: 'その他の食事介助' },
+    { id: 14, name: '配茶・コーヒー' }, { id: 15, name: '見守り' }, { id: 16, name: 'その他の食事介助' },
 
     { id: 17, name: '移動介助' }, { id: 18, name: '移乗介助' }, { id: 19, name: '体位変換' },
     { id: 20, name: '外出準備' }, { id: 21, name: '帰宅・帰設受け入れ' }, { id: 22, name: 'その他の移動介助' },
