@@ -8,10 +8,10 @@
       </h2>
       <div class='client-img-content'>
         <% if @client.picture.file.nil? %> 
-          <%= image_tag '/assets/human.png', class:"client-show-img-box" %>
+          <%= image_tag ('human.png'), class:"client-show-img-box" %>
         <% else %>
           <%= image_tag (@client.picture.url), class:"client-show-img-box" %>
-      <% end %>
+        <% end %>
       </div>
 
       <div class="client-room-box">
