@@ -15,14 +15,14 @@
         <label class="form-text">お名前</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例) 田中太郎", maxlength:"40" %>
+      <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例) 田中太郎", maxlength:"8" %>
     </div> 
     <div class="one-form">
       <div class='form-text-wrap'>
         <label class="form-text">フリガナ</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :name_kana, class:"input-default", id:"name_kana", placeholder:"例) タナカタロウ", maxlength:"40" %>
+      <%= f.text_field :name_kana, class:"input-default", id:"name_kana", placeholder:"例) タナカタロウ", maxlength:"10" %>
     </div>
     <div class="one-form">
       <div class='form-text-wrap'>
@@ -43,7 +43,7 @@
         <label class="form-text">居室（お客様）番号</label>
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :room_number, class:"input-default", id:"room-number" %>
+      <%= f.text_field :room_number, class:"input-default", id:"room-number", maxlength:"8" %>
     </div>
     <div class="one-form">
       <div class='form-text-wrap'>
