@@ -16,7 +16,7 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例) 田中太郎", maxlength:"8" %>
-    </div> 
+    </div>
     <div class="one-form">
       <div class='form-text-wrap'>
         <label class="form-text">フリガナ</label>
@@ -76,19 +76,18 @@
       </div>
       <div class='input-birth-wrap'>
         <%= raw sprintf(
-                    f.date_select(
-                      :birth ,
-                      class:'select-birth',
-                      id:"birth-date",
-                      use_month_numbers: true,
-                      prompt:'--',
-                      start_year: 1920,
-                      end_year: (Time.current.year - 5),
-                      date_separator: '%s'),
-                    "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          f.date_select(
+            :birth ,
+            class:'select-birth',
+            id:"birth-date",
+            use_month_numbers: true,
+            prompt:'--',
+            start_year: 1920,
+            end_year: (Time.current.year - 5),
+            date_separator: '%s'),
+          "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
       </div>
     </div>
-
     <div class='register-btn'>
       <%= f.submit "次の項目へ" ,class:"register-red-btn" %>
     </div>
