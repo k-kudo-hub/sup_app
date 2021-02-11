@@ -2,85 +2,85 @@
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
-version: 2
-jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.6.5-node-browsers
-      - image: circleci/mysql:5.6.47
+# version: 2
+# jobs:
+#   build:
+#     docker:
+#       - image: circleci/ruby:2.6.5-node-browsers
+#       - image: circleci/mysql:5.6.47
       
-    environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-      - MYSQL_ROOT_HOST: '%'
-      - RAILS_ENV: 'test'
-      - BUNDLER_VERSION: 2.0.1
+#     environment:
+#       - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+#       - MYSQL_ROOT_HOST: '%'
+#       - RAILS_ENV: 'test'
+#       - BUNDLER_VERSION: 2.0.1
 
-    working_directory: ~/projects/sup_app
-    steps:
-      - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "Gemfile.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+#     working_directory: ~/projects/sup_app
+#     steps:
+#       - checkout
+#       # Download and cache dependencies
+#       - restore_cache:
+#           keys:
+#             - v1-dependencies-{{ checksum "Gemfile.lock" }}
+#             # fallback to using the latest cache if no exact match is found
+#             - v1-dependencies-
 
-      - run:
-          name: install dependencies
-          command: |
-            gem install bundler -v 2.0.1
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+#       - run:
+#           name: install dependencies
+#           command: |
+#             gem install bundler -v 2.0.1
+#             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+#       - save_cache:
+#           paths:
+#             - ./vendor/bundle
+#           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
           
-      - run: mv config/database.yml.ci config/database.yml 
+#       - run: mv config/database.yml.ci config/database.yml 
 
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+#       # Database setup
+#       - run: bundle exec rake db:create
+#       - run: bundle exec rake db:schema:load
 
-      # - run:
-      #     name: Rubocop
-      #     command: bundle exec rubocop
+#       # - run:
+#       #     name: Rubocop
+#       #     command: bundle exec rubocop
 
-      - run:
-          name: yarn Install
-          command: yarn install
+#       - run:
+#           name: yarn Install
+#           command: yarn install
       
-      - run: bundle exec bin/webpack
+#       - run: bundle exec bin/webpack
 
-      - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
+#       - run:
+#           name: run tests
+#           command: |
+#             mkdir /tmp/test-results
+#             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+#               circleci tests split --split-by=timings)"
 
-            bundle exec rspec \
-              --format progress \
-              --format RspecJunitFormatter \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
+#             bundle exec rspec \
+#               --format progress \
+#               --format RspecJunitFormatter \
+#               --out /tmp/test-results/rspec.xml \
+#               --format progress \
+#               $TEST_FILES
 
-      # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+#       # collect reports
+#       - store_test_results:
+#           path: /tmp/test-results
+#       - store_artifacts:
+#           path: /tmp/test-results
+#           destination: test-results
       
-      - add_ssh_keys:
-          fingerprints:
-            - "03:aa:60:0c:13:e9:6d:7f:84:6f:30:94:cc:10:71:31"
+#       - add_ssh_keys:
+#           fingerprints:
+#             - "03:aa:60:0c:13:e9:6d:7f:84:6f:30:94:cc:10:71:31"
       
-      - deploy:
-          name: Capistrano deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
-              exit 0
-            fi
-            bundle exec cap production deploy
+#       - deploy:
+#           name: Capistrano deploy
+#           command: |
+#             if [ "${CIRCLE_BRANCH}" != "master" ]; then
+#               exit 0
+#             fi
+#             bundle exec cap production deploy
