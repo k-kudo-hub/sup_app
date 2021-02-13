@@ -43,7 +43,7 @@
           </div>
         <% end %>
         <div class="one-icon">
-          <% unless current_user.picture.file.nil? %>
+          <% unless current_user.no_image? %>
             <%= link_to user_path(current_user.id) do %>
               <%= image_tag (current_user.picture.top_user.url), size:'80x80', class: "user-pic" %>
               <p class="icon-exp">マイページ</p>
