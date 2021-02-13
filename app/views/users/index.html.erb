@@ -8,7 +8,7 @@
     <div class="user-wrap">
       <% @users.each do |user| %>
         <%= link_to user_path(user.id), class:"one-user" do %>
-          <% if user.picture.file.nil? %> 
+          <% if user.no_image? %> 
             <%= image_tag '/assets/card.png', class:"user-index-img-box" %>
           <% else %>
             <%= image_tag (user.picture.url), class:"user-index-img-box" %>
