@@ -8,7 +8,7 @@
       </h1>
     </div>
     <div class="user-image-content">
-      <% if @user.picture.file.nil? %> 
+      <% if @user.no_image? %>
         <%= image_tag '/assets/card.png', class:"user-show-img-box" %>
       <% else %>
         <%= image_tag (@user.picture.url), class:"user-show-img-box" %>
@@ -27,60 +27,19 @@
         <tr>
           <th class="detail-item">職位</th>
           <td class="detail-value">
-            <% case @user.position_id %>
-              <% when 1 then %>
-                <p>役職なし・派遣</p>
-              <% when 2 then %>
-                <p>一般</p>
-              <% when 3 then %>
-                <p>副主任</p>
-              <% when 4 then %>
-                <p>主任</p>
-              <% when 5 then %>
-                <p>係長</p>
-              <% when 6 then %>
-                <p>課長代理</p>
-              <% when 7 then %>
-                <p>課長</p>
-              <% end %>
+            <%= @user.position %>
           </td>
         </tr>
         <tr>
           <th class="detail-item">保有資格</th>
           <td class="detail-value">
-            <% case @user.qualification_id %>
-              <% when 2 then %>
-                <p>保有資格なし</p>
-              <% when 3 then %>
-                <p>介護職員初任者研修</p>
-              <% when 4 then %>
-                <p>介護福祉士実務者研修</p>
-              <% when 5 then %>
-                <p>介護福祉士</p>
-              <% when 6 then %>
-                <p>認定介護福祉士</p>
-              <% when 7 then %>
-                <p>ケアマネージャー</p>
-              <% when 8 then %>
-                <p>社会福祉士</p>
-              <% when 9 then %>
-                <p>理学療法士</p>
-              <% when 10 then %>
-                <p>作業療法士</p>
-              <% when 11 then %>
-                <p>看護師</p>
-            <% end %>
+            <%= @user.qualification %>
           </td>
         </tr>
         <tr>
           <th class="detail-item">勤務形態</th>
           <td class="detail-value">
-            <% case @user.work_style_id %>
-              <% when 2 then %>
-                <p>常勤</p>
-              <% when 3 then %>
-                <p>非常勤</p>
-            <% end %>
+            <%= @user.work_style %>
           </td>
         </tr>
       </tbody>
