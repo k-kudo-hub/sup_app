@@ -25,28 +25,28 @@
         <tr class="report-tr">
           <td class="report-major" rowspan="13">利用者</td>
           <td class="report-td mid">氏名</td>
-          <td class="report-td con" colspan="2"><%= @report.client.name %></td>
+          <td class="report-td con" colspan="2"><%= @report.client_name %></td>
           <td class="report-td-sma">性別</td>
-          <td class="report-td-sma con"><%= @report.client.sex.name %></td>
+          <td class="report-td-sma con"><%= @report.client_sex %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-td mid">保険者番号</td>
-          <td class="report-td con" colspan="4"><%= @report.client.insurance %></td>
+          <td class="report-td con" colspan="4"><%= @report.client_insurance %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-td mid">入居年月日</td>
-          <td class="report-td con" colspan="2"><%= l @report.client.created_at, format: :mid %></td>
+          <td class="report-td con" colspan="2"><%= l @report.client_move_in, format: :mid %></td>
           <td class="report-td-sma">居室番号</td>
-          <td class="report-td-sma con"><%= @report.client.room_number %></td>
+          <td class="report-td-sma con"><%= @report.client_room %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-td mid" rowspan="7">身体状況等</td>
           <td class="report-td">要介護度</td>
-          <td class="report-td con" colspan="3"><%= @report.client.caregiver.degree.name %></td>
+          <td class="report-td con" colspan="3"><%= @report.client_degree %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-td">認知機能</td>
-          <td class="report-td con" colspan="3"><%= @report.client.caregiver.cognition.name %></td>
+          <td class="report-td con" colspan="3"><%= @report.client_cognition %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-td">移動機能</td>
@@ -54,7 +54,7 @@
         <tr>
         <tr class="report-tr">
           <td class="report-td">既往歴</td>
-          <td class="report-td con" colspan="3"><%= @report.client.detail.past_history %></td>
+          <td class="report-td con" colspan="3"><%= @report.client_past %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-major" rowspan="9">事故の状況</td>

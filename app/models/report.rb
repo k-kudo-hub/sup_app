@@ -55,4 +55,37 @@ class Report < ApplicationRecord
     errors.add(:count_content, 'は施設責任者承認に必要な項目です') if (check_id == 5) && (count_content == '')
     errors.add(:desc_date, 'は未来の日時を設定することはできません') if (check_id == 5) && (desc_date > Date.today)
   end
+
+  def client_name
+    self.client.name
+  end
+
+  def client_sex
+    self.client.sex.name
+  end
+
+  def client_insurance
+    self.client.insurance
+  end
+
+  def client_move_in
+    self.client.created_at
+  end
+
+  def client_room
+    self.client.room_number
+  end
+
+  def client_degree
+    self.client.caregiver.degree.name
+  end
+
+  def client_cognition
+    self.client.caregiver.cognition.name
+  end
+
+  def client_past
+    self.client.detail.past_history
+  end
+
 end
