@@ -56,6 +56,10 @@ class Report < ApplicationRecord
     errors.add(:desc_date, 'は未来の日時を設定することはできません') if (check_id == 5) && (desc_date > Date.today)
   end
 
+  def check
+    Check.find(self.check_id).name
+  end
+
   def client_name
     self.client.name
   end
@@ -86,6 +90,14 @@ class Report < ApplicationRecord
 
   def client_past
     self.client.detail.past_history
+  end
+  
+  def is_draft?
+    self.check_id == 0 
+  end
+
+  def is_release?
+    self.check_id != 0
   end
 
 end

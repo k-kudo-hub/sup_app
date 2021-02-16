@@ -1,40 +1,17 @@
-<% @report.each do |report| %>
-  <% if (report.check_id != 0) %>
-    <div class="one-report">
-      <tr class="r-index-tr">
-        <td class="r-index-td"><%= report.id %></td>
-        <td class="r-index-td"><%= report.client.name %></td>
-        <td class="r-index-td"><%= report.client.room_number %></td>
-        <td class="r-index-td"><%= l report.occ_time, format: :mini %></td>
-        <td class="r-index-td mobile-none"><%= report.check.name %></td>
-        <td class="r-index-td link show" ><%= link_to "詳細", report_path(report.id), method: :get, class:"rep-btn" %></td>
-        <% if (current_user.id == report.user_id) || (current_user.position_id > 3) || ([5,6,7,11].include?(current_user.qualification_id)) %>
-          <td class="r-index-td link edit"><%= link_to "編集", edit_report_path(report.id), method: :get, class:"rep-btn" %></td>
-        <% end %>
-        <% if (current_user.position_id > 6) || (current_user.id == report.user_id) %>
-          <td class="r-index-td link destroy"><%= link_to "削除", report_path(report.id), method: :delete, class:"rep-btn", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %></td>
-          <td class="r-index-td link dl"><%= link_to "出力", report_path(report.id,format: :csv), method: :get, class:"rep-btn dl" %> </td>
-        <% end %>
-      <tr>
-    </div>
-  <% elsif (report.check_id == 0) && (current_user.id == report.user_id) %>
-    <div class="one-report">
-      <tr class="r-index-tr">
-        <td class="r-index-td"><%= report.id %></td>
-        <td class="r-index-td"><%= report.client.name %></td>
-        <td class="r-index-td"><%= report.client.room_number %></td>
-        <td class="r-index-td"><%= l report.occ_time, format: :mini %></td>
-        <td class="r-index-td mobile-none"><%= report.check.name %></td>
-        <td class="r-index-td link show" ><%= link_to "詳細", report_path(report.id), method: :get, class:"rep-btn" %></td>
-        <% if (current_user.id == report.user_id) || (current_user.position_id > 3) || ([5,6,7,11].include?(current_user.qualification_id)) %>
-          <td class="r-index-td link edit"><%= link_to "編集", edit_report_path(report.id), method: :get, class:"rep-btn" %></td>
-        <% end %>
-        <% if (current_user.position_id > 6) || (current_user.id == report.user_id) %>
-          <td class="r-index-td link destroy"><%= link_to "削除", report_path(report.id), method: :delete, class:"rep-btn", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %></td>
-          <td class="r-index-td link dl"><%= link_to "出力", report_path(report.id,format: :csv), method: :get, class:"rep-btn dl" %> </td>
-        <% end %>
-      <tr>
-    </div>
-  <% end %>
-<% end %>
-<%= paginate @report %>
+<div class="one-report">
+  <tr class="r-index-tr">
+    <td class="r-index-td"><%= report.id %></td>
+    <td class="r-index-td"><%= report.client_name %></td>
+    <td class="r-index-td"><%= report.client_room %></td>
+    <td class="r-index-td"><%= l report.occ_time, format: :mini %></td>
+    <td class="r-index-td mobile-none"><%= report.check %></td>
+    <td class="r-index-td link show" ><%= link_to "詳細", report_path(report.id), method: :get, class:"rep-btn" %></td>
+    <% if (current_user.id == report.user_id) || current_user.can_edit? %>
+      <td class="r-index-td link edit"><%= link_to "編集", edit_report_path(report.id), method: :get, class:"rep-btn" %></td>
+    <% end %>
+    <% if current_user.is_top? || (current_user.id == report.user_id) %>
+      <td class="r-index-td link destroy"><%= link_to "削除", report_path(report.id), method: :delete, class:"rep-btn", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %></td>
+      <td class="r-index-td link dl"><%= link_to "出力", report_path(report.id,format: :csv), method: :get, class:"rep-btn dl" %> </td>
+    <% end %>
+  <tr>
+</div>
