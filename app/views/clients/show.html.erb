@@ -108,7 +108,8 @@
           </tr>
           <tr>
             <th class="detail-item">移動・移乗（詳細）</th>
-            <td class="detail-value"><%= @caregiver.move_exp %></td>
+            <%# <td class="detail-value"><p><%= @caregiver.move_exp.html_safe %>
+            <td class="detail-value"><p><%= simple_format(@caregiver.move_exp) %></p></td>
           </tr>
           <tr>
             <th class="detail-item">食事</th>
