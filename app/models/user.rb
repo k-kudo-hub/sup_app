@@ -78,4 +78,20 @@ class User < ApplicationRecord
     self.picture.file.nil?
   end
 
+  def is_qualified?
+    [5,6,7,11].include?(self.qualification_id)
+  end
+
+  def is_talker?
+    self.position_id > 3
+  end
+
+  def is_top?
+    self.position_id > 6
+  end
+
+  def can_edit?
+    self.is_qualified? || self.is_talker?
+  end
+
 end
