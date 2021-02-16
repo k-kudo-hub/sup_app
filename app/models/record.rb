@@ -29,4 +29,25 @@ class Record < ApplicationRecord
     errors.add(:start_time, '未来の記録はできません') if (carryout_id == 2) && (start_time > Time.current)
     errors.add(:end_time, '未来の記録はできません') if (carryout_id == 2) && (end_time > Time.current)
   end
+
+  def not_carryout
+    self.carryout_id == 1
+  end
+
+  def main_item
+    Main.find(self.main_item_id).name
+  end
+
+  def sub_item
+    Sub.find(self.sub_item_id).name
+  end
+
+  def carry_status
+    Carry.find(self.carryout_id).name
+  end
+  
+  def user_name
+    User.find(self.user_id).name
+  end
+
 end
