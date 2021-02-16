@@ -2,15 +2,15 @@
    <% @clients.each do |client| %>
     <div class="one-room-wrap">
       <div class="pic-area">
-        <% if client.picture.file.nil? %> 
+        <% if client.no_image? %>
           <%= link_to (image_tag ('human.png'), size:'100x100', class:"client-radius-image"),client_path(client.id), class:"client-img-box" %>
         <% else %>
           <%= link_to (image_tag (client.picture.url), size:'100x100', class:"client-radius-image"),client_path(client.id), class:"client-img-box" %>
         <% end %>
         <% if client.room.present? %>
-          <% if client.room.messages.where(created_at: @threedays).where(tag_id: 3).exists? %> 
+          <% if client.important_in_days?(@threedays) %> 
             <%= image_tag ("caution2.png"), size:'33x33', class: 'top-caution-image' %>
-          <% elsif client.room.messages.where(created_at: @threedays).where(tag_id: 2).exists? %>
+          <% elsif client.caution_in_days?(@threedays) %>
             <%= image_tag ("caution1.png"), size:'33x33', class: 'top-caution-image' %>
           <% end %>
         <% end %>
@@ -23,114 +23,22 @@
         <div class="message-area">
           <% if @lists.empty? || !@lists.include?(client.id) %>
             <%= link_to "チャットを作成する", rooms_path(client.id), method: :post, class:"message-content" %>
-          <% elsif client.room.messages.exists? %>
+          <% elsif client.message_exists? %>
             <%= link_to room_path(client.room.id),method: :post do %>
-              <p class="index-message-content"><%= client.room.messages.last.content %></p>
-              <p class="message-time">投稿時間：<%= l client.room.messages.last.created_at, format: :micro %></p>
+              <p class="index-message-content"><%= client.latest_message %></p>
+              <p class="message-time">投稿時間：<%= l client.latest_message_time, format: :micro %></p>
             <% end %>
           <% else %>
             <p class="index-message-content"><%= link_to "まだメッセージがありません", room_path(client.room.id),method: :post %></p>
           <% end %>
         </div>
         <div class="score-area">
-          <% client.records.where(start_time: @today).order("start_time ASC").each do  |record| %>
+          <% @records = client.todays_record(@today) %>
+          <% @records.each do |record| %>
             <div class="one-record">
-              <% case record.sub_item_id %>
-              <% when 2..10 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("excretion.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("excretion.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when 11,15,16 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("meal.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("meal.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when 12..14 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("cafe.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("cafe.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when 17 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("move.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("move.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when 23..29 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bathing.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bathing.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when 35..40 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("oral.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("oral.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when 41 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("morning.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("morning.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>                      
-              <% when 42 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("night.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("night.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when 43 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bed.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bed.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when (45..50) || (64..68) then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("medicine.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("medicine.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when (58..63) || (69..95) then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("nurthing.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("nurthing.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% when 151..157 then %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("onpu.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("onpu.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% else %>
-                <% if record.carryout_id == 1 %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("note.png"), class: "print top", id: "point" %></div>
-                <% else %>
-                  <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("note.png"), class: "print carryout top", id: "point" %></div>
-                <% end %>
-              <% end %>
-              <div class="modal-back" id="modal-back">
-                <div class="modal">
-                  <h2>記録の詳細</h2>
-                  <p>中項目：<%= Main.find(record.main_item_id).name %></p>
-                  <p>小項目：<%= Sub.find(record.sub_item_id).name %></p>
-                  <p>詳細：<%= record.memo %></p>
-                  <p>時間：<%= l record.start_time, format: :mini %> 〜 <%= l record.end_time, format: :mini %></p>
-                  <p>実施ステータス：<%= Carry.find(record.carryout_id).name %></p>
-                  <p>記録者：<%= User.find(record.user_id).name %></p>
-                  <div class="modal-btn">
-                    <%= link_to "この記録を編集", edit_record_path(record.id), method: :get, class: "record-btn edit" %>
-                    <%= link_to "この記録を削除", record_path(record.id), method: :delete, class: "record-btn delete", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %>
-                  </div>
-                </div> 
-              </div>
-             </div> 
+              <%= render partial: "shared/record_condition", locals: {record: record, subclass: "top"} %>
+              <%= render partial: "shared/modal", locals: {record: record} %>
+            </div> 
           <% end %> 
         </div>
       </div>
