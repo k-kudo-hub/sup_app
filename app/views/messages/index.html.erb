@@ -11,8 +11,8 @@
     <div class="chat-header">
       <div class="left-header">
         <div class="header-title">
-          <%= link_to client_path(@room.client.id) do %>
-            <%= "#{@room.client.name} 様" %>
+          <%= link_to client_path(@room.client_id) do %>
+            <%= "#{@room.client_name} 様" %>
           <% end %>
         </div>
       </div>
@@ -25,11 +25,11 @@
 
   <div class="messages" id="messages">
     <% @messages.each do |message| %>
-      <%if (message.user.id == current_user.id) && ([1,2].include?(message.tag_id)) %>
+      <%if (message.user.id == current_user.id) && message.not_important? %>
         <div class="one-message-wrap current">
-      <% elsif (message.user.id == current_user.id) && (message.tag_id == 3) %>
+      <% elsif (message.user.id == current_user.id) && (message.important?) %>
         <div class="one-message-wrap current caution-border"> 
-      <% elsif (message.tag_id === 3) %>
+      <% elsif message.important? %>
         <div class="one-message-wrap caution-border">
       <% else %>
         <div class="one-message-wrap">
@@ -41,9 +41,9 @@
           <div class="message-date">
             <%= l message.created_at, format: :mini %> 
           </div>
-          <% if message.tag_id == 2 %>
+          <% if message.caution? %>
             <%= image_tag ("caution1.png"), size:'22x22', class: 'caution-image' %>
-          <% elsif message.tag_id == 3 %>
+          <% elsif message.important? %>
             <%= image_tag ("caution2.png"), size:'22x22', class: 'caution-image' %>
           <% end %>
         </div>
@@ -51,7 +51,7 @@
           <div class="message-text">
             <%= message.content %>
           </div>
-          <% unless message.picture.file.nil? %>
+          <% unless message.no_image? %>
             <%= image_tag (message.picture.thumb.url), class: 'message-image' %>
           <% end %>
         </div>
