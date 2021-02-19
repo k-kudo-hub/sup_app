@@ -86,6 +86,10 @@ class User < ApplicationRecord
     self.position_id > 3
   end
 
+  def is_subtop?
+    self.position_id > 5
+  end
+
   def is_top?
     self.position_id > 6
   end
