@@ -12,4 +12,21 @@ class Message < ApplicationRecord
 
   belongs_to :room
   belongs_to :user
+
+  def no_image?
+    self.picture.file.nil?
+  end
+
+  def not_important?
+    [1,2].include?(self.tag_id)
+  end
+
+  def caution?
+    self.tag_id == 2
+  end
+
+  def important?
+    self.tag_id == 3
+  end
+
 end
