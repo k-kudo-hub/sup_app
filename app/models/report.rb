@@ -60,6 +60,18 @@ class Report < ApplicationRecord
     Check.find(self.check_id).name
   end
 
+  def user_is
+    User.find(self.user_id).name
+  end
+
+  def description_user_is
+    User.find(self.desc_user).name
+  end
+
+  def client_move_status
+    Care.find(self.client.caregiver.move_id).name
+  end
+
   def client_name
     self.client.name
   end

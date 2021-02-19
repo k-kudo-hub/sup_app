@@ -20,7 +20,7 @@
         <tr>
         <tr class="report-tr">
           <td class="report-td mid">報告者</td>
-          <td class="report-td con" colspan="4"><%= User.find(@report.user_id).name %></td>
+          <td class="report-td con" colspan="4"><%= @report.user_is %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-major" rowspan="13">利用者</td>
@@ -50,7 +50,7 @@
         <tr>
         <tr class="report-tr">
           <td class="report-td">移動機能</td>
-          <td class="report-td con" colspan="3"><%= Care.find(@report.client.caregiver.move_id).name %></td>
+          <td class="report-td con" colspan="3"><%= @report.client_move_status %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-td">既往歴</td>
@@ -95,7 +95,7 @@
           <td class="report-td con" colspan="4">報告説明日：<%= l @report.desc_date, format: :mid %></td>
         <tr>
         <tr class="report-tr">
-          <td class="report-td con" colspan="4">説明内容者：<%= User.find(@report.desc_user).name %></td>
+          <td class="report-td con" colspan="4">説明内容者：<%= @report.description_user_is %></td>
         <tr>
         <tr class="report-tr">
           <td class="report-td-mid con" colspan="4">説明内容等：<%= @report.desc_content %></td>
