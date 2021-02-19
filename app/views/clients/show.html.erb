@@ -7,7 +7,7 @@
         <%= @client.name %>様
       </h2>
       <div class='client-img-content'>
-        <% if @client.picture.file.nil? %> 
+        <% if @client.no_image? %> 
           <%= image_tag ('human.png'), class:"client-show-img-box" %>
         <% else %>
           <%= image_tag (@client.picture.url), class:"client-show-img-box" %>
@@ -32,24 +32,24 @@
           </tr>
           <tr>
             <th class="detail-item">性別</th>
-            <td class="detail-value"><%= @client.sex.name %></td> 
+            <td class="detail-value"><%= @client.sex_is %></td> 
           </tr>
           <tr>
             <th class="detail-item">入居状況</th>
-            <td class="detail-value"><%= @client.status.name %></td>
+            <td class="detail-value"><%= @client.status_is %></td>
           </tr>
         </tbody>
       </table>
 
       <div class="edit-delete-btn">
         <div class="detail-table">
-          <% if user_signed_in? && (current_user.position_id > 3) %> 
+          <% if user_signed_in? && current_user.is_talker? %> 
             <%= link_to '基本情報の編集', edit_client_path(@client.id), method: :get, class: "client-green-btn" %> 
           <% end %>
         </div>
 
         <div class="detail-table">
-          <% if user_signed_in? && (current_user.position_id > 5) %> 
+          <% if user_signed_in? && current_user.is_subtop? %> 
             <%= link_to 'お客様情報の削除', client_path(@client.id), method: :delete, class: "client-gray-btn", data: {confirm: "お客様のデータを削除しようとしています。お客様のデータを削除すると、チャットルーム・記録などの関連データも削除されます。本当に削除しますか？"} %> 
           <% end %>
         </div>
@@ -86,7 +86,7 @@
 
       <div class="edit-delete-btn">
         <div class="detail-table">
-          <% if user_signed_in? && (current_user.position_id > 3) %> 
+          <% if user_signed_in? && current_user.is_talker? %> 
           <%= link_to '医療情報の編集', edit_detail_path(@detail.id), method: :get, class: "client-green-btn" %> 
           <% end %>
         </div>
@@ -104,16 +104,15 @@
           </tr>
           <tr>
             <th class="detail-item">移動・移乗</th>
-            <td class="detail-value"><%=  Care.find(@caregiver.move_id).name %></td>
+            <td class="detail-value"><%=  @caregiver.move_status %></td>
           </tr>
           <tr>
             <th class="detail-item">移動・移乗（詳細）</th>
-            <%# <td class="detail-value"><p><%= @caregiver.move_exp.html_safe %>
-            <td class="detail-value"><p><%= simple_format(@caregiver.move_exp) %></p></td>
+            <td class="detail-value"><p><%= @caregiver.move_exp %>
           </tr>
           <tr>
             <th class="detail-item">食事</th>
-            <td class="detail-value"><%= Care.find(@caregiver.meal_id).name %></td>
+            <td class="detail-value"><%= @caregiver.meal_status %></td>
           </tr>
           <tr>
             <th class="detail-item">食事（詳細）</th>
@@ -121,7 +120,7 @@
           </tr>
           <tr>
             <th class="detail-item">排泄</th>
-            <td class="detail-value"><%= Care.find(@caregiver.excretion_id).name %></td>
+            <td class="detail-value"><%= @caregiver.excretion_status %></td>
           </tr>
           <tr>
             <th class="detail-item">排泄（詳細）</th>
@@ -129,7 +128,7 @@
           </tr>
           <tr>
             <th class="detail-item">口腔</th>
-            <td class="detail-value"><%= Care.find(@caregiver.oral_id).name %></td>
+            <td class="detail-value"><%= @caregiver.oral_status %></td>
           </tr>
           <tr>
             <th class="detail-item">口腔（詳細）</th>
@@ -137,7 +136,7 @@
           </tr>
           <tr>
             <th class="detail-item">入浴</th>
-            <td class="detail-value"><%= Care.find(@caregiver.bathing_id).name %></td>
+            <td class="detail-value"><%= @caregiver.bathing_status %></td>
           </tr>
           <tr>
             <th class="detail-item">入浴（詳細）</th>
@@ -148,7 +147,7 @@
 
       <div class="edit-top-btn">
         <div class="detail-table">
-          <% if user_signed_in? && (current_user.position_id > 3) %> 
+          <% if user_signed_in? && (current_user.is_talker?) %> 
             <%= link_to '介護情報の編集', edit_caregiver_path(@caregiver.id), method: :get, class: "client-green-btn" %> 
           <% end %>
         </div>
@@ -172,13 +171,13 @@
               </tr>
             </thead>
             <tbody>
-              <% @client.records.where(remind: true).order(start_time: :ASC).each do |record| %>
+              <% @client.remind_record.each do |record| %>
                 <tr>
                   <div class="remind-one">
                     <td class="remind-one-column"><%= l record.start_time, format: :nano %></td>
                     <td class="remind-one-column"><%= l record.end_time, format: :nano %></td>
-                    <td class="remind-one-column mobile-none"><%= Main.find(record.main_item_id).name %></td>
-                    <td class="remind-one-column"><%= Sub.find(record.sub_item_id).name %></td>
+                    <td class="remind-one-column mobile-none"><%= record.main_item %></td>
+                    <td class="remind-one-column"><%= record.sub_item %></td>
                     <td class="remind-one-column">
                       <%= link_to "編集", edit_record_path(record.id), method: :get, class:"rec-btn rec-green" %> 
                       <%= link_to "削除", record_path(record.id), method: :delete, class:"rec-btn rec-red", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %>

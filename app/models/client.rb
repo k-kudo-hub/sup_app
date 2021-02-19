@@ -27,6 +27,14 @@ class Client < ApplicationRecord
     self.picture.file.nil?
   end
 
+  def sex_is
+    self.sex.name
+  end
+
+  def status_is
+    self.status.name
+  end
+
   def room_present?
     self.room.present?
   end
@@ -59,16 +67,72 @@ class Client < ApplicationRecord
     self.nutritions.find_by(date: Date.today)
   end
 
-  def sum_water_amount
-    today_nutritions.six_water_amount + 
-    today_nutritions.morning_water_amount +
-    today_nutritions.ten_water_amount +
-    today_nutritions.lunch_water_amount +
-    today_nutritions.fifty_water_amount +
-    today_nutritions.dinner_water_amount +
-    today_nutritions.twenty_water_amount
+  def today_morning_main_meal
+    self.today_nutritions.morning_meal_m_id
   end
 
+  def today_morning_sub_meal
+    self.today_nutritions.morning_meal_s_id
+  end
+
+  def today_lunch_main_meal
+    self.today_nutritions.lunch_meal_m_id
+  end
+
+  def today_lunch_sub_meal
+    self.today_nutritions.lunch_meal_s_id
+  end
+
+  def today_dinner_main_meal
+    self.today_nutritions.dinner_meal_m_id
+  end
+
+  def today_dinner_sub_meal
+    self.today_nutritions.dinner_meal_s_id
+  end
+
+  def today_six_water_amount
+    self.today_nutritions.six_water_amount
+  end
+
+  def today_morning_water_amount
+    self.today_nutritions.morning_water_amount
+  end
+
+  def today_ten_water_amount
+    self.today_nutritions.ten_water_amount
+  end
+
+  def today_lunch_water_amount
+    self.today_nutritions.lunch_water_amount
+  end
+
+  def today_fifty_water_amount
+    self.today_nutritions.fifty_water_amount
+  end
+
+  def today_dinner_water_amount
+    self.today_nutritions.dinner_water_amount
+  end
+
+  def today_twenty_water_amount
+    self.today_nutritions.twenty_water_amount
+  end
+  
+  def sum_water_amount
+    today_six_water_amount + 
+    today_morning_water_amount +
+    today_ten_water_amount +
+    today_lunch_water_amount +
+    today_fifty_water_amount +
+    today_dinner_water_amount +
+    today_twenty_water_amount
+  end
+  
+  def remind_record
+    self.records.where(remind: :true).order(start_time: :ASC)
+  end
+  
   def morning_main_meal
     Meal.find_by(id: self.nutritions.find_by(date: Date.today).morning_meal_m_id).name
   end
