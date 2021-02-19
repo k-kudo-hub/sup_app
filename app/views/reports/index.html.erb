@@ -23,7 +23,14 @@
         <th class="r-index-th mobile-none">承認</th>
         <th class="r-index-th" colspan="4"></th>
       </tr>
-      <%= render "reports/report" %>
+      <% @report.each do |report| %>
+        <% if report.is_release? %>
+          <%= render partial:"reports/report", locals: {report: report}  %>
+        <% elsif report.is_draft? && (current_user.id == report.user_id) %>
+          <%= render partial:"reports/report", locals: {report: report}  %>
+        <% end %>
+      <% end %>
+      <%= paginate @report %>
     </table>
   </div>
 </div>

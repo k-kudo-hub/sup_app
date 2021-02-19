@@ -38,132 +38,31 @@
 
             <%# 食事量の表示 %>
             <td class="meal-one-column">
-              <% if client.nutritions.where(date: Date.today).blank? %>
+              <% if client.today_nutritions.nil? %>
                 <p>未入力</p>
               <% else %>
-                <div class="amount-record"><%= Meal.find_by(id: client.nutritions.find_by(date: Date.today).morning_meal_m_id).name %>/<%= Meal.find_by(id: client.nutritions.find_by(date: Date.today).morning_meal_s_id).name %></div> 
+                <div class="amount-record"><%= client.morning_main_meal %>/<%= client.morning_sub_meal %></div> 
               <% end %>
             </td>
 
             <%# 水分量の表示 %>
             <td class="client-one-column" rowspan="3">
-              <% if client.nutritions.find_by(date: Date.today).nil? %>
+              <% if client.today_nutritions.nil? %>
                 <p>未入力</p>
               <% else %>
-                <%= client.nutritions.find_by(date: Date.today).six_water_amount + 
-                client.nutritions.find_by(date: Date.today).morning_water_amount +
-                client.nutritions.find_by(date: Date.today).ten_water_amount +
-                client.nutritions.find_by(date: Date.today).lunch_water_amount +
-                client.nutritions.find_by(date: Date.today).fifty_water_amount +
-                client.nutritions.find_by(date: Date.today).dinner_water_amount +
-                client.nutritions.find_by(date: Date.today).twenty_water_amount %>
+                <%= client.sum_water_amount %>
               <% end %>
             </td>
             
             <% 24.times do |i| %>
-              <% if client.records.where(start_time: @default+i.hour...@default+i.hour+1.hour).exists? %>
+              <% @records = client.records.where(start_time: @default+i.hour...@default+i.hour+1.hour) %>
+              <% if @records.exists? %>
                 <td class="one-column" rowspan="3">
                   <div class="points-wrap">
-                    <% client.records.where(start_time: @default+i.hour...@default+i.hour+1.hour).each do |record| %>
-                      <% case record.sub_item_id %>
-                      <% when 2..10 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("excretion.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("excretion.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when 11,15,16 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("meal.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("meal.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when 12..14 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("cafe.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("cafe.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when 17 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("move.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("move.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when 23..29 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bathing.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bathing.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when 35..40 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("oral.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("oral.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when 41 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("morning.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("morning.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>                      
-                      <% when 42 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("night.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("night.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when 43 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bed.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("bed.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when (45..50) || (64..68) then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("medicine.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("medicine.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when (58..63) || (69..95) then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("nurthing.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("nurthing.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% when 151..157 then %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("onpu.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("onpu.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% else %>
-                        <% if record.carryout_id == 1 %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("note.png"), class: "print m-rec", id: "point" %></div>
-                        <% else %>
-                          <div data-id=<%= record.id %> data-carryout_id=<%= record.carryout_id %>><%= image_tag ("note.png"), class: "print carryout m-rec", id: "point" %></div>
-                        <% end %>
-                      <% end %>
-                      <div class="modal-back" id="modal-back">
-                        <div class="modal">
-                          <h2>記録の詳細</h2>
-                          <p>中項目：<%= Main.find(record.main_item_id).name %></p>
-                          <p>小項目：<%= Sub.find(record.sub_item_id).name %></p>
-                          <p>詳細：<%= record.memo %></p>
-                          <p>時間：<%= l record.start_time, format: :mini %> 〜 <%= l record.end_time, format: :mini %></p>
-                          <p>実施ステータス：<%= Carry.find(record.carryout_id).name %></p>
-                          <p>記録者：<%= User.find(record.user_id).name %></p>
-                          <div class="modal-btn">
-                            <% if (current_user.id == record.user_id) || (current_user.position_id > 3 ) %>
-                              <%= link_to "この記録を編集", edit_record_path(record.id), method: :get, class: "record-btn edit" %>
-                            <% end %>
-                            <% if (current_user.id == record.user_id) || (current_user.position_id > 5 ) %> 
-                              <%= link_to "この記録を削除", record_path(record.id), method: :delete, class: "record-btn delete", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %>
-                            <% end %>
-                          </div>
-                        </div> 
-                      </div>
+                    <% @records.each do |record| %>        
+                      <%= render partial: "shared/record_condition", locals: {record: record, subclass: "m-rec"} %>
+                      <%= render partial: "shared/modal", locals: {record: record} %>
+                      
                     <% end %>
                   <%= link_to "", new_record_path(client_id: client.id, start_time: i), method: :get, class:"points-wrap" %>
                   </div>
@@ -177,19 +76,19 @@
           </tr>
           <tr>
             <td class="meal-one-column">
-              <% if client.nutritions.where(date: Date.today).blank? %>
+              <% if client.today_nutritions.nil? %>
                 <p>未入力</p>
               <% else %>
-                <div class="amount-record"><%= Meal.find_by(id: client.nutritions.find_by(date: Date.today).lunch_meal_m_id).name %>/<%= Meal.find_by(id: client.nutritions.find_by(date: Date.today).lunch_meal_s_id).name %></div> 
+                <div class="amount-record"><%= client.lunch_main_meal %>/<%= client.lunch_sub_meal %></div> 
               <% end %>
             </td>
           </tr>
           <tr>
             <td class="meal-one-column">
-              <% if client.nutritions.where(date: Date.today).blank? %>
+              <% if client.today_nutritions.nil? %>
                 <p>未入力</p>
               <% else %>
-                <div class="amount-record"><%= Meal.find_by(id: client.nutritions.find_by(date: Date.today).dinner_meal_m_id).name %>/<%= Meal.find_by(id: client.nutritions.find_by(date: Date.today).dinner_meal_s_id).name %></div> 
+                <div class="amount-record"><%= client.dinner_main_meal %>/<%= client.dinner_sub_meal %></div> 
               <% end %>
             </td>
           </tr>

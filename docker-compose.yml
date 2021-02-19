@@ -3,11 +3,8 @@ version: '3.8'
 services:
   db: # DBについての記述
     image: mysql:5.6.47
-    environment:
-      MYSQL_USER: root #ユーザー名
-      MYSQL_PASSWORD:
-      MYSQL_ROOT_PASSWORD: secret #パスワード（docker）
-      DATABASE_PASSWORD: 'tongari6824'
+    env_file:
+      - .env
     ports:
       - "4306:3306"
     volumes:

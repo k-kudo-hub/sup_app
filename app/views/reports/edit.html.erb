@@ -1,7 +1,5 @@
 <%= render "shared/header" %>
-
   <div class="body-wrap">
-
     <%= form_with model: @report, url: report_path, method: :patch, class: 'record-main', local: true do |f| %>
       <div class='new-report-wrap'>
         <div class='form-header'>
@@ -9,9 +7,7 @@
             事故報告書の記入
           </h1>
         </div>
-
         <%= render 'shared/error_messages', model: f.object %>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">お客様氏名</label>
@@ -24,7 +20,6 @@
             <%= f.collection_select(:client_id, Client.all, :id, :name, {}, {class:"client-default", id:"client-name"}) %> 
           <% end %>
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の発生時刻</label>
@@ -35,7 +30,6 @@
             <%= f.datetime_select :occ_time, {default: Time.current - 15.minute}, prompt:true, ignore_data:true, class:"time-default", id:"start-time" %> 
           </div>
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の発生場所</label>
@@ -44,7 +38,6 @@
           </div>
             <%= f.collection_select(:place_id, Place.all,:id, :name, {}, {class:"input-default", id:"occ-time"}) %> 
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の種別</label>
@@ -53,7 +46,6 @@
           </div>
           <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"input-default", id:"genre-id"}) %> 
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の状況</label>
@@ -62,7 +54,6 @@
           </div>
           <%= f.collection_select(:res_id, Re.all, :id, :name, {}, {class:"input-default", id:"res-id"}) %> 
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">受傷の程度</label>
@@ -71,7 +62,6 @@
           </div>
           <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class:"input-default", id:"level-id"}) %> 
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">事故の内容</label>
@@ -79,7 +69,6 @@
           </div>
           <%= f.text_area :content, class:"input-long", id:"sub-id" %> 
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">対処の詳細</label>
@@ -87,7 +76,6 @@
           </div>
           <%= f.text_area :coping, class:"input-long", id:"sub-id" %> 
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">施設内での報告</label>
@@ -95,7 +83,6 @@
           </div>
           <%= f.collection_select(:contact_id, Contact.all, :id, :name, {}, {class:"input-default", id:"carry-id"}) %>
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">受診（入院）した医療機関名</label>
@@ -103,18 +90,15 @@
           </div>
           <%= f.text_area :hospital, class:"input-default", id:"exc-shape-id" %> 
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">家族への報告・説明日</label>
             <span class="indispensable check_4">事務所承認必須</span>
           </div>
-          
           <div class="form-time-wrap">
             <%= f.date_select(:desc_date, {class:"time-default", id:"desc-date"}) %>
           </div>
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">家族への報告担当者</label>
@@ -122,7 +106,6 @@
           </div>
           <%= f.collection_select(:desc_user, User.all, :id, :name, {}, {class:"input-default", id:"carry-id"}) %> 
         </div>  
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">家族への説明内容</label>
@@ -130,7 +113,6 @@
           </div>
           <%= f.text_area :desc_content, class:"input-long", id:"carry-id" %> 
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">再発防止策の内容（具体的に記入してください）</label>
@@ -139,23 +121,17 @@
           </div>
           <%= f.text_area :count_content, class:"input-long", id:"carry-id" %> 
         </div>
-
         <div class="one-form">
           <div class='form-text-wrap'>
             <label class="form-text">承認レベル</label>
             <span class="indispensable">必須</span>
           </div>
           <%= f.collection_select(:check_id, Check.all, :id, :name, {selected: 0}, {class:"carry-default", id:"carry-id"}) %> 
-        </div>
-          
+        </div>  
         <div class='register-btn'>
           <%= f.submit "上記の内容を記録する" ,class:"register-red-btn" %>
-        </div>
-      
+        </div>   
       </div>
-
     <% end %>
-
   </div>
-
 <%= render "shared/footer" %>

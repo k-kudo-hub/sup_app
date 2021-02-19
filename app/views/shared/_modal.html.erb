@@ -1,0 +1,19 @@
+<div class="modal-back" id="modal-back">
+  <div class="modal">
+    <h2>記録の詳細</h2>
+    <p>中項目：<%= record.main_item %></p>
+    <p>小項目：<%= record.sub_item %></p>
+    <p>詳細：<%= record.memo %></p>
+    <p>時間：<%= l record.start_time, format: :mini %> 〜 <%= l record.end_time, format: :mini %></p>
+    <p>実施ステータス：<%= record.carry_status %></p>
+    <p>記録者：<%= record.user_name %></p>
+    <div class="modal-btn">
+      <% if (current_user.id == record.user_id) || (current_user.position_id > 3 ) %>
+        <%= link_to "この記録を編集", edit_record_path(record.id), method: :get, class: "record-btn edit" %>
+      <% end %>
+      <% if (current_user.id == record.user_id) || (current_user.position_id > 5 ) %> 
+        <%= link_to "この記録を削除", record_path(record.id), method: :delete, class: "record-btn delete", data: {confirm: "削除した記録は元に戻せません。削除してもよろしいですか？"} %>
+      <% end %>
+    </div>
+  </div> 
+</div>
