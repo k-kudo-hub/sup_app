@@ -55,12 +55,11 @@
             </td>
             
             <% 24.times do |i| %>
-              <% if client.records.where(start_time: @default+i.hour...@default+i.hour+1.hour).exists? %>
+              <% @records = client.records.where(start_time: @default+i.hour...@default+i.hour+1.hour) %>
+              <% if @records.exists? %>
                 <td class="one-column" rowspan="3">
                   <div class="points-wrap">
-                    <% @records = client.records.where(start_time: @default+i.hour...@default+i.hour+1.hour) %>
-                    <% @records.each do |record| %>
-                      
+                    <% @records.each do |record| %>        
                       <%= render partial: "shared/record_condition", locals: {record: record, subclass: "m-rec"} %>
                       <%= render partial: "shared/modal", locals: {record: record} %>
                       
