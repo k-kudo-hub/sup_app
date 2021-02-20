@@ -1,6 +1,4 @@
 <%= render "shared/header" %>
-
-
 <% if user_signed_in? %>
   <div class="body-wrap">
     <div class="top-report-area">
@@ -14,7 +12,11 @@
 <% else %>
   <div class="top-pic-area">
     <div class="top-pic-mask">
-
+      <div class="top-message-wrap">
+        <p class="top-message-text">sup-appは、介護事業所に勤務する介護士のためのアプリケーション。<br>
+        介護に必要な「お客様情報管理」「記録」「報告書作成」「職員同士のチャット」を、<br>
+        １つのアプリで行うことができます。</p>
+      </div>
       <div class="btn-wrap">
         <div class="lower-btn">
           <div class="one-btn">  
@@ -42,13 +44,6 @@
             <% end %>
           </div>
       </div>
-
-      <div class="top-message-wrap">
-        <p class="top-message-title">- sup-appとは -</p>
-        <p class="top-message-text">sup-appは、介護事業所に勤務する介護士のためのアプリケーション。</p>
-        <p class="top-message-text">介護に必要な「お客様情報管理」「記録」「報告書作成」「職員同士のチャット」が、１つのアプリで行えます。</p>
-      </div>
-
     </div>
   </div>
 <% end %>
