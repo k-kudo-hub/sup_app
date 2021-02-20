@@ -7,64 +7,28 @@ body {
   min-height: 83vh;
 }
 
+.btn {
+  padding: 3vh 2vw;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-wrap {
+  width: 60%;
+  height: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .client-radius-image {
   border-radius: 60px;
 }
 
-.search-form {
-  height: 50px;
-  width: 90%;
-  display: flex;
-  justify-content: space-evenly;
-  margin: 20px auto;
-}
-
-.search-input {
-  background-color: rgb(241, 223, 202);  
-  border: none;
-  border-radius: 5px;
-  margin: 0 10px;
-  width: 300px;
-}
-
-.search {
-  border: none;
-  background-color: white;
-}
-
-.search-btn {
-  width: 40px;
-  cursor: pointer;
-}
-
-.search-btn:hover {
-  opacity: 0.6;
-}
-
-.top-report-area {
-  width: 90%;
-  height: 300px;
-  background-color: rgb(241, 223, 202);
-  margin: 30px auto;
-  border-radius: 5px;
-}
-
-.top-report-title {
-  color: rgb(150, 85, 1);
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  padding: 20px 0 10px 0;
-}
-
-.top-reports-wrap {
-  background-color: rgb(241, 223, 202);
-}
-
-.top-one-report {
-  margin: 10px 0 0 10vw;
-  font-weight: bold;
-}
 
 .room-area {
   text-align: center;
@@ -91,6 +55,74 @@ body {
   border: 12px solid  white;
 }
 
+.detail-area {
+  width: 25%;
+  font-size: 20px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-area  {
+  font-size: 16px;
+}
+
+.detail-area > a {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.detail-area > a:hover {
+  opacity: 0.4;
+}
+
+.dispatch-easy-in {
+  background-color: rgba(242, 144, 255, 0.6);
+  border: none;
+}
+
+.dispatch-easy-in:hover {
+  background-color: rgb(242, 144, 255);
+}
+
+.index-message-content {
+  font-size: 14px;
+  height: 40px;
+  overflow: hidden;
+  width: 95%;
+}
+
+.lower-btn {
+  display: flex;
+  height: 50%;
+}
+
+.message-area { 
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 5px dashed white;
+}
+.message-content {
+  font-size: 14px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.message-time {
+  color: gray;
+  font-size: 14px;
+  height: 10px;
+}
+
+
+.one-btn {
+  margin: 30px auto;
+  width: 40%;
+}
+
 .one-room-wrap {
   background-color: rgb(241, 223, 202);
   border: none;
@@ -104,13 +136,9 @@ body {
   margin: 15px auto;
 }
 
-.detail-area > a {
-  color: black;
-  font-weight: bold;
-}
-
-.detail-area > a:hover {
-  opacity: 0.4;
+.pagination {
+  width: 200px;
+  margin: 20px auto 10px; 
 }
 
 .pic-area {
@@ -124,29 +152,12 @@ body {
   position: relative;
 }
 
-.top-caution-image {
-  position: absolute;
-  top: 10%;
-  left: 14%; 
-}
-
-.detail-area {
-  width: 25%;
-  font-size: 20px;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-}
-
-.detail-area a {
-  text-decoration: none;
-}
-
 .right-area {
   width: 60%;
   height: 100%;
   border-left: 5px dashed white;
 }
+
 
 .score-area {
   height: 50px;
@@ -155,31 +166,34 @@ body {
   padding: 10px;
 }
 
-.message-area { 
-  width: 100%;
-  height: 55px;
-  padding: 10px;
-  text-align: left;
-  border-bottom: 5px dashed white;
+.search-form {
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  height: 50px;
+  margin: 20px auto;
 }
 
-.index-message-content {
-  font-size: 14px;
-  height: 40px;
-  overflow: hidden;
-  width: 95%;
+.search-input {
+  background-color: rgb(241, 223, 202);  
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  width: 300px;
 }
 
-.message-content {
-  font-size: 14px;
-  height: 40px;
-  overflow: hidden;
+.search {
+  border: none;
+  background-color: white;
 }
 
-.message-time {
-  color: gray;
-  font-size: 14px;
-  height: 10px;
+.search-btn {
+  width: 40px;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  opacity: 0.6;
 }
 
 .top {
@@ -193,79 +207,37 @@ body {
   min-height: 83vh;
 }
 
-.top-pic-mask {
-  height: 83vh;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.8);
+.top-caution-image {
+  position: absolute;
+  top: 10%;
+  left: 14%; 
 }
 
-.btn-wrap {
-  width: 60%;
-  height: 40%;
-  margin: 0 auto;
-  padding-top: 50px;
-  text-align: center;
-}
-
-.lower-btn {
-  display: flex;
-}
-
-.one-btn {
+.top-report-area {
+  width: 90%;
+  height: 300px;
+  background-color: rgb(241, 223, 202);
   margin: 30px auto;
-  width: 40%;
-}
-
-.btn {
-  padding: 16px 20px;
   border-radius: 5px;
-  color: white;
 }
 
-.btn:hover {
-  cursor: pointer;
+.top-report-title {
+  color: rgb(150, 85, 1);
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px 0 10px 0;
 }
 
-.top-easy-in {
-  background-color: rgba(187, 122, 2, 0.6);
-  border: none;
-}
-
-.top-easy-in:hover {
-  background-color: rgb(187, 122, 2);
-}
-
-.dispatch-easy-in {
-  background-color: rgba(242, 144, 255, 0.6);
-  border: none;
-}
-
-.dispatch-easy-in:hover {
-  background-color: rgb(242, 144, 255);
-}
-
-.top-sign-in {
-  padding: 16px 40px;
-  background-color: rgba(1, 141, 1, 0.6);
-}
-
-.top-sign-in:hover {
-  background-color: rgb(1, 141, 1);
-}
-
-.top-sign-up {
-  padding: 16px 40px;
-  background-color: rgba(40, 40, 230, 0.6);
-}
-
-.top-sign-up:hover {
-  background-color: rgb(40, 40, 230);
+.top-reports-wrap {
+  background-color: rgb(241, 223, 202);
 }
 
 .top-message-wrap {
-  height: 35%;
+  height: 25%;
   width: 60%;
-  margin: 20px auto;
+  margin: 0 auto;
+  padding: 20px auto;
   text-align: center;
   color: rgb(150, 85, 1);
   font-weight: 900;
@@ -277,12 +249,47 @@ body {
 }
 
 .top-message-text {
-  text-align: left;
+  padding-top: 50px;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
-.pagination {
-  width: 200px;
-  margin: 20px auto 10px; 
+.top-one-report {
+  margin: 10px 0 0 10vw;
+  font-weight: bold;
+}
+.top-pic-mask {
+  height: 83vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.top-easy-in {
+  background-color: rgba(187, 122, 2, 0.6);
+  border: none;
+}
+
+.top-easy-in:hover {
+  background-color: rgb(187, 122, 2);
+}
+
+
+.top-sign-in {
+  padding: 3vh 4vw;
+  background-color: rgba(1, 141, 1, 0.6);
+}
+
+.top-sign-in:hover {
+  background-color: rgb(1, 141, 1);
+}
+
+.top-sign-up {
+  padding: 3vh 4vw;
+  background-color: rgba(40, 40, 230, 0.6);
+}
+
+.top-sign-up:hover {
+  background-color: rgb(40, 40, 230);
 }
 
 .top-nav {
@@ -314,10 +321,6 @@ body {
   height: 25px;
 }
 
-.detail-area  {
-  font-size: 16px;
-}
-
 }
 
 @media screen and (max-width: 480px){
@@ -347,7 +350,7 @@ body {
 }
 
 .top-message-text {
-  font-size: 14px;
+  font-size: 0.8rem;
 }
 
 .one-btn {
@@ -468,6 +471,14 @@ body {
 .top-nav {
   font-size: 10px;
   color: gray;
+}
+
+.top-message-text {
+  padding-top: 20px;
+}
+
+.top-message-wrap {
+  width: 90%;
 }
 
 .index-message-content {
