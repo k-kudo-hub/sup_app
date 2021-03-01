@@ -3,7 +3,7 @@
 
 ## URL
 【アプリケーションURL】
-[Sup-App](https://www.sup-app.net/)(https://www.sup-app.net/)
+[Sup-App]~~(https://www.sup-app.net/)~~ 現在インスタンス停止中
 
 
 ## アプリの概要
@@ -23,11 +23,20 @@
 
 が可能になります。
 
-開発環境
+## 開発環境
 * macbook pro (13-inch, 2020, Four Thunderbolt 3 ports)
 * macOS Catalina (ver10.15.7)
 
-## URL
+## インストールから開発環境の起動まで
+1. レポジトリをローカルにクローン
+1. `cd pah/to/sup_app` 
+1. `bundle install`
+1. `bin/rails db:create`
+1. `bin/rails db:migrate`
+1. `database.yml` ファイルを適宜書き換え
+1. `rails s`
+1. 「新規登録」から簡単ログイン用アカウントを作成すると、簡単ログイン機能が使えるようになります
+
 
 ## 操作画面GIF
 **①記録機能（記録の作成〜表示）**
