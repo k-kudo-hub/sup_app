@@ -36,3 +36,4 @@ app/assets/.DS_Store
 
 .env
 .env.sample
+docker-compose.yml
