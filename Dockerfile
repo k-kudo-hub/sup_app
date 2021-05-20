@@ -7,7 +7,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 WORKDIR /sup_app
 COPY Gemfile /sup_app/Gemfile
 COPY Gemfile.lock /sup_app/Gemfile.lock
-RUN gem install bundler && bundle install 
+RUN gem install bundler && bundle install
 COPY . /sup_app
 
 COPY entrypoint.sh /usr/bin/
