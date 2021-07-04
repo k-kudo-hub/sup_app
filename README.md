@@ -54,10 +54,10 @@
 ## 使用技術
 * Ruby:2.6.5, Rails:6.0.0
 * webpacker(css/Javascrict)
-* ngix,puma(sockets通信)
+* nginx,puma(sockets通信)
 * Docker(ローカル環境)
-* Circleci(自動テスト)
-* Circlecd(自動デプロイ)
+* CircleCI(自動テスト)
+* CircleCD(自動デプロイ)
 * Rspec
 
 ## 機能一覧
